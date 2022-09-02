@@ -1,12 +1,11 @@
 import("openfl.filters.ShaderFilter");
+import flixel.FlxCamera;
+import Date;
+
 EngineSettings.showTimer = false;
 EngineSettings.maxRatingsAllowed = 0;
 
-
-import Date;
 var date = Date;
-
-import flixel.FlxCamera;
 
 var shader:CustomShader = null;
 var shader2:CustomShader = null;
@@ -22,6 +21,17 @@ var noteOG1:Int = 0;
 var noteOG2:Int = 0;
 var noteOG3:Int = 0;
 
+var oldCharacter:Character = null;
+var newCharacter:Character = null;
+
+function createInFront() {
+    oldCharacter = PlayState.dad;
+    newCharacter = new Character(0, 400, mod + ":sunshine-tailsdoll-alt");
+    newCharacter.visible = false;
+    PlayState.dads.push(newCharacter);
+    PlayState.add(newCharacter);
+}
+
 function beatHit(curBeat)
 {
 
@@ -31,6 +41,8 @@ function beatHit(curBeat)
     drain = 0.01;
     canFeelSunshine = false;
     camHUD.alpha = 0;
+    oldCharacter.visible = false;
+    newCharacter.visible = true;
 
     if (!EngineSettings.middleScroll)
     {
@@ -50,6 +62,8 @@ function beatHit(curBeat)
     drain = 0.03;
     canFeelSunshine = true;
     camHUD.alpha = 1;
+    oldCharacter.visible = true;
+    newCharacter.visible = false;
 
     for (i in 0...PlayState.cpuStrums.length) {
   		  PlayState.cpuStrums.members[i].alpha = 1;
@@ -222,7 +236,6 @@ function updatePost(elapsed:Float) {
 
   // babyArrow.x = Std.int(PlayState.current.guiSize.x / 2) + ((i - (SONG.keyNumber / 2)) * Note.swagWidth);
 
-
    daStatic.alpha = 0.5 - PlayState.health / 2.5;
    bzz.volume = daStatic.alpha * 1.2;
 
@@ -240,6 +253,12 @@ function updatePost(elapsed:Float) {
 
    irlTime.text = date.now();
    funnyHud.text = Std.int(((health / 2) * 100)) + "%";
+   if (PlayState.health < 0.7){
+     funnyHud.color = 0xFFAA0000;
+   }
+   else{
+     funnyHud.color = 0xFFFFAA00;
+   }
    gameTime.text = PlayState.timerNow.text;
 
 }
@@ -249,7 +268,7 @@ function update(elapsed) {
 
   if(moveCam){
      if (PlayState.section != null && PlayState.section.mustHitSection) {
-  			PlayState.camFollow.setPosition(968, 420);
+  			PlayState.camFollow.setPosition(908, 420);
   			PlayState.defaultCamZoom = 1.2;
 
   			switch(PlayState.boyfriend.animation.curAnim.name) {

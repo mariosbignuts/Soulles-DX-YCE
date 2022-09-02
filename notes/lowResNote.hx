@@ -15,3 +15,16 @@ function create() {
         case 3: 0xFFF9393F;
     }
 }
+
+function onOpponentHit(direction:Int) {
+    switch(direction) {
+        case 0:
+            PlayState.dad.playAnim("singLEFT", true, true);
+        case 1:
+            PlayState.dad.playAnim("singDOWN", true, true);
+        case 2:
+            PlayState.dad.playAnim("singUP", true, true);
+        case 3:
+            PlayState.dad.playAnim("singRIGHT", true, true);
+    }
+}

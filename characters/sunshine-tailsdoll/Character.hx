@@ -2,11 +2,11 @@ function create() {
 	var tex = Paths.getCharacter("Soulles DX:sunshine-tailsdoll");
 	character.frames = tex;
 
-	character.animation.addByPrefix('idle', 'TailsDoll IDLE instance', 20);
-	character.animation.addByPrefix('singUP', 'TailsDoll UP instance', 20);
-	character.animation.addByPrefix('singRIGHT', 'TailsDoll RIGHT instance', 20);
-	character.animation.addByPrefix('singDOWN', 'TailsDoll DOWN instance', 20);
-	character.animation.addByPrefix('singLEFT', 'TailsDoll LEFT instance', 20);
+	character.animation.addByPrefix('idle', 'TailsDoll IDLE instance', 30, true);
+	character.animation.addByPrefix('singUP', 'TailsDoll UP instance', 30);
+	character.animation.addByPrefix('singRIGHT', 'TailsDoll RIGHT instance', 30);
+	character.animation.addByPrefix('singDOWN', 'TailsDoll DOWN instance', 30);
+	character.animation.addByPrefix('singLEFT', 'TailsDoll LEFT instance', 30);
 
 	character.addOffset('idle', -21, 189);
 	character.addOffset("singUP", 0, 297);

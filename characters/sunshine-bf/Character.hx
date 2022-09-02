@@ -1,15 +1,15 @@
 function create() {
 	var tex = Paths.getCharacter("Soulles DX:sunshine-bf");
 	character.frames = tex;
-	character.animation.addByPrefix('idle', 'SSBF IDLE instance 1', 20, false);
-	character.animation.addByPrefix('singUP', 'SSBF UP instance 1', 20);
-	character.animation.addByPrefix('singLEFT', 'SSBF LEFT instance 1', 20);
-	character.animation.addByPrefix('singRIGHT', 'SSBF RIGHT instance 1', 20);
-	character.animation.addByPrefix('singDOWN', 'SSBF DOWN instance 1', 20);
-	character.animation.addByPrefix('singUPmiss', 'SSBF UPmiss instance 1', 20);
-	character.animation.addByPrefix('singLEFTmiss', 'SSBF LEFTmiss instance 1', 20);
-	character.animation.addByPrefix('singRIGHTmiss', 'SSBF RIGHTmiss instance 1', 20);
-	character.animation.addByPrefix('singDOWNmiss', 'SSBF DOWNmiss instance 1', 20);
+	character.animation.addByPrefix('idle', 'SSBF IDLE instance 1', 30, false);
+	character.animation.addByPrefix('singUP', 'SSBF UP instance 1', 30);
+	character.animation.addByPrefix('singLEFT', 'SSBF LEFT instance 1', 30);
+	character.animation.addByPrefix('singRIGHT', 'SSBF RIGHT instance 1', 30);
+	character.animation.addByPrefix('singDOWN', 'SSBF DOWN instance 1', 30);
+	character.animation.addByPrefix('singUPmiss', 'SSBF UPmiss instance 1', 30);
+	character.animation.addByPrefix('singLEFTmiss', 'SSBF LEFTmiss instance 1', 30);
+	character.animation.addByPrefix('singRIGHTmiss', 'SSBF RIGHTmiss instance 1', 30);
+	character.animation.addByPrefix('singDOWNmiss', 'SSBF DOWNmiss instance 1', 30);
 
 	character.addOffset('idle', -5);
 	character.addOffset("singUP", -5, 6);
