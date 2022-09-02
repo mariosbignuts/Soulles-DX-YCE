@@ -1,5 +1,5 @@
 function generateStaticArrow(babyArrow:FlxSprite, i:Int, player:Int) {
-        babyArrow.frames = Paths.getSparrowAtlas('sanicNote');
+        babyArrow.frames = Paths.getSparrowAtlas('HUD stuff/noteSkins/sanicNote');
 
 
         babyArrow.animation.addByPrefix('green', 'arrowUP');
@@ -33,7 +33,7 @@ function generateStaticArrow(babyArrow:FlxSprite, i:Int, player:Int) {
   }
 
   function create() {
-        note.frames = Paths.getSparrowAtlas("sanicNote");
+        note.frames = Paths.getSparrowAtlas("HUD stuff/noteSkins/sanicNote");
 
         switch(note.noteData % PlayState.song.keyNumber) {
             case 0:
@@ -57,5 +57,5 @@ function generateStaticArrow(babyArrow:FlxSprite, i:Int, player:Int) {
         note.setGraphicSize(Std.int(note.width * 0.7));
         note.updateHitbox();
         note.antialiasing = false;
-    
+
   }

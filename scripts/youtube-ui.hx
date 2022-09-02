@@ -39,19 +39,19 @@ function createPost() {
 
     //newBitmap.filters = [new ShaderFilter(new CustomShader(Paths.shader("youtubeUIGreen")))];
 
-    youtube.loadGraphic(Paths.image("youtube"));
+    youtube.loadGraphic(Paths.image("HUD stuff/youtube/youtube"));
     shaders.push(youtube.shader = new CustomShader(Paths.shader("youtubeUIGreen")));
     youtube.cameras = [youtubeCam];
     youtube.y = guiSize.y - youtube.height;
     add(youtube);
 
-    fullscreenYoutube.loadGraphic(Paths.image("youtube_full"));
+    fullscreenYoutube.loadGraphic(Paths.image("HUD stuff/youtube/youtube_full"));
     shaders.push(fullscreenYoutube.shader = new CustomShader(Paths.shader("youtubeUIGreen")));
     fullscreenYoutube.cameras = [youtubeCam];
     add(fullscreenYoutube);
 
-    pauseButton.loadGraphic(Paths.image("pauseButton"), true, 64, 40);
-    fullPauseButton.loadGraphic(Paths.image("fullPauseButton"), true, 94, 54);
+    pauseButton.loadGraphic(Paths.image("HUD stuff/youtube/pauseButton"), true, 64, 40);
+    fullPauseButton.loadGraphic(Paths.image("HUD stuff/youtube/fullPauseButton"), true, 94, 54);
     for(pauseButton in [pauseButton, fullPauseButton]) {
         pauseButton.animation.add("playing", [0]);
         pauseButton.animation.add("paused", [1]);
@@ -91,7 +91,7 @@ function createPost() {
     }
 
 
-    cursor.loadGraphic(Paths.image("sanicCursor"), true, 17, 22);
+    cursor.loadGraphic(Paths.image("HUD stuff/youtube/sanicCursor"), true, 17, 22);
     cursor.animation.add("normal", [0]);
     cursor.animation.add("click", [1]);
     cursor.cameras = [youtubeCam];

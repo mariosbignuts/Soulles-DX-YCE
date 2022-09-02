@@ -5,33 +5,33 @@ import('flixel.group.FlxSpriteGroup');
 
 function create() {
 
-    bg = new FlxSprite(0).loadGraphic(Paths.image('title/png'));
+    bg = new FlxSprite(0).loadGraphic(Paths.image('HUD stuff/title/png'));
     bg.updateHitbox();
     bg.antialiasing = true;
     bg.screenCenter();
     add(bg);
 
-    wtf = new FlxSprite(66, 43).loadGraphic(Paths.image('title/wtf'));
+    wtf = new FlxSprite(66, 43).loadGraphic(Paths.image('HUD stuff/title/wtf'));
     wtf.updateHitbox();
     wtf.antialiasing = true;
     add(wtf);
 
-    td = new FlxSprite(506.25, 69.35).loadGraphic(Paths.image('title/td'));
+    td = new FlxSprite(506.25, 69.35).loadGraphic(Paths.image('HUD stuff/title/td'));
     td.updateHitbox();
     td.antialiasing = true;
     add(td);
 
-    sas = new FlxSprite(858.35, 526).loadGraphic(Paths.image('title/sas'));
+    sas = new FlxSprite(858.35, 526).loadGraphic(Paths.image('HUD stuff/title/sas'));
     sas.updateHitbox();
     sas.antialiasing = true;
     add(sas);
 
-    omg = new FlxSprite(476.05, 19.2).loadGraphic(Paths.image('title/omg'));
+    omg = new FlxSprite(476.05, 19.2).loadGraphic(Paths.image('HUD stuff/title/omg'));
     omg.updateHitbox();
     omg.antialiasing = true;
     add(omg);
 
-    dx = new FlxSprite(-39.25, 253.45).loadGraphic(Paths.image('title/dx'));
+    dx = new FlxSprite(-39.25, 253.45).loadGraphic(Paths.image('HUD stuff/title/dx'));
     dx.updateHitbox();
     dx.antialiasing = true;
     add(dx);

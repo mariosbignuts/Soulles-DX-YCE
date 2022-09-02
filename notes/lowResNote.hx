@@ -1,11 +1,11 @@
 function generateStaticArrow(babyArrow:FlxSprite, i:Int, player:Int) {
-    babyArrow.frames = Paths.getSparrowAtlas('lowResNote');
+    babyArrow.frames = Paths.getSparrowAtlas('HUD stuff/noteSkins/lowResNote');
     super.generateStaticArrow(babyArrow, i, player);
     babyArrow.colored = false;
 }
 
 function create() {
-    note.frames = Paths.getSparrowAtlas("lowResNote");
+    note.frames = Paths.getSparrowAtlas("HUD stuff/noteSkins/lowResNote");
     super.create();
     note.colored = false;
     note.splashColor = switch (note.noteData % 4) {
