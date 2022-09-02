@@ -11,7 +11,7 @@ void main() {
     camPos.x = 1-camPos.x;
     camPos.y = 1-camPos.y;
     camPos.x -= 0.5;
-    camPos.x /= sqrt(1 + (sin(time) * (1 - camPos.y)));
+    camPos.x = mix(camPos.x, camPos.x / sqrt(1 + (sin(time) * (1 - camPos.y))), 0.5 + (sin(time) * 0.5));
     camPos.x += 0.5;
     camPos -= vec2(0.5, 0.5);
     vec2 newPos = vec2(-sin(time) * camPos.x, cos(time) * camPos.x);
@@ -23,7 +23,7 @@ void main() {
     newPos.x = newPos.x + (cos(time));
     float mulX = mod(floor(newPos.x) / max, 1);
     float mulY = mod(floor(newPos.y) / max, 1);
-    newPos = mod(newPos, 1);
+    newPos = vec2(1, 1) - mod(newPos, 1);
     gl_FragColor = textureCam(bitmap, newPos);
     float r = gl_FragColor.r;
     float g = gl_FragColor.g;
