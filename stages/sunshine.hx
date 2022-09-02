@@ -176,11 +176,9 @@ function createPost() {
   PlayState.iconP1.visible = false;
   PlayState.iconP2.visible = false;
   PlayState.scoreTxt.visible = false;
-  scoreWarning.visible = false;
 
   if (EngineSettings.downscroll){
     strumY = 670;
-    funnyHud.y = 30;
   }
 
   for (i in 0...PlayState.cpuStrums.length) {
@@ -218,6 +216,8 @@ function onPreDeath() {
 }
 
 function updatePost(elapsed:Float) {
+
+  PlayState.scoreWarning.visible = false;
 
   if (PlayState.paused)
   {
