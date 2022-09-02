@@ -102,8 +102,8 @@ function createPost() {
 
 	   	PlayState.playerStrums.members[i].y = -69;
     }
-    camFollowHud.y -= 69 / 1024 * 1280;
 
+    camFollowHud.y -= 69 / 1024 * 1280;
 
       PlayState.boyfriend.visible = false;
       PlayState.gf.visible = false;

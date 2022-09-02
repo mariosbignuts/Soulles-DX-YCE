@@ -2,6 +2,7 @@ import("openfl.filters.ShaderFilter");
 EngineSettings.showTimer = false;
 EngineSettings.maxRatingsAllowed = 0;
 
+
 import Date;
 var date = Date;
 
@@ -15,6 +16,12 @@ var drain = 0.03;
 
 var bzz:FlxSound;
 
+var canFeelSunshine:Bool = true;
+var noteOG0:Int = 0;
+var noteOG1:Int = 0;
+var noteOG2:Int = 0;
+var noteOG3:Int = 0;
+
 function beatHit(curBeat)
 {
 
@@ -22,10 +29,42 @@ function beatHit(curBeat)
 
   if (curBeat == 294){
     drain = 0.01;
+    canFeelSunshine = false;
+    camHUD.alpha = 0;
+
+    if (!EngineSettings.middleScroll)
+    {
+      for (i in 0...PlayState.cpuStrums.length) {
+          PlayState.cpuStrums.members[i].alpha = 0;
+      }
+
+      for (i in 0...PlayState.playerStrums.length) {
+            PlayState.playerStrums.members[i].x = Std.int(PlayState.guiSize.x / 2) + ((i - (4 / 2)) * Note.swagWidth);
+      }
+    }
+
+
   }
 
-  if (curBeat == 432){
+  if (curBeat == 430){
     drain = 0.03;
+    canFeelSunshine = true;
+    camHUD.alpha = 1;
+
+    for (i in 0...PlayState.cpuStrums.length) {
+  		  PlayState.cpuStrums.members[i].alpha = 1;
+
+    }
+
+    for (i in 0...PlayState.playerStrums.length) {
+          if (!EngineSettings.middleScroll)
+          PlayState.playerStrums.members[0].x = noteOG0;
+          PlayState.playerStrums.members[1].x = noteOG2;
+          PlayState.playerStrums.members[2].x = noteOG1;
+        	PlayState.playerStrums.members[3].x = noteOG3;
+
+    }
+
   }
 
   if (curBeat == 560){
@@ -100,7 +139,6 @@ function createPost() {
 
   bzz.play();
 
-
   PlayState.add(funnyHud);
   PlayState.add(irlTime);
   PlayState.add(gameTime);
@@ -140,6 +178,10 @@ function createPost() {
         if (!EngineSettings.middleScroll)
       	PlayState.playerStrums.members[i].x += 42;
       	PlayState.playerStrums.members[i].y = strumY;
+        noteOG0 = PlayState.playerStrums.members[0].x;
+        noteOG1 = PlayState.playerStrums.members[2].x;
+        noteOG2 = PlayState.playerStrums.members[1].x;
+        noteOG3 = PlayState.playerStrums.members[3].x;
   }
 
   FlxG.scaleMode.width = 1280;
@@ -167,6 +209,19 @@ function updatePost(elapsed:Float) {
   {
     bzz.pause();
   }
+
+  if (!canFeelSunshine){
+     floor.alpha = 0;
+     PlayState.defaultCamZoom = 1.5;
+     PlayState.camHUD.y += 1 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
+     }
+  else {
+    floor.alpha = 1;
+    PlayState.camHUD.y = 0;
+  }
+
+  // babyArrow.x = Std.int(PlayState.current.guiSize.x / 2) + ((i - (SONG.keyNumber / 2)) * Note.swagWidth);
+
 
    daStatic.alpha = 0.5 - PlayState.health / 2.5;
    bzz.volume = daStatic.alpha * 1.2;
@@ -229,3 +284,20 @@ function update(elapsed) {
   floor.shader.shaderData.curveY.value = [(((FlxG.camera.scroll.y + (FlxG.height / 2)) - floor.getMidpoint().y) * floor.scrollFactor.y) / Math.PI / floor.height];
 
 }
+
+var twean:FlxTween;
+
+function canYouFeelThe(sunshine, doesIt) {
+
+    if(twean != null)
+    {
+      trace('brighten up');
+      twean.cancel();
+    }
+    PlayState.camHUD.alpha = sunshine;
+    twean = FlxTween.tween(PlayState.camHUD, {alpha: 0}, doesIt, {ease: FlxEase.linear});
+    trace('your day');
+
+}
+
+//don't you feel that sometimes, you just need to RUN AWAY
