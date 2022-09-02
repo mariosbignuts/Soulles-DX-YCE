@@ -1,0 +1,35 @@
+{
+	"skinnableGFs": [],
+	"locked": false,
+	"BFskins": [],
+	"name": "Soulles DX",
+	"keyNumbers": [
+		4
+	],
+	"description": "Soulless but finished. with extra songs too ",
+
+	"intro": {
+		"newgrounds": "tails doll",
+		"authors": [
+			"gray - faye",
+			"saster - taeskull",
+			"squeak - punkett",
+			"gibz"
+		],
+		"assoc": [
+			"poopy poopy",
+			"fart head"
+		],
+		"gameName": [
+			"soul",
+			"es",
+			"dx"
+		],
+		"present": "we shat",
+		"bpm": 128
+	},
+	"skinnableBFs": [],
+	"titleBarName": "Soulles DX",
+	"GFskins": [],
+	"discordRpc": "1013810301491228743"
+}

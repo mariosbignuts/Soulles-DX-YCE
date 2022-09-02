@@ -1,0 +1,71 @@
+{
+	"songs": [
+		{
+			"scripts": [
+				"stages/milk",
+				"Soulless DX:/debug"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "milk"
+		},
+		{
+			"scripts": [
+				"debug",
+				"stages/soulless"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "soulless"
+		},
+		{
+			"scripts": [
+				"stages/encore"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "sunshine-encore"
+		},
+		{
+			"scripts": [
+				"stages/tooslow",
+				"SOulles DX:/scripts/vanillainput"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "too-slow-encore"
+		},
+		{
+			"scripts": [
+				"stages/sanic",
+				"SOulles DX:/scripts/youtube-ui"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "too fest"
+		},
+		{
+			"scripts": [
+				"stages/curse"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "malediction"
+		},
+		{
+			"scripts": [
+				"stages/sunshine"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "sunshine"
+		}
+	]
+}

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="spritesheet.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="idle0000" x="0" y="0" width="463" height="441"/>
+	<SubTexture name="singDOWN0000" x="468" y="0" width="251" height="507"/>
+	<SubTexture name="singLEFT0000" x="724" y="0" width="500" height="500"/>
+	<SubTexture name="singRIGHT0000" x="1229" y="0" width="342" height="400"/>
+	<SubTexture name="singUP0000" x="1576" y="0" width="470" height="434"/>
+</TextureAtlas>

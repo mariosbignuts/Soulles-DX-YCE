@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bloodfilter.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bloodfilter0000" x="0" y="0" width="1505" height="1239"/>
+	<SubTexture name="bloodfilter0001" x="1510" y="0" width="1505" height="1239"/>
+	<SubTexture name="bloodfilter0002" x="0" y="1244" width="1505" height="1239"/>
+</TextureAtlas>

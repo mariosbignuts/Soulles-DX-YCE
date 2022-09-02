@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="sunkTransition.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="sunkTransition0000" x="0" y="0" width="0" height="0" frameX="-776" frameY="-626" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0001" x="5" y="0" width="744" height="683" frameX="-696" frameY="-751" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0002" x="754" y="0" width="757" height="916" frameX="-748" frameY="-370" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0003" x="754" y="0" width="757" height="916" frameX="-748" frameY="-370" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0004" x="1516" y="0" width="797" height="860" frameX="-722" frameY="-360" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0005" x="1516" y="0" width="797" height="860" frameX="-722" frameY="-360" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0006" x="2318" y="0" width="809" height="860" frameX="-718" frameY="-366" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0007" x="2318" y="0" width="809" height="860" frameX="-718" frameY="-366" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0008" x="3132" y="0" width="809" height="860" frameX="-718" frameY="-366" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0009" x="3132" y="0" width="809" height="860" frameX="-718" frameY="-366" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0010" x="3946" y="0" width="1193" height="863" frameX="-334" frameY="-363" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0011" x="5144" y="0" width="1071" height="1180" frameX="-456" frameY="-46" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0012" x="5144" y="0" width="1071" height="1180" frameX="-456" frameY="-46" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0013" x="6220" y="0" width="1067" height="1192" frameX="-460" frameY="-34" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0014" x="6220" y="0" width="1067" height="1192" frameX="-460" frameY="-34" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0015" x="6220" y="0" width="1067" height="1192" frameX="-460" frameY="-34" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0016" x="0" y="1197" width="1013" height="1156" frameX="-462" frameY="-42" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0017" x="0" y="1197" width="1013" height="1156" frameX="-462" frameY="-42" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0018" x="0" y="1197" width="1013" height="1156" frameX="-462" frameY="-42" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0019" x="1018" y="1197" width="1444" height="1170" frameX="-60" frameY="0" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0020" x="1018" y="1197" width="1444" height="1170" frameX="-60" frameY="0" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0021" x="2467" y="1197" width="1542" height="1230" frameX="0" frameY="-24" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0022" x="2467" y="1197" width="1542" height="1230" frameX="0" frameY="-24" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0023" x="4014" y="1197" width="1375" height="1133" frameX="-103" frameY="-3" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0024" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0025" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0026" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0027" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0028" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0029" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0030" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0031" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0032" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0033" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0034" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0035" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0036" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0037" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0038" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0039" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0040" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0041" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0042" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0043" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0044" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0045" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0046" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0047" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0048" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0049" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0050" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0051" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0052" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0053" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0054" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0055" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0056" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0057" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0058" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0059" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0060" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+	<SubTexture name="sunkTransition0061" x="5394" y="1197" width="1376" height="1002" frameX="-104" frameY="-120" frameWidth="1542" frameHeight="1434"/>
+</TextureAtlas>

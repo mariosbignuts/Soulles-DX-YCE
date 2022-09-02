@@ -1,0 +1,75 @@
+{
+	"songs": [
+		{
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": "chocolate milk",
+			"char": "bf",
+			"bpm": 1,
+			"name": "milk",
+			"color": "#FFFFFF"
+		},
+		{
+			"displayName": null,
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#FFFFFF",
+			"name": "soulless",
+			"bpm": 180
+		},
+		{
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": "sunshine encore",
+			"char": "bf",
+			"bpm": 180,
+			"name": "sunshine-encore",
+			"color": "#FFFFFF"
+		},
+		{
+			"displayName": "too silly",
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#FFFFFF",
+			"name": "too-slow-encore",
+			"bpm": 180
+		},
+		{
+			"difficulties": [
+				"fest",
+				"slou"
+			],
+			"displayName": null,
+			"char": "bf",
+			"bpm": 150,
+			"name": "too fest",
+			"color": "#FFFFFF"
+		},
+		{
+			"displayName": "male addiction",
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#FFFFFF",
+			"name": "malediction",
+			"bpm": 120
+		},
+		{
+			"bpm": 150,
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": "sunshine og",
+			"char": "bf",
+			"name": "sunshine",
+			"color": "#FFFFFF"
+		}
+	]
+}

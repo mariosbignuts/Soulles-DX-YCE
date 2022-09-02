@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="hang.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="hang0000" x="0" y="0" width="456" height="630"/>
+	<SubTexture name="hang0001" x="461" y="0" width="456" height="630"/>
+	<SubTexture name="hang0002" x="922" y="0" width="456" height="630"/>
+	<SubTexture name="hang0003" x="1383" y="0" width="456" height="630"/>
+	<SubTexture name="hang0004" x="1844" y="0" width="456" height="630"/>
+	<SubTexture name="hang0005" x="2305" y="0" width="456" height="630"/>
+	<SubTexture name="hang0006" x="2766" y="0" width="456" height="630"/>
+	<SubTexture name="hang0007" x="3227" y="0" width="456" height="630"/>
+	<SubTexture name="hang0008" x="0" y="635" width="456" height="630"/>
+	<SubTexture name="hang0009" x="461" y="635" width="456" height="630"/>
+	<SubTexture name="hang0010" x="922" y="635" width="456" height="630"/>
+	<SubTexture name="hang0011" x="1383" y="635" width="456" height="630"/>
+	<SubTexture name="hang0012" x="1844" y="635" width="456" height="630"/>
+	<SubTexture name="hang0013" x="2305" y="635" width="456" height="630"/>
+	<SubTexture name="hang0014" x="2766" y="635" width="456" height="630"/>
+	<SubTexture name="hang0015" x="3227" y="635" width="456" height="630"/>
+	<SubTexture name="hang0016" x="0" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0017" x="461" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0018" x="922" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0019" x="1383" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0020" x="1844" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0021" x="2305" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0022" x="2766" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0023" x="3227" y="1270" width="456" height="630"/>
+	<SubTexture name="hang0024" x="0" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0025" x="461" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0026" x="922" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0027" x="1383" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0028" x="922" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0029" x="1844" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0030" x="2305" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0031" x="2766" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0032" x="3227" y="1905" width="456" height="630"/>
+	<SubTexture name="hang0033" x="0" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0034" x="461" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0035" x="922" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0036" x="1383" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0037" x="1844" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0038" x="2305" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0039" x="2766" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0040" x="3227" y="2540" width="456" height="630"/>
+	<SubTexture name="hang0041" x="0" y="3175" width="456" height="630"/>
+	<SubTexture name="hang0042" x="461" y="3175" width="456" height="630"/>
+	<SubTexture name="hang0043" x="922" y="3175" width="456" height="630"/>
+	<SubTexture name="hang0044" x="1383" y="3175" width="456" height="630"/>
+	<SubTexture name="hang0045" x="1844" y="3175" width="456" height="630"/>
+	<SubTexture name="hang0046" x="2305" y="3175" width="456" height="630"/>
+	<SubTexture name="hang0047" x="2766" y="3175" width="456" height="630"/>
+	<SubTexture name="hang0048" x="3227" y="0" width="456" height="630"/>
+	<SubTexture name="hang0049" x="2766" y="0" width="456" height="630"/>
+	<SubTexture name="hang0050" x="2305" y="0" width="456" height="630"/>
+	<SubTexture name="hang0051" x="1844" y="0" width="456" height="630"/>
+	<SubTexture name="hang0052" x="1383" y="0" width="456" height="630"/>
+	<SubTexture name="hang0053" x="922" y="0" width="456" height="630"/>
+	<SubTexture name="hang0054" x="461" y="0" width="456" height="630"/>
+	<SubTexture name="hang0055" x="0" y="0" width="456" height="630"/>
+</TextureAtlas>
