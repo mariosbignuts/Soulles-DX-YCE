@@ -46,7 +46,7 @@ function beatHit(curBeat)
 
 function create() {
 
-    bzz = new FlxSound().loadEmbedded(Paths.sound('vhsBuzz'));
+    bzz = FlxG.sound.load(Paths.sound('vhsBuzz'));
     // bzz.stop();
 
     bzz.volume = 0.1;
@@ -171,9 +171,9 @@ function updatePost(elapsed:Float) {
    daStatic.alpha = 0.5 - PlayState.health / 2.5;
    bzz.volume = daStatic.alpha * 1.2;
 
-   dad.x += 2 * Math.cos(curDecBeat / 4 * Math.PI);
-   dad.y += 3 * Math.sin(curDecBeat / 4 * Math.PI);
-   dad.angle += 0.02 * Math.sin(curDecBeat / 4 * Math.PI);
+   dad.x += 2 * Math.cos(curDecBeat / 4 * Math.PI) * elapsed * 60;
+   dad.y += 3 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
+   dad.angle += 0.02 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
 
    res = [1920, 1080];
    time += elapsed;

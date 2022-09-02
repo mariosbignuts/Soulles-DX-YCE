@@ -129,10 +129,10 @@ var weewoo:Float = 0;
 
 function update(elapsed:Float) {
 
-  weewoo += 0.03;
+  weewoo += 0.03 * elapsed * 60;
 
   if(!intro)
-  PlayState.dad.y += Math.sin(weewoo) * 0.8;
+  PlayState.dad.y += Math.sin(weewoo) * 0.8 * elapsed * 60;
 
   // bloodfilter.angle += Math.sin(weewoo) * 0.1;
 
