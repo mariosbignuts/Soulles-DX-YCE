@@ -256,6 +256,9 @@ function updatePost(elapsed:Float) {
    if (PlayState.health < 0.7){
      funnyHud.color = 0xFFAA0000;
    }
+   if (PlayState.health > 1.8){
+    funnyHud.color = 0xFF00AA00;
+  }
    else{
      funnyHud.color = 0xFFFFAA00;
    }
