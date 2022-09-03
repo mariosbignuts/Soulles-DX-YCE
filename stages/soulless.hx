@@ -84,6 +84,11 @@ function create() {
     bintro.scrollFactor.set(0, 0);
     PlayState.add(bintro);
 
+    overlaye = new FlxSprite(-100, -100);
+    overlaye.makeGraphic(FlxG.width * 2, FlxG.width * 2, 0xFF000000);
+    overlaye.alpha = 0.3;
+    overlaye.scrollFactor.set(0, 0);
+
 }
 
 function onGuiPopup() {
@@ -92,6 +97,8 @@ function onGuiPopup() {
 }
 
 function createPost() {
+
+  PlayState.add(overlaye);
 
     for (i in 0...PlayState.playerStrums.length) {
 

@@ -148,7 +148,6 @@ function create() {
 
 var strumY:Int = -69;
 
-
 function createPost() {
 
   bzz.play();
