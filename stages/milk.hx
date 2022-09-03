@@ -23,7 +23,7 @@ function create() {
     FlxG.resizeWindow(1024, 768);
     PlayState.defaultCamZoom = 1.05;
 
-    var camStuff = new FlxCamera(0, -120, 1280, 960, 1);
+    var camStuff = new FlxCamera(0, 0, 1280, 960, 1);
     camStuff.bgColor = new FlxColor(0xFF000000);
     FlxG.cameras.add(camStuff, false);
 
@@ -122,13 +122,13 @@ function create() {
     milk.active = false;
     PlayState.add(milk);
 
-    sunkTransition = new FlxSprite(-137, -249 + 100);
+    sunkTransition = new FlxSprite(-137, -249 + (720 * 0.125));
     sunkTransition.frames = Paths.getSparrowAtlas('SUNKEEEEHHHHHHHHH/sunkTransition');
     sunkTransition.animation.addByPrefix('sunkTransition', 'sunkTransition', 24, false);
     sunkTransition.antialiasing = true;
     sunkTransition.animation.play('sunkTransition');
     sunkTransition.alpha = 0;
-    sunkTransition.scrollFactor.set(0, 0);
+    sunkTransition.scrollFactor.set(1, 1);
     sunkTransition.cameras = [camStuff];
     // PlayState.add(sunkTransition);
 
