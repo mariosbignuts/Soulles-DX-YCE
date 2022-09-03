@@ -38,7 +38,7 @@ function beatHit(curBeat)
   PlayState.health -= drain;
 
   if (curBeat == 294){
-    drain = 0.01;
+    drain = 0.02;
     canFeelSunshine = false;
     camHUD.alpha = 0;
     oldCharacter.visible = false;
@@ -82,7 +82,7 @@ function beatHit(curBeat)
   }
 
   if (curBeat == 560){
-    drain = 0.015;
+    drain = 0.035;
   }
 
   if (curBeat % 4 == 0){
@@ -152,6 +152,7 @@ var strumY:Int = -69;
 function createPost() {
 
   bzz.play();
+  PlayState.health = 1.5;
 
   PlayState.add(funnyHud);
   PlayState.add(irlTime);
