@@ -77,7 +77,6 @@ function create() {
 
 }
 
-
 function beatHit(curBeat)
 {
     switch(PlayState.boyfriend.animation.curAnim.name) {

@@ -85,16 +85,6 @@ function beatHit(curBeat)
     drain = 0.035;
   }
 
-  if (curBeat % 4 == 0){
-    switch(PlayState.boyfriend.animation.curAnim.name) {
-        case "idle" :
-          PlayState.boyfriend.playAnim('idle', true);
-      }
-    }
-
-   if (curBeat % 2 == 0 && PlayState.boyfriend.lastHit <= Conductor.songPosition - 500) {
-       PlayState.boyfriend.playAnim('idle');
-   }
 }
 
 function create() {
@@ -162,8 +152,8 @@ function createPost() {
   PlayState.dad.scrollFactor.set(1.4, 1.3);
 
   PlayState.boyfriend.playAnim('idle', true);
-  PlayState.boyfriend.x = 970;
-  PlayState.boyfriend.y = 300;
+  PlayState.boyfriend.x = 1170;
+  PlayState.boyfriend.y = 480;
 
   PlayState.dad.camOffset.x = 50;
   PlayState.dad.camOffset.y = -50;
