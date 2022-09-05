@@ -1,7 +1,7 @@
 import lime.ui.Window;
 import openfl.utils.Assets;
 import openfl.filters.ShaderFilter;
-EngineSettings.maxRatingsAllowed = 0;
+// EngineSettings.maxRatingsAllowed = 0;
 EngineSettings.showTimer = false;
 
 var window = Window;

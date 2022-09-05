@@ -1,80 +1,155 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Tails_Doll.png">
-	<!-- Created with Adobe Animate version 21.0.3.38773 -->
+<TextureAtlas imagePath="tail.png">
+	<!-- Created with Adobe Animate version 21.0.1.37179 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="TailsDoll DOWN instance 10000" x="0" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10001" x="501" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10002" x="1002" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10003" x="1503" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10004" x="2004" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10005" x="2505" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10006" x="3006" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10007" x="3507" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10008" x="4008" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10009" x="4509" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10010" x="5010" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10011" x="5511" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10012" x="6012" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10013" x="6513" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll DOWN instance 10014" x="7014" y="0" width="501" height="500"/>
-	<SubTexture name="TailsDoll IDLE instance 10000" x="7515" y="0" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10001" x="0" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10002" x="541" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10003" x="1082" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10004" x="1623" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10005" x="2164" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10006" x="2705" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10007" x="3246" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10008" x="3787" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10009" x="4328" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10010" x="4869" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10011" x="5410" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10012" x="5951" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10013" x="6492" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll IDLE instance 10014" x="7033" y="540" width="541" height="540"/>
-	<SubTexture name="TailsDoll LEFT instance 10000" x="7574" y="540" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10001" x="0" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10002" x="536" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10003" x="1072" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10004" x="1608" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10005" x="2144" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10006" x="2680" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10007" x="3216" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10008" x="3752" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10009" x="4288" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10010" x="4824" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10011" x="5360" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10012" x="5896" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10013" x="6432" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll LEFT instance 10014" x="6968" y="1080" width="536" height="537"/>
-	<SubTexture name="TailsDoll RIGHT instance 10000" x="7504" y="1080" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10001" x="0" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10002" x="534" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10003" x="1068" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10004" x="1602" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10005" x="2136" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10006" x="2670" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10007" x="3204" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10008" x="3738" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10009" x="4272" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10010" x="4806" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10011" x="5340" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10012" x="5874" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10013" x="6408" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll RIGHT instance 10014" x="6942" y="1617" width="534" height="534"/>
-	<SubTexture name="TailsDoll UP instance 10000" x="7476" y="1617" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10001" x="0" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10002" x="539" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10003" x="1078" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10004" x="1617" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10005" x="2156" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10006" x="2695" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10007" x="3234" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10008" x="3773" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10009" x="4312" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10010" x="4851" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10011" x="5390" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10012" x="5929" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10013" x="6468" y="2155" width="539" height="538"/>
-	<SubTexture name="TailsDoll UP instance 10014" x="7007" y="2155" width="539" height="538"/>
+	<SubTexture name="idle0000" x="0" y="0" width="100" height="100"/>
+	<SubTexture name="idle0001" x="105" y="0" width="100" height="100"/>
+	<SubTexture name="idle0002" x="210" y="0" width="100" height="100"/>
+	<SubTexture name="idle0003" x="315" y="0" width="100" height="100"/>
+	<SubTexture name="idle0004" x="420" y="0" width="100" height="100"/>
+	<SubTexture name="idle0005" x="525" y="0" width="100" height="100"/>
+	<SubTexture name="idle0006" x="630" y="0" width="100" height="100"/>
+	<SubTexture name="idle0007" x="735" y="0" width="100" height="100"/>
+	<SubTexture name="idle0008" x="840" y="0" width="100" height="100"/>
+	<SubTexture name="idle0009" x="945" y="0" width="100" height="100"/>
+	<SubTexture name="idle0010" x="1050" y="0" width="100" height="100"/>
+	<SubTexture name="idle0011" x="1155" y="0" width="100" height="100"/>
+	<SubTexture name="idle0012" x="1260" y="0" width="100" height="100"/>
+	<SubTexture name="idle0013" x="1365" y="0" width="100" height="100"/>
+	<SubTexture name="idle0014" x="1470" y="0" width="100" height="100"/>
+	<SubTexture name="idle0015" x="1575" y="0" width="100" height="100"/>
+	<SubTexture name="idle0016" x="1680" y="0" width="100" height="100"/>
+	<SubTexture name="idle0017" x="1785" y="0" width="100" height="100"/>
+	<SubTexture name="idle0018" x="1890" y="0" width="100" height="100"/>
+	<SubTexture name="idle0019" x="0" y="105" width="100" height="100"/>
+	<SubTexture name="idle0020" x="105" y="105" width="100" height="100"/>
+	<SubTexture name="idle0021" x="210" y="105" width="100" height="100"/>
+	<SubTexture name="idle0022" x="315" y="105" width="100" height="100"/>
+	<SubTexture name="idle0023" x="420" y="105" width="100" height="100"/>
+	<SubTexture name="idle0024" x="525" y="105" width="100" height="100"/>
+	<SubTexture name="idle0025" x="630" y="105" width="100" height="100"/>
+	<SubTexture name="idle0026" x="735" y="105" width="100" height="100"/>
+	<SubTexture name="idle0027" x="840" y="105" width="100" height="100"/>
+	<SubTexture name="idle0028" x="945" y="105" width="100" height="100"/>
+	<SubTexture name="idle0029" x="0" y="0" width="100" height="100"/>
+	<SubTexture name="singDOWN0000" x="1050" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0001" x="1155" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0002" x="1260" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0003" x="1365" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0004" x="1470" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0005" x="1575" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0006" x="1680" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0007" x="1785" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0008" x="1890" y="105" width="100" height="100"/>
+	<SubTexture name="singDOWN0009" x="0" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0010" x="105" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0011" x="210" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0012" x="315" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0013" x="420" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0014" x="525" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0015" x="630" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0016" x="735" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0017" x="840" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0018" x="945" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0019" x="1050" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0020" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0021" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0022" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0023" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0024" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0025" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0026" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0027" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0028" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singDOWN0029" x="1155" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0000" x="1260" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0001" x="1365" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0002" x="1470" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0003" x="1575" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0004" x="1680" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0005" x="1785" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0006" x="1890" y="210" width="100" height="100"/>
+	<SubTexture name="singLEFT0007" x="0" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0008" x="105" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0009" x="210" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0010" x="315" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0011" x="420" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0012" x="525" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0013" x="630" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0014" x="735" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0015" x="840" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0016" x="945" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0017" x="105" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0018" x="1050" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0019" x="1155" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0020" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0021" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0022" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0023" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0024" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0025" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0026" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0027" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0028" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singLEFT0029" x="1260" y="315" width="100" height="100"/>
+	<SubTexture name="singRIGHT0000" x="1365" y="315" width="100" height="100"/>
+	<SubTexture name="singRIGHT0001" x="1470" y="315" width="100" height="100"/>
+	<SubTexture name="singRIGHT0002" x="1575" y="315" width="100" height="100"/>
+	<SubTexture name="singRIGHT0003" x="1680" y="315" width="100" height="100"/>
+	<SubTexture name="singRIGHT0004" x="1785" y="315" width="100" height="100"/>
+	<SubTexture name="singRIGHT0005" x="1890" y="315" width="100" height="100"/>
+	<SubTexture name="singRIGHT0006" x="0" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0007" x="105" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0008" x="210" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0009" x="315" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0010" x="420" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0011" x="525" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0012" x="630" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0013" x="735" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0014" x="840" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0015" x="945" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0016" x="1050" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0017" x="1155" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0018" x="1260" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0019" x="1365" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0020" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0021" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0022" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0023" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0024" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0025" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0026" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0027" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0028" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singRIGHT0029" x="1470" y="420" width="100" height="100"/>
+	<SubTexture name="singUP0000" x="1575" y="420" width="100" height="100"/>
+	<SubTexture name="singUP0001" x="1680" y="420" width="100" height="100"/>
+	<SubTexture name="singUP0002" x="1785" y="420" width="100" height="100"/>
+	<SubTexture name="singUP0003" x="1890" y="420" width="100" height="100"/>
+	<SubTexture name="singUP0004" x="0" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0005" x="105" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0006" x="210" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0007" x="315" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0008" x="420" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0009" x="525" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0010" x="630" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0011" x="735" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0012" x="840" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0013" x="945" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0014" x="1050" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0015" x="1155" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0016" x="1260" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0017" x="1365" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0018" x="1470" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0019" x="1575" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0020" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0021" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0022" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0023" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0024" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0025" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0026" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0027" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0028" x="1680" y="525" width="100" height="100"/>
+	<SubTexture name="singUP0029" x="1680" y="525" width="100" height="100"/>
 </TextureAtlas>

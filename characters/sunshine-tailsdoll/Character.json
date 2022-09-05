@@ -22,17 +22,8 @@
 		},
 		{
 			"indices": null,
-			"x": -25,
-			"y": -287,
-			"anim": "singDOWN0",
-			"loop": false,
-			"name": "singDOWN",
-			"framerate": 28
-		},
-		{
-			"indices": null,
-			"x": -118,
-			"y": -60,
+			"x": -150,
+			"y": 0,
 			"anim": "singRIGHT0",
 			"loop": false,
 			"name": "singRIGHT",
@@ -40,27 +31,36 @@
 		},
 		{
 			"indices": null,
-			"x": 33,
-			"y": 261,
-			"anim": "singUP0",
+			"x": -20,
+			"y": -130,
+			"anim": "singDOWN0",
 			"loop": false,
-			"name": "singUP",
-			"framerate": 33
+			"name": "singDOWN",
+			"framerate": 28
 		},
 		{
 			"indices": null,
-			"x": 291,
-			"y": -44,
+			"x": 92,
+			"y": 0,
 			"anim": "singLEFT0",
 			"loop": false,
 			"name": "singLEFT",
 			"framerate": 29
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 40,
+			"anim": "singUP0",
+			"loop": false,
+			"name": "singUP",
+			"framerate": 33
 		}
 	],
 	"danceSteps": [
 		"idle"
 	],
-	"antialiasing": true,
+	"antialiasing": false,
 	"healthIconSteps": [
 		[
 			20,
@@ -71,5 +71,5 @@
 			1
 		]
 	],
-	"scale": 1
+	"scale": 4
 }
