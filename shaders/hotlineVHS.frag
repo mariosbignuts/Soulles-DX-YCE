@@ -75,7 +75,7 @@ void main(){
             tex2D(bitmap, uvn + vec2( x - 4.0, 0.0 ) * 7E-3 ).z
         ) * 0.1;
     }
-    col *= 0.9;
+    col *= 0.75;
 
     // ac beat
     col *= 1.0 + clamp( noise( vec2( 0.0, uv.y + time * 0.2 ) ) * 0.6 - 0.25, 0.0, 0.1 );

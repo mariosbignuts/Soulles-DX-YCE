@@ -24,6 +24,8 @@ var noteOG3:Int = 0;
 var oldCharacter:Character = null;
 var newCharacter:Character = null;
 
+var tillyFly:Bool = false;
+
 function createInFront() {
     oldCharacter = PlayState.dad;
     newCharacter = new Character(0, 400, mod + ":sunshine-tailsdoll-alt");
@@ -36,6 +38,11 @@ function beatHit(curBeat)
 {
 
   PlayState.health -= drain;
+
+  if (curBeat == 32){
+    tillyFly = true;
+    FlxTween.tween(PlayState.dad, {y: -42}, 2, {ease: FlxEase.circOut , startDelay: 0.3});
+  }
 
   if (curBeat == 294){
     drain = 0.02;
@@ -104,7 +111,7 @@ function create() {
     camStuff.bgColor = new FlxColor(0xFF000000);
     FlxG.cameras.add(camStuff, false);
 
-    floor = new FlxSprite(-370, 466).loadGraphic(Paths.image('sunshine/bg'));
+    floor = new FlxSprite(-570, 466).loadGraphic(Paths.image('sunshine/bg'));
     floor.scale.x = 1.5;
     floor.scale.y = 0.8;
     floor.antialiasing = false;
@@ -148,15 +155,15 @@ function createPost() {
   PlayState.add(gameTime);
   PlayState.add(daStatic);
 
-  PlayState.boyfriend.scrollFactor.set(1.8, 1.3);
+  PlayState.boyfriend.scrollFactor.set(2.4, 1.3);
   PlayState.dad.scrollFactor.set(1.4, 1.3);
 
   PlayState.boyfriend.playAnim('idle', true);
-  PlayState.boyfriend.x = 1170;
+  PlayState.boyfriend.x = 870;
   PlayState.boyfriend.y = 480;
 
-  PlayState.dad.camOffset.x = 50;
-  PlayState.dad.camOffset.y = -50;
+  PlayState.dad.camOffset.x = 150;
+  PlayState.dad.camOffset.y = 150;
   PlayState.dad.x = -200;
   PlayState.dad.y = 169;
 
@@ -229,9 +236,11 @@ function updatePost(elapsed:Float) {
    daStatic.alpha = 0.5 - PlayState.health / 2.5;
    bzz.volume = daStatic.alpha * 1.2;
 
+   if (tillyFly){
    dad.x += 2 * Math.cos(curDecBeat / 4 * Math.PI) * elapsed * 60;
    dad.y += 3 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
    dad.angle += 0.02 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
+   }
 
    res = [1920, 1080];
    time += elapsed;
@@ -243,15 +252,16 @@ function updatePost(elapsed:Float) {
 
    irlTime.text = date.now();
    funnyHud.text = Std.int(((health / 2) * 100)) + "%";
-   if (PlayState.health < 0.7){
-     funnyHud.color = 0xFFAA0000;
-   }
+
    if (PlayState.health > 1.8){
     funnyHud.color = 0xFF00AA00;
   }
    else{
      funnyHud.color = 0xFFFFAA00;
-   }
+  }
+   if (PlayState.health < 0.7){
+    funnyHud.color = 0xFFAA0000;
+  }
    gameTime.text = PlayState.timerNow.text;
 
 }
@@ -261,8 +271,8 @@ function update(elapsed) {
 
   if(moveCam){
      if (PlayState.section != null && PlayState.section.mustHitSection) {
-  			PlayState.camFollow.setPosition(908, 420);
-  			PlayState.defaultCamZoom = 1.2;
+  			PlayState.camFollow.setPosition(708, 420);
+  			PlayState.defaultCamZoom = 1.1;
 
   			switch(PlayState.boyfriend.animation.curAnim.name) {
   					case "singLEFT":
@@ -277,7 +287,7 @@ function update(elapsed) {
   	}
   		else {
   			// PlayState.camFollow.setPosition(303, 106);
-  			PlayState.defaultCamZoom = 0.9;
+  			PlayState.defaultCamZoom = 0.8;
 
   			switch(PlayState.dad.animation.curAnim.name) {
   					case "singLEFT" :
@@ -292,7 +302,7 @@ function update(elapsed) {
   	}
   }
 
-  floor.shader.shaderData.curveX.value = [(((FlxG.camera.scroll.x + (FlxG.width / 2)) - floor.getMidpoint().x) / 0.4) / Math.PI / floor.width];
+  floor.shader.shaderData.curveX.value = [(((FlxG.camera.scroll.x + (FlxG.width / 2)) - floor.getMidpoint().x) / 0.25) / Math.PI / floor.width];
   floor.shader.shaderData.curveY.value = [(((FlxG.camera.scroll.y + (FlxG.height / 2)) - floor.getMidpoint().y) * floor.scrollFactor.y) / Math.PI / floor.height];
 
 }
