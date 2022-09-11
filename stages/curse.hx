@@ -22,7 +22,6 @@ function create() {
     FlxG.camera.addShader(coolShader);
 
     FlxG.resizeWindow(1047, 720);
-    PlayState.defaultCamZoom = 1.2;
 
     sky = new FlxSprite(-20, -7).loadGraphic(Paths.image('curse/sky'));
     sky.updateHitbox();
@@ -151,6 +150,7 @@ function updatePost(elapsed:Float) {
   if (PlayState.section != null && PlayState.section.mustHitSection) {
      PlayState.camFollow.setPosition(800, 430);
      // PlayState.defaultCamZoom = 1;
+    PlayState.defaultCamZoom = 1;
 
      switch(PlayState.boyfriend.animation.curAnim.name) {
          case "singLEFT":
@@ -170,6 +170,7 @@ function updatePost(elapsed:Float) {
    else {
      PlayState.camFollow.setPosition(500, 430);
      // PlayState.defaultCamZoom = 1;
+    PlayState.defaultCamZoom = 1.2;
 
      switch(PlayState.dad.animation.curAnim.name) {
          case "singLEFT":

@@ -1,6 +1,7 @@
 import("openfl.filters.ShaderFilter");
 import flixel.FlxCamera;
 import Date;
+import flixel.addons.effects.FlxTrail;
 
 EngineSettings.showTimer = false;
 EngineSettings.maxRatingsAllowed = 0;
@@ -41,7 +42,12 @@ function beatHit(curBeat)
 
   if (curBeat == 32){
     tillyFly = true;
-    FlxTween.tween(PlayState.dad, {y: -42}, 2, {ease: FlxEase.circOut , startDelay: 0.3});
+    FlxTween.tween(PlayState.dad, {y: -42}, 2, {ease: FlxEase.circInOut , startDelay: 0.3});
+    var evilTrail = new FlxTrail(dad, null, 8, 2, 0.3, 0.069);
+    // evilTrail.changeValuesEnabled(false, false, false, false);
+    // evilTrail.changeGraphic();
+    add(evilTrail);
+    evilTrail.scrollFactor.set(1.4, 1.3);
   }
 
   if (curBeat == 294){
@@ -141,6 +147,8 @@ function create() {
     daStatic.animation.addByPrefix('static', 'staticFLASH', 30, true);
     daStatic.animation.play('static');
 
+
+
 }
 
 var strumY:Int = -69;
@@ -239,9 +247,10 @@ function updatePost(elapsed:Float) {
    if (tillyFly){
    dad.x += 2 * Math.cos(curDecBeat / 4 * Math.PI) * elapsed * 60;
    dad.y += 3 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
-   dad.angle += 0.02 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
    }
 
+   dad.angle += 0.1 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
+   
    res = [1920, 1080];
    time += elapsed;
 
