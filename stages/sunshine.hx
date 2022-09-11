@@ -157,7 +157,7 @@ function createPost() {
   evilTrail = new FlxTrail(PlayState.dad, null, 8, 2, 0.3, 0.069);
   add(evilTrail);
   evilTrail.visible = false;
-  evilTrail.scrollFactor.set(1.4, 1.3);
+  evilTrail.scrollFactor.set(3, 1.3);
 
   bzz.play();
   PlayState.health = 1.5;
@@ -167,16 +167,16 @@ function createPost() {
   PlayState.add(gameTime);
   PlayState.add(daStatic);
 
-  PlayState.boyfriend.scrollFactor.set(2.4, 1.3);
-  PlayState.dad.scrollFactor.set(1.4, 1.3);
+  PlayState.boyfriend.scrollFactor.set(3.2, 1.3);
+  PlayState.dad.scrollFactor.set(3, 1.3);
 
   PlayState.boyfriend.playAnim('idle', true);
   PlayState.boyfriend.x = 870;
   PlayState.boyfriend.y = 480;
 
-  PlayState.dad.camOffset.x = 150;
+  PlayState.dad.camOffset.x = 800;
   PlayState.dad.camOffset.y = 150;
-  PlayState.dad.x = -200;
+  PlayState.dad.x = -800;
   PlayState.dad.y = 169;
 
   PlayState.gf.visible = false;
@@ -321,7 +321,7 @@ function update(elapsed) {
   	}
   }
 
-  floor.shader.shaderData.curveX.value = [(((FlxG.camera.scroll.x + (FlxG.width / 2)) - floor.getMidpoint().x) / 0.25) / Math.PI / floor.width];
+  floor.shader.shaderData.curveX.value = [(((FlxG.camera.scroll.x + (FlxG.width / 2)) - floor.getMidpoint().x) / 0.15) / Math.PI / floor.width];
   floor.shader.shaderData.curveY.value = [(((FlxG.camera.scroll.y + (FlxG.height / 2)) - floor.getMidpoint().y) * floor.scrollFactor.y) / Math.PI / floor.height];
 
 }

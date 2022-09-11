@@ -5,7 +5,8 @@ import openfl.filters.ShaderFilter;
 EngineSettings.showTimer = false;
 
 var window = Window;
-var coolShader = new CustomShader(Paths.shader("expand dong"));
+var coolShader = new CustomShader(Paths.shader("224p"));
+var coolShader2 = new CustomShader(Paths.shader("yoshiShaders/sqrt2"));
 
 
 // function setCamShader(shader, camera) {
@@ -19,7 +20,8 @@ function create() {
     // setCamShader('expand dong', PlayState.camGame);
 
     coolShader.data.donkey.input = Assets.getBitmapData(Paths.image("curse/curse"));
-    FlxG.camera.addShader(coolShader);
+    // PlayState.camHUD.addShader(coolShader2);
+    // PlayState.camHUD.addShader(coolShader);
 
     FlxG.resizeWindow(1047, 720);
 
@@ -124,9 +126,9 @@ function createPost() {
     PlayState.gf.x = 604;
     PlayState.gf.y = 181;
 
-    PlayState.boyfriend.scrollFactor.set(1.4, 1.05);
-    PlayState.dad.scrollFactor.set(1.4, 1.05);
-    PlayState.gf.scrollFactor.set(1.3, 1.02);
+    PlayState.boyfriend.scrollFactor.set(1.8, 1.05);
+    PlayState.dad.scrollFactor.set(1.8, 1.05);
+    PlayState.gf.scrollFactor.set(1.6, 1.02);
 
     PlayState.healthBarBG.visible = false;
     PlayState.healthBar.visible = false;
@@ -139,9 +141,9 @@ var ofs1:Int = 30;
 
 function updatePost(elapsed:Float) {
 
-  coolShader.data.time.value = [curDecBeat / 8];
+//   coolShader.data.time.value = [curDecBeat / 8];
 
-  floor.shader.shaderData.curveX.value = [(((FlxG.camera.scroll.x + (FlxG.width / 2)) - floor.getMidpoint().x) / 0.4) / Math.PI / floor.width];
+  floor.shader.shaderData.curveX.value = [(((FlxG.camera.scroll.x + (FlxG.width / 2)) - floor.getMidpoint().x) / 0.2) / Math.PI / floor.width];
   floor.shader.shaderData.curveY.value = [(((FlxG.camera.scroll.y + (FlxG.height / 2)) - floor.getMidpoint().y) * floor.scrollFactor.y) / Math.PI / floor.height];
 
 
