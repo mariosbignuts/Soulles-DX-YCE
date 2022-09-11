@@ -161,8 +161,8 @@ function createPost() {
   	      	PlayState.playerStrums.members[i].y = strumY;
       }
 
-      PlayState.timerBG.y = timeY;
-      PlayState.timerBar.y = timeY;
+      // PlayState.timerBG.y = timeY;
+      // PlayState.timerBar.y = timeY;
 
       PlayState.gf.visible = false;
       PlayState.healthBarBG.visible = false;
