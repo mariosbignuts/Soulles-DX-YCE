@@ -43,11 +43,8 @@ function beatHit(curBeat)
   if (curBeat == 32){
     tillyFly = true;
     FlxTween.tween(PlayState.dad, {y: -42}, 2, {ease: FlxEase.circInOut , startDelay: 0.3});
-    var evilTrail = new FlxTrail(dad, null, 8, 2, 0.3, 0.069);
-    // evilTrail.changeValuesEnabled(false, false, false, false);
-    // evilTrail.changeGraphic();
-    add(evilTrail);
-    evilTrail.scrollFactor.set(1.4, 1.3);
+    evilTrail.visible = true;
+    dadZoom = 0.8;
   }
 
   if (curBeat == 294){
@@ -68,10 +65,11 @@ function beatHit(curBeat)
       }
     }
 
-
+    evilTrail.visible = false;
   }
 
   if (curBeat == 430){
+    evilTrail.visible = true;
     drain = 0.03;
     canFeelSunshine = true;
     camHUD.alpha = 1;
@@ -152,8 +150,14 @@ function create() {
 }
 
 var strumY:Int = -69;
+var evilTrail:FlxTrail;
 
 function createPost() {
+
+  evilTrail = new FlxTrail(PlayState.dad, null, 8, 2, 0.3, 0.069);
+  add(evilTrail);
+  evilTrail.visible = false;
+  evilTrail.scrollFactor.set(1.4, 1.3);
 
   bzz.play();
   PlayState.health = 1.5;
@@ -220,9 +224,15 @@ function onPreDeath() {
   bzz.stop();
 }
 
+var dadZoom:Float = 1.2;
+
+var window = Window;
+
 function updatePost(elapsed:Float) {
 
   PlayState.scoreWarning.visible = false;
+
+  // window.move(dad.x + 800, dad.y + 100); 
 
   if (PlayState.paused)
   {
@@ -296,7 +306,7 @@ function update(elapsed) {
   	}
   		else {
   			// PlayState.camFollow.setPosition(303, 106);
-  			PlayState.defaultCamZoom = 0.8;
+  			PlayState.defaultCamZoom = dadZoom;
 
   			switch(PlayState.dad.animation.curAnim.name) {
   					case "singLEFT" :
