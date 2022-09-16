@@ -1,4 +1,5 @@
 import("openfl.filters.ShaderFilter");
+import flixel.addons.display.FlxBackdrop;
 
 var shader:CustomShader = null;
 var shader2:CustomShader = null;
@@ -29,22 +30,26 @@ function create() {
     // bubbub.active = true;
     // PlayState.add(bub);
 
-    for(x in 0...Math.ceil(FlxG.width / 683.9)+20) {
-        for(y in 0...(Math.ceil(FlxG.height / 683.9)+10)) {
-            // bg pattern
-            pattern = new FlxSprite(x * 683.9, y * 683.9);
-            pattern.loadGraphic(Paths.image("encore/ball"));
-            pattern.antialiasing = true;
-            pattern.scale.set(0.7, 0.7);
-            pattern.scrollFactor.set(0.4, 1.6);
-            pattern.x -= 800;
-            pattern.y -= 800;
-            pattern.velocity.y = -30;
-            pattern.velocity.x = 10;
-            PlayState.add(pattern);
-        }
-    }
+    // for(x in 0...Math.ceil(FlxG.width / 683.9)+20) {
+    //     for(y in 0...(Math.ceil(FlxG.height / 683.9)+10)) {
+    //         // bg pattern
+    //         pattern = new FlxSprite(x * 683.9, y * 683.9);
+    //         pattern.loadGraphic(Paths.image("encore/ball"));
+    //         pattern.antialiasing = true;
+    //         pattern.scale.set(0.7, 0.7);
+    //         pattern.scrollFactor.set(0.4, 1.6);
+    //         pattern.x -= 800;
+    //         pattern.y -= 800;
+    //         pattern.velocity.y = -30;
+    //         pattern.velocity.x = 10;
+    //         PlayState.add(pattern);
+    //     }
+    // }
 
+    backdrop = new FlxBackdrop(Paths.image('encore/ball'));
+    backdrop.velocity.set(100, 0);
+    backdrop.shader = new CustomShader(mod + ':hotlineVHS');
+    add(backdrop);
 
     overlay = new FlxSprite(0, 0).loadGraphic(Paths.image('encore/overlay'));
     overlay.alpha = 0.6;
@@ -52,7 +57,7 @@ function create() {
     overlay.scrollFactor.set(0, 0);
     overlay.blend = BlendMode.DARKEN;
     overlay.scale.set(3, 3);
-    PlayState.add(overlay);
+    // PlayState.add(overlay);
 
     floor = new FlxSprite(-2266, 562).loadGraphic(Paths.image('encore/debugFloor'));
     floor.updateHitbox();
@@ -66,22 +71,22 @@ function create() {
 }
 
 function onGuiPopup() {
-  for(x2 in 0...Math.ceil(FlxG.width / w)+20) {
-      for(y2 in 0...(Math.ceil(FlxG.height / h)+20)) {
-          saturn = new FlxSprite(x2 * w , y2 * h );
-          saturn.loadGraphic(Paths.image("encore/saturn"));
-          saturn.antialiasing = true;
-          saturn.alpha = FlxG.random.float(0.1, 0.4);
-          saturn.scale.set(FlxG.random.float(0.3, 1.5), FlxG.random.float(0.3, 1.7));
-          saturn.scrollFactor.set(FlxG.random.float(0.7, 2.6), FlxG.random.float(1, 3));
-          saturn.x -= 700;
-          saturn.y -= FlxG.random.float(500, 600);
-          saturn.velocity.y = -80;
-          saturn.velocity.x = -80;
-          saturn.blend = BlendMode.ADD;
-          PlayState.add(saturn);
-      }
-  }
+  // for(x2 in 0...Math.ceil(FlxG.width / w)+20) {
+  //     for(y2 in 0...(Math.ceil(FlxG.height / h)+20)) {
+  //         saturn = new FlxSprite(x2 * w , y2 * h );
+  //         saturn.loadGraphic(Paths.image("encore/saturn"));
+  //         saturn.antialiasing = true;
+  //         saturn.alpha = FlxG.random.float(0.1, 0.4);
+  //         saturn.scale.set(FlxG.random.float(0.3, 1.5), FlxG.random.float(0.3, 1.7));
+  //         saturn.scrollFactor.set(FlxG.random.float(0.7, 2.6), FlxG.random.float(1, 3));
+  //         saturn.x -= 700;
+  //         saturn.y -= FlxG.random.float(500, 600);
+  //         saturn.velocity.y = -80;
+  //         saturn.velocity.x = -80;
+  //         saturn.blend = BlendMode.ADD;
+  //         PlayState.add(saturn);
+  //     }
+  // }
 
 }
 
@@ -127,8 +132,15 @@ function createPost() {
 
 var weewoo:Float = 0;
 
-function update(elapsed) {
+function updatePost(elapsed) {
 
+  res = [69, 420];
+  time += elapsed;
+
+  shader.shaderData.iTime.value = [time];
+  shader.shaderData.iResolution.value = res;
+  shader2.shaderData.iTime.value = [time];
+  shader2.shaderData.iResolution.value = res;
   weewoo += 0.01;
 
   PlayState.dad.y += Math.sin(weewoo) * 0.2;

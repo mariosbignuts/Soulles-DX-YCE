@@ -156,9 +156,9 @@ function createPost() {
       }
 
       for (i in 0...PlayState.playerStrums.length) {
+          PlayState.playerStrums.members[i].y = strumY;
             if (!EngineSettings.middleScroll)
   	      	PlayState.playerStrums.members[i].x += 42;
-  	      	PlayState.playerStrums.members[i].y = strumY;
       }
 
       // PlayState.timerBG.y = timeY;

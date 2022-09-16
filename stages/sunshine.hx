@@ -12,7 +12,7 @@ var shader:CustomShader = null;
 var shader2:CustomShader = null;
 var time = 4;
 
-var drain = 0.03;
+var drain = 0.025;
 
 var bzz:FlxSound;
 
@@ -48,7 +48,7 @@ function beatHit(curBeat)
   }
 
   if (curBeat == 294){
-    drain = 0.02;
+    drain = 0.01;
     canFeelSunshine = false;
     camHUD.alpha = 0;
     oldCharacter.visible = false;
@@ -174,8 +174,8 @@ function createPost() {
   PlayState.boyfriend.x = 870;
   PlayState.boyfriend.y = 480;
 
-  PlayState.dad.camOffset.x = 800;
-  PlayState.dad.camOffset.y = 150;
+  PlayState.dad.camOffset.x = 550;
+  PlayState.dad.camOffset.y = -50;
   PlayState.dad.x = -800;
   PlayState.dad.y = 169;
 

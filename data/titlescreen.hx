@@ -1,7 +1,12 @@
 var crafterEngineLogo:FlxSprite = null;
 var gfDancing:FlxSprite = null;
 import('flixel.addons.display.FlxBackdrop');
-import('flixel.group.FlxSpriteGroup');
+// import('flixel.group.FlxSpriteGroup');
+// import haxe.Exception;
+// import sys.thread.Thread;
+// import sys.io.File;
+import sys.FileSystem;
+// import lime.system.System;
 
 function create() {
 
