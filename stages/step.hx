@@ -16,7 +16,7 @@ var window = Window;
 
 function create() {
     FlxG.resizeWindow(1024, 768);
-    PlayState.defaultCamZoom = 1.25;
+    PlayState.defaultCamZoom = 1.35;
 
     bg = new FlxSprite(-92.85, -63).loadGraphic(Paths.image('step/bg'));
     bg.updateHitbox();
@@ -64,6 +64,12 @@ function stepHit(curStep:Int) {
       if (curStep % 4 == 0) {
           FlxTween.tween(PlayState.camHUD, {y: 0}, Conductor.stepCrochet * 0.002, {ease: FlxEase.circOut});
           FlxTween.tween(PlayState.boyfriend, {y: 275}, Conductor.stepCrochet * 0.002, {ease: FlxEase.quadOut});
+
+          PlayState.boyfriend.scale.set(1.15, 0.9);
+          FlxTween.tween(PlayState.boyfriend.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.001, {ease: FlxEase.quadOut});
+
+          PlayState.dad.scale.set(1.15, 0.9);
+          FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.001, {ease: FlxEase.quadOut});
 
       }
       if (curStep % 4 == 2) {
@@ -179,13 +185,25 @@ function update(elapsed:Float) {
   
   switch(PlayState.boyfriend.animation.curAnim.name) {
     case "singLEFT":
-      PlayState.dad.playAnim("singRIGHT");
-    case "singRIGHT":
       PlayState.dad.playAnim("singLEFT");
+    case "singRIGHT":
+      PlayState.dad.playAnim("singRIGHT");
     case "singUP":
       PlayState.dad.playAnim("singUP");
     case "singDOWN":
       PlayState.dad.playAnim("singDOWN");
+
+    case "singLEFTmiss":
+      PlayState.dad.playAnim("singLEFTmiss");
+    case "singRIGHTmiss":
+      PlayState.dad.playAnim("singRIGHTmiss");
+    case "singUPmiss":
+      PlayState.dad.playAnim("singUPmiss");
+    case "singDOWNmiss":
+      PlayState.dad.playAnim("singDOWNmiss");
+
+    case "idle":
+      PlayState.dad.playAnim("idle");
   }
 
 }
