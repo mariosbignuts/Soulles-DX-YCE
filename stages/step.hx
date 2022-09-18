@@ -14,7 +14,13 @@ var window = Window;
 //     camera.filtersEnabled = true;
 // }
 
+var shader:CustomShader = null;
+var shader2:CustomShader = null;
+
 function create() {
+
+    // PlayState.camHUD.addShader(shader = shader2 = new CustomShader(Paths.shader("bloom")));
+
     FlxG.resizeWindow(1024, 768);
     PlayState.defaultCamZoom = 1.35;
 
@@ -50,6 +56,10 @@ function create() {
     a.scale.set(0.8, 0.8);
     a.color = 0xFFEBFED0;
     PlayState.add(a);
+
+    GameOverSubstate.firstDeathSFX = "Soulles DX:vine";
+    GameOverSubstate.gameOverMusic = "Soulles DX:balls so blyu";
+    GameOverSubstate.gameOverMusicBPM = 69;
 
 }
 
@@ -161,7 +171,7 @@ function createPost() {
         //  PlayState.playerStrums.members[3].x += 75;
    }
 
-    PlayState.canDie = false;
+    // PlayState.canDie = false;
 
     PlayState.healthBarBG.visible = false;
     PlayState.healthBar.visible = false;
