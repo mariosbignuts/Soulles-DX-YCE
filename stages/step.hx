@@ -57,16 +57,17 @@ function create() {
     a.color = 0xFFEBFED0;
     PlayState.add(a);
 
-    GameOverSubstate.firstDeathSFX = "Soulles DX:vine";
     GameOverSubstate.gameOverMusic = "Soulles DX:balls so blyu";
     GameOverSubstate.gameOverMusicBPM = 69;
+    GameOverSubstate.scriptName = mod + ":states/GameOvers/stepGameOver";
+
+
 
 }
 
 var boingySproingy:Bool = true;
 var poopFartShittay:Float = 1.5;
 var camRight:Bool = true;
-
 
 function stepHit(curStep:Int) {
 
