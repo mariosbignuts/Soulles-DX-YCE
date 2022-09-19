@@ -57,3 +57,22 @@ function update(elapsed:Float) {
         fuckyou.text = "don't make my balls so blu";
     }
 }
+
+/*
+HELP ME              HELP ME     HELP MEHELP MEHELP MEHELP ME     HELP ME                          HELP MEHELP MEHELP ME
+HELP ME              HELP ME     HELP MEHELP MEHELP MEHELP ME     HELP ME                          HELP MEHELP MEHELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME              HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME              HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME              HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME              HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME              HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME              HELP ME
+HELP MEHELP MEHELP MEHELP ME     HELP MEHELP MEHELP MEHELP ME     HELP ME                          HELP MEHELP MEHELP ME
+HELP MEHELP MEHELP MEHELP ME     HELP MEHELP MEHELP MEHELP ME     HELP ME                          HELP MEHELP MEHELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME
+HELP ME              HELP ME     HELP ME                          HELP ME                          HELP ME
+HELP ME              HELP ME     HELP MEHELP MEHELP MEHELP ME     HELP MEHELP MEHELP MEHELP ME     HELP ME
+HELP ME              HELP ME     HELP MEHELP MEHELP MEHELP ME     HELP MEHELP MEHELP MEHELP ME     HELP ME
+
