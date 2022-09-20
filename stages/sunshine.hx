@@ -196,13 +196,13 @@ function createPost() {
   }
 
   for (i in 0...PlayState.playerStrums.length) {
-        if (!EngineSettings.middleScroll)
-      	PlayState.playerStrums.members[i].x += 42;
-      	PlayState.playerStrums.members[i].y = strumY;
-        noteOG0 = PlayState.playerStrums.members[0].x;
-        noteOG1 = PlayState.playerStrums.members[2].x;
-        noteOG2 = PlayState.playerStrums.members[1].x;
-        noteOG3 = PlayState.playerStrums.members[3].x;
+      if (!EngineSettings.middleScroll)
+      PlayState.playerStrums.members[i].x += 42;
+      PlayState.playerStrums.members[i].y = strumY;
+      noteOG0 = PlayState.playerStrums.members[0].x;
+      noteOG1 = PlayState.playerStrums.members[2].x;
+      noteOG2 = PlayState.playerStrums.members[1].x;
+      noteOG3 = PlayState.playerStrums.members[3].x;
   }
 
   FlxG.scaleMode.width = 1280;
@@ -332,12 +332,12 @@ function canYouFeelThe(sunshine, doesIt) {
 
     if(twean != null)
     {
-      trace('brighten up');
+      // trace('brighten up');
       twean.cancel();
     }
     PlayState.camHUD.alpha = sunshine;
     twean = FlxTween.tween(PlayState.camHUD, {alpha: 0}, doesIt, {ease: FlxEase.linear});
-    trace('your day');
+    // trace('your day');
 
 }
 

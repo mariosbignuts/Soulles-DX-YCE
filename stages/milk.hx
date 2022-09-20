@@ -177,10 +177,10 @@ function createPost() {
 			PlayState.dad.y = 226;
 
       // leakMode = true;
-    FlxG.scaleMode.width = 1280;
-    FlxG.scaleMode.height = 960;
-    FlxG.scaleMode.isWidescreen = false;
-    //thx yoshi
+      FlxG.scaleMode.width = 1280;
+      FlxG.scaleMode.height = 960;
+      FlxG.scaleMode.isWidescreen = false;
+      //thx yoshi
 
     funnyHud.text = "Cookies: " + sicks;
 
@@ -232,22 +232,20 @@ function update(elapsed:Float) {
 					case "singDOWN":
 							PlayState.camFollow.y = PlayState.camFollow.y + ofs1;
               PlayState.defaultCamZoom = 1.05;
-
-              case "singLEFT-alt":
-    							PlayState.camFollow.x = PlayState.camFollow.x - ofs2;
-                  PlayState.defaultCamZoom = 1.07;
-    					case "singRIGHT-alt":
-    							PlayState.camFollow.x = PlayState.camFollow.x + ofs2;
-                  PlayState.defaultCamZoom = 1.03;
-    					case "singUP-alt":
-    							PlayState.camFollow.y = PlayState.camFollow.y - ofs2;
-                  PlayState.defaultCamZoom = 1;
-    					case "singDOWN-alt":
-    							PlayState.camFollow.y = PlayState.camFollow.y + ofs2;
-                  PlayState.defaultCamZoom = 1.09;
-
-                  case "idle":
-                      PlayState.defaultCamZoom = 1.05;
+          case "singLEFT-alt":
+              PlayState.camFollow.x = PlayState.camFollow.x - ofs2;
+              PlayState.defaultCamZoom = 1.07;
+          case "singRIGHT-alt":
+              PlayState.camFollow.x = PlayState.camFollow.x + ofs2;
+              PlayState.defaultCamZoom = 1.03;
+          case "singUP-alt":
+              PlayState.camFollow.y = PlayState.camFollow.y - ofs2;
+              PlayState.defaultCamZoom = 1;
+          case "singDOWN-alt":
+              PlayState.camFollow.y = PlayState.camFollow.y + ofs2;
+              PlayState.defaultCamZoom = 1.09;
+          case "idle":
+              PlayState.defaultCamZoom = 1.05;
 		}
 	}
 		else {
@@ -262,15 +260,15 @@ function update(elapsed:Float) {
 					case "singUP":
 							PlayState.camFollow.y = PlayState.camFollow.y - ofs1;
 					case "singDOWN":
-							PlayState.camFollow.y = PlayState.camFollow.y + ofs1;
-              case "singLEFT-alt":
-                  PlayState.camFollow.x = PlayState.camFollow.x - ofs1;
-              case "singRIGHT-alt":
-                  PlayState.camFollow.x = PlayState.camFollow.x + ofs1;
-              case "singUP-alt":
-                  PlayState.camFollow.y = PlayState.camFollow.y - ofs1;
-              case "singDOWN-alt":
-                  PlayState.camFollow.y = PlayState.camFollow.y + ofs1;
+              PlayState.camFollow.y = PlayState.camFollow.y + ofs1;
+          case "singLEFT-alt":
+              PlayState.camFollow.x = PlayState.camFollow.x - ofs1;
+          case "singRIGHT-alt":
+              PlayState.camFollow.x = PlayState.camFollow.x + ofs1;
+          case "singUP-alt":
+              PlayState.camFollow.y = PlayState.camFollow.y - ofs1;
+          case "singDOWN-alt":
+              PlayState.camFollow.y = PlayState.camFollow.y + ofs1;
 		}
 
 
@@ -296,7 +294,7 @@ function update(elapsed:Float) {
 function onPlayerHit(note:Note){
   if(!note.isSustainNote){
     var judgement = 'shit';
-    var diff = Math.abs( Conductor.songPosition - note.strumTime);
+    var diff = Math.abs(Conductor.songPosition - note.strumTime);
     for(i in 0...PlayState.ratings.length){
       var judge = PlayState.ratings[i];
       if(diff <= judge.maxDiff){
@@ -315,6 +313,8 @@ function onPlayerHit(note:Note){
   }
 
 }
+
+//ty neb for coding this lmao ^
 
 var boingySproingy:Bool = false;
 var poopFartShittay:Float = 1.5;
@@ -386,78 +386,78 @@ function beatHit(curBeat)
 
 
     if (curBeat == 96){
-        FlxTween.tween(PlayState.camGame, {zoom: 0.9}, 1.5, {ease: FlxEase.circOut});
-        moveCam = false;
-        PlayState.camZooming = false;
-        PlayState.autoCamZooming = false;
-      }
+      FlxTween.tween(PlayState.camGame, {zoom: 0.9}, 1.5, {ease: FlxEase.circOut});
+      moveCam = false;
+      PlayState.camZooming = false;
+      PlayState.autoCamZooming = false;
+    }
 
     if (curBeat == 24){
-        FlxTween.tween(PlayState.camGame, {zoom: 1.3}, 2, {ease: FlxEase.sineInOut});
-        moveCam = false;
-        PlayState.camZooming = false;
-        PlayState.autoCamZooming = false;
-      }
+      FlxTween.tween(PlayState.camGame, {zoom: 1.3}, 2, {ease: FlxEase.sineInOut});
+      moveCam = false;
+      PlayState.camZooming = false;
+      PlayState.autoCamZooming = false;
+    }
 
     if (curBeat == 30){
-        FlxTween.tween(PlayState.camGame, {zoom: 0.9}, 1, {ease: FlxEase.sineOut});
-        moveCam = false;
-        PlayState.camZooming = false;
-        PlayState.autoCamZooming = false;
-      }
+      FlxTween.tween(PlayState.camGame, {zoom: 0.9}, 1, {ease: FlxEase.sineOut});
+      moveCam = false;
+      PlayState.camZooming = false;
+      PlayState.autoCamZooming = false;
+    }
 
     if (curBeat == 33){
-        FlxTween.tween(PlayState.camGame, {zoom: 2}, 1, {ease: FlxEase.sineIn});
-        FlxTween.tween(PlayState.camHUD, {zoom: 1.4}, 1, {ease: FlxEase.sineIn});
-        sunkFocus = true;
-        PlayState.camZooming = false;
-        PlayState.autoCamZooming = false;
-      }
+      FlxTween.tween(PlayState.camGame, {zoom: 2}, 1, {ease: FlxEase.sineIn});
+      FlxTween.tween(PlayState.camHUD, {zoom: 1.4}, 1, {ease: FlxEase.sineIn});
+      sunkFocus = true;
+      PlayState.camZooming = false;
+      PlayState.autoCamZooming = false;
+    }
 
     if (curBeat == 36){
-        sunkFocus = false;
-        moveCam = true;
-        PlayState.camZooming = true;
-        PlayState.autoCamZooming = true;
-        boingySproingy = true;
-      }
+      sunkFocus = false;
+      moveCam = true;
+      PlayState.camZooming = true;
+      PlayState.autoCamZooming = true;
+      boingySproingy = true;
+    }
 
     if (curBeat == 96){
       FlxTween.tween(PlayState.camGame, {zoom: 0.9}, 1.5, {ease: FlxEase.circOut});
       moveCam = false;
       PlayState.camZooming = false;
       PlayState.autoCamZooming = false;
-      }
+    }
 
     if (curBeat == 100){
-        moveCam = true;
-        PlayState.camZooming = true;
-        PlayState.autoCamZooming = true;
-      }
+      moveCam = true;
+      PlayState.camZooming = true;
+      PlayState.autoCamZooming = true;
+    }
 
     if (curBeat == 159){
-        FlxTween.tween(PlayState.camGame, {zoom: 1.6}, 1.6, {ease: FlxEase.quadInOut});
-        moveCam = false;
-        bfFocus = true;
-        PlayState.camZooming = false;
-        PlayState.autoCamZooming = false;
-        boingySproingy = false;
-      }
+      FlxTween.tween(PlayState.camGame, {zoom: 1.6}, 1.6, {ease: FlxEase.quadInOut});
+      moveCam = false;
+      bfFocus = true;
+      PlayState.camZooming = false;
+      PlayState.autoCamZooming = false;
+      boingySproingy = false;
+    }
 
     if (curBeat == 167){
-        moveCam = true;
-        bfFocus = false;
-        PlayState.camZooming = true;
-        PlayState.autoCamZooming = true;
-        boingySproingy = true;
-      }
+      moveCam = true;
+      bfFocus = false;
+      PlayState.camZooming = true;
+      PlayState.autoCamZooming = true;
+      boingySproingy = true;
+    }
 
     if (curBeat == 224){
-        FlxTween.tween(PlayState.camGame, {zoom: 1.5}, 1.2, {ease: FlxEase.circOut});
-        moveCam = false;
-        PlayState.camZooming = false;
-        PlayState.autoCamZooming = false;
-      }
+      FlxTween.tween(PlayState.camGame, {zoom: 1.5}, 1.2, {ease: FlxEase.circOut});
+      moveCam = false;
+      PlayState.camZooming = false;
+      PlayState.autoCamZooming = false;
+    }
 
     if (curBeat == 221){
       //begin sunk
@@ -491,8 +491,6 @@ function beatHit(curBeat)
       PlayState.camGame.zoom += 0.05;
     }
 }
-
-
 
 function your_func(parameter1:String) {
   FlxTween.tween(uwu, {alpha: 0.7}, 2, {ease: FlxEase.sineInOut});

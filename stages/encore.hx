@@ -93,16 +93,15 @@ function onGuiPopup() {
 function createPost() {
 
   for (i in 0...PlayState.cpuStrums.length) {
-      PlayState.cpuStrums.members[i].x -= 42;
-      PlayState.cpuStrums.members[i].y = -69;
-  }
+        PlayState.cpuStrums.members[i].x -= 42;
+        PlayState.cpuStrums.members[i].y = -69;
+      }
 
 
   for (i in 0...PlayState.playerStrums.length) {
-
         PlayState.playerStrums.members[i].x += 42;
         PlayState.playerStrums.members[i].y = -69;
-  }
+      }
 
       PlayState.gf.visible = false;
 

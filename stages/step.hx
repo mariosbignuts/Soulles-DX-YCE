@@ -61,8 +61,6 @@ function create() {
     GameOverSubstate.gameOverMusicBPM = 69;
     GameOverSubstate.scriptName = mod + ":states/GameOvers/stepGameOver";
 
-
-
 }
 
 var boingySproingy:Bool = true;
@@ -100,9 +98,9 @@ function beatHit(curBeat) {
       }
 
     switch(PlayState.dad.animation.curAnim.name) {
-      case "idle" :
-        PlayState.dad.playAnim('idle', true);
-    }
+        case "idle" :
+          PlayState.dad.playAnim('idle', true);
+      }
 
       camHUD.zoom += 0.06;
       camGame.zoom += 0.03;
@@ -203,7 +201,6 @@ function update(elapsed:Float) {
       PlayState.dad.playAnim("singUP");
     case "singDOWN":
       PlayState.dad.playAnim("singDOWN");
-
     case "singLEFTmiss":
       PlayState.dad.playAnim("singLEFTmiss");
     case "singRIGHTmiss":
@@ -212,7 +209,6 @@ function update(elapsed:Float) {
       PlayState.dad.playAnim("singUPmiss");
     case "singDOWNmiss":
       PlayState.dad.playAnim("singDOWNmiss");
-
     case "idle":
       PlayState.dad.playAnim("idle");
   }
