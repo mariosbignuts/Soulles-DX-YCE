@@ -70,8 +70,8 @@ function createPost() {
         timeBar.parentVariable = "songPosition";
         timeBar.setRange(0, inst.length);
         timeBar.cameras = [youtubeCam];
-        timeBar.textField.defaultTextFormat.letterSpacing = 52;
-        timeBar.textField.defaultTextFormat = timeBar.textField.defaultTextFormat;
+        // timeBar.textField.defaultTextFormat.letterSpacing = 52;
+        // timeBar.textField.defaultTextFormat = timeBar.textField.defaultTextFormat;
         add(timeBar);
     }
 

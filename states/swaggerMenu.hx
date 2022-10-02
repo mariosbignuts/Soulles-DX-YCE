@@ -19,7 +19,8 @@ var bf2:FlxSprite;
 var tail2:FlxSprite;
 
 function create() {
-
+    CoolUtil.playMenuMusic();
+    
     FlxG.resizeWindow(1280, 720);
 
     milkbg = new FlxSprite(-66.5, -106).loadGraphic(Paths.image('menu/milk'));
@@ -187,13 +188,13 @@ var timer = null;
 
 function pickCharacter(selectedCharacter) {
     if (selectedCharacter == sunkBox) {
-        CoolUtil.loadSong("Soulless DX", "milk", "normal");
+        CoolUtil.loadSong(mod, "milk", "normal");
         LoadingState.loadAndSwitchState(new PlayState_());
     } else if (selectedCharacter == bfBox) {
-        CoolUtil.loadSong("Soulless DX", "sunshine", "normal");
+        CoolUtil.loadSong(mod, "sunshine", "normal");
         LoadingState.loadAndSwitchState(new PlayState_());
     } else if (selectedCharacter == tailBox) {
-        CoolUtil.loadSong("Soulless DX", "soulless", "normal");
+        CoolUtil.loadSong(mod, "soulless", "normal");
         LoadingState.loadAndSwitchState(new PlayState_());
     }
 }

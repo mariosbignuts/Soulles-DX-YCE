@@ -10,7 +10,7 @@ import flixel.ui.FlxBar;
 // EngineSettings.showTimer = false;
 EngineSettings.downscroll = false;
 EngineSettings.centerStrums = false;
-EngineSettings.middlescroll = false;
+EngineSettings.middleScroll = false;
 EngineSettings.glowCPUStrums = false;
 EngineSettings.splashesEnabled = false;
 EngineSettings.showRatingTotal = false;
