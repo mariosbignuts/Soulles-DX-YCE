@@ -54,7 +54,7 @@ function beatHit(curBeat)
   errorLol = FlxG.random.int(1, 30);
   trace('error chance' + errorLol);
   if (errorLol > 29){
-    window.alert("Null Object Reference", "Error");
+    // window.alert("Null Object Reference", "Error");
   }
 
     if (curBeat % 2 == 0){

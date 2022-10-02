@@ -288,6 +288,7 @@ function update(elapsed:Float) {
 
   funnyHud.x = FlxMath.lerp(funnyHud.x, 60, 0.1);
 
+
 }
 
 

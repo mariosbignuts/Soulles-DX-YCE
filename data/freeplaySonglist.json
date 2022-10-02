@@ -69,6 +69,26 @@
 			"bpm": 106,
 			"name": "step",
 			"color": "#FB83CC"
+		},
+		{
+			"displayName": "you can't run",
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#4103AA",
+			"name": "you-cant-run",
+			"bpm": 140
+		},
+		{
+			"bpm": 100,
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": "ice cube",
+			"char": "bf",
+			"name": "icecube",
+			"color": "#FFFFFF"
 		}
 	]
 }

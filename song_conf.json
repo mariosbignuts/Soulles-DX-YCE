@@ -66,6 +66,22 @@
 			"end_cutscene": null,
 			"cutscene": null,
 			"name": "step"
+		},
+		{
+			"scripts": [],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "you-cant-run"
+		},
+		{
+			"scripts": [
+				"stages/icecube"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "icecube"
 		}
 	]
 }
