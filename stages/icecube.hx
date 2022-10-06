@@ -51,19 +51,34 @@ function create() {
 }
 
 var boingySproingy:Bool = true;
+var bouncay:Bool = true;
 
 function beatHit(curBeat) {
 
       if (boingySproingy){
-        PlayState.boyfriend.scale.set(1.15, 0.9);
-        PlayState.boyfriend.y = 145;
-        FlxTween.tween(PlayState.boyfriend.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
-        FlxTween.tween(PlayState.boyfriend, {y: 124.75}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+        if (bouncay){
+          PlayState.boyfriend.scale.set(0.9, 1.1);
+          PlayState.boyfriend.y = 115 - 5;
+          FlxTween.tween(PlayState.boyfriend.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          FlxTween.tween(PlayState.boyfriend, {y: 124.75}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+  
+          PlayState.dad.scale.set(1.15, 0.9);
+          PlayState.dad.y = 172 - 47;
+          FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          FlxTween.tween(PlayState.dad, {y: 152.4 - 47}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          bouncay = false;
+        } else {
+          PlayState.boyfriend.scale.set(1.15, 0.9);
+          PlayState.boyfriend.y = 145;
+          FlxTween.tween(PlayState.boyfriend.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          FlxTween.tween(PlayState.boyfriend, {y: 124.75}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
 
-        PlayState.dad.scale.set(1.15, 0.9);
-        PlayState.dad.y = 172 - 47;
-        FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
-        FlxTween.tween(PlayState.dad, {y: 152.4 - 47}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          PlayState.dad.scale.set(0.9, 1.1);
+          PlayState.dad.y = 142 - 47 - 5;
+          FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          FlxTween.tween(PlayState.dad, {y: 152.4 - 47}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          bouncay = true;
+        }
     }
 
 }
@@ -88,21 +103,17 @@ function createPost() {
     PlayState.gf.visible = false;
 
     PlayState.camFollowLerp = 0.02;
-
 }
 
 var ofs1:Int = 30;
-var camTween:FlxTween;
-
-var camMoving:Bool = false;
 
 function updatePost(elapsed:Float) {
 
   PlayState.camFollow.setPosition(cam.x, cam.y);
+  PlayState.defaultCamZoom = cam.scale.x;
 
     if (PlayState.section != null && PlayState.section.mustHitSection) {
-      PlayState.defaultCamZoom = 0.9;
-      camTweenin(806, 380);
+      camTweenin(806, 380, 0.9);
 
       switch(PlayState.boyfriend.animation.curAnim.name) {
           case "singLEFT":
@@ -116,8 +127,7 @@ function updatePost(elapsed:Float) {
     }
   }
     else {
-      PlayState.defaultCamZoom = 0.8;
-      camTweenin(246, 380);
+      camTweenin(246, 380, 0.8);
 
       switch(PlayState.dad.animation.curAnim.name) {
           case "singLEFT" :
@@ -133,12 +143,37 @@ function updatePost(elapsed:Float) {
 
 }
 
-function camTweenin(xx, yy){
+var camTween:FlxTween;
+var alsoCamTween:FlxTween;
+var camMoving:Bool = false;
+var cum:Float;
+
+function camTweenin(xx, yy, scale){
+
   if (!camMoving){
+
+    cum = FlxG.random.float(scale, scale + 0.15);
+
     camMoving = true;
-    camTween = FlxTween.tween(cam, {x: xx, y: yy}, 2, {ease: FlxEase.quadIn});
+    camTween = FlxTween.tween(cam, {x: xx, y: yy}, 2, {
+      ease: FlxEase.sineIn,
+      onComplete: function(twn:FlxTween)
+        {
+          camMoving = false;
+          camTween.cancel();
+        }
+    });
+
+    alsoCamTween = FlxTween.tween(cam.scale, {x:cum}, 2, {
+      ease: FlxEase.sineInOut,
+      onComplete: function(twn:FlxTween)
+        {
+          alsoCamTween.cancel();
+        }
+    });
+    
   }
 
-  if (camTween != null)
-    camMoving = false;
+  trace(cum);
+  
 }
