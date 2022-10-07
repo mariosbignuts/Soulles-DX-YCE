@@ -247,8 +247,7 @@ function update(elapsed:Float) {
           case "idle":
               PlayState.defaultCamZoom = 1.05;
 		}
-	}
-		else {
+	} else {
 			PlayState.camFollow.setPosition(363, 300);
 			// PlayState.defaultCamZoom = 1;
 

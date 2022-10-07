@@ -48,6 +48,9 @@ function create() {
     fg.scrollFactor.set(1, 1);
     PlayState.add(fg);
 
+    PlayState.add(PlayState.boyfriend);
+    PlayState.add(PlayState.dad);
+
 }
 
 var boingySproingy:Bool = true;
@@ -55,6 +58,7 @@ var bouncay:Bool = true;
 
 function beatHit(curBeat) {
 
+  //shitty boinboin effect
       if (boingySproingy){
         if (bouncay){
           PlayState.boyfriend.scale.set(0.9, 1.1);
@@ -63,9 +67,9 @@ function beatHit(curBeat) {
           FlxTween.tween(PlayState.boyfriend, {y: 124.75}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
   
           PlayState.dad.scale.set(1.15, 0.9);
-          PlayState.dad.y = 172 - 47;
+          PlayState.dad.y = 172 - 37;
           FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
-          FlxTween.tween(PlayState.dad, {y: 152.4 - 47}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          FlxTween.tween(PlayState.dad, {y: 152.4 - 37}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
           bouncay = false;
         } else {
           PlayState.boyfriend.scale.set(1.15, 0.9);
@@ -74,16 +78,15 @@ function beatHit(curBeat) {
           FlxTween.tween(PlayState.boyfriend, {y: 124.75}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
 
           PlayState.dad.scale.set(0.9, 1.1);
-          PlayState.dad.y = 142 - 47 - 5;
+          PlayState.dad.y = 142 - 37 - 5;
           FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
-          FlxTween.tween(PlayState.dad, {y: 152.4 - 47}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
+          FlxTween.tween(PlayState.dad, {y: 152.4 - 37}, Conductor.stepCrochet * 0.0019, {ease: FlxEase.quadOut});
           bouncay = true;
         }
     }
 
 }
 
-var strumY:Int = -42;
 
 function createPost() {
 
@@ -91,7 +94,7 @@ function createPost() {
     PlayState.boyfriend.y = 124.75;
 
     PlayState.dad.x = -213.05 - 47;
-    PlayState.dad.y = 152.4 - 47;
+    PlayState.dad.y = 152.4 - 37;
   
     PlayState.canDie = false;
 
@@ -125,8 +128,7 @@ function updatePost(elapsed:Float) {
           case "singDOWN":
               PlayState.camFollow.y = PlayState.camFollow.y + ofs1;
     }
-  }
-    else {
+  } else {
       camTweenin(246, 380, 0.8);
 
       switch(PlayState.dad.animation.curAnim.name) {
@@ -174,6 +176,6 @@ function camTweenin(xx, yy, scale){
     
   }
 
-  trace(cum);
+  // trace(cum);
   
 }
