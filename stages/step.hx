@@ -144,15 +144,15 @@ function createPost() {
     PlayState.dad.x = 450;
     PlayState.dad.y = 300;
   
-    PlayState.dad.addOffset("singLEFT", -38, -6);
-    PlayState.dad.addOffset("singRIGHT", 37, -7);
-    PlayState.dad.addOffset("singUP", 2, 27);
-    PlayState.dad.addOffset("singDOWN", -22, -50);
+    // PlayState.dad.addOffset("singLEFT", -38, -6);
+    // PlayState.dad.addOffset("singRIGHT", 37, -7);
+    // PlayState.dad.addOffset("singUP", 2, 27);
+    // PlayState.dad.addOffset("singDOWN", -22, -50);
 
-    PlayState.dad.addOffset("singLEFTmiss", -38, -6);
-    PlayState.dad.addOffset("singRIGHTmiss", 37, -7);
-    PlayState.dad.addOffset("singUPmiss", 2, 27);
-    PlayState.dad.addOffset("singDOWNmiss", -22, -50);
+    // PlayState.dad.addOffset("singLEFTmiss", -38, -6);
+    // PlayState.dad.addOffset("singRIGHTmiss", 37, -7);
+    // PlayState.dad.addOffset("singUPmiss", 2, 27);
+    // PlayState.dad.addOffset("singDOWNmiss", -22, -50);
 
   if (EngineSettings.downscroll){
     strumY = 670;

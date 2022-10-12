@@ -1,93 +1,103 @@
 {
 	"songs": [
 		{
+			"displayName": "chocolate milk",
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": "chocolate milk",
 			"char": "bf",
-			"bpm": 1,
+			"color": "#2BBEF7",
 			"name": "milk",
-			"color": "#2BBEF7"
+			"bpm": 1
 		},
 		{
+			"difficulties": [
+				"Normal"
+			],
 			"displayName": null,
+			"char": "bf",
+			"bpm": 180,
+			"name": "soulless",
+			"color": "#CF5602"
+		},
+		{
+			"displayName": "sunshine encore",
 			"difficulties": [
 				"Normal"
 			],
 			"char": "bf",
-			"color": "#CF5602",
-			"name": "soulless",
+			"color": "#0D0142",
+			"name": "sunshine-encore",
 			"bpm": 180
 		},
 		{
 			"difficulties": [
 				"Normal"
 			],
-			"displayName": "sunshine encore",
+			"displayName": "too silly",
 			"char": "bf",
 			"bpm": 180,
-			"name": "sunshine-encore",
-			"color": "#0D0142"
+			"name": "too-slow-encore",
+			"color": "#FFFFFF"
 		},
 		{
-			"displayName": "too silly",
+			"displayName": null,
+			"difficulties": [
+				"fest"
+			],
+			"char": "bf",
+			"color": "#2069FE",
+			"name": "too fest",
+			"bpm": 150
+		},
+		{
+			"displayName": "sunshine og",
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#E69E0A",
+			"name": "sunshine",
+			"bpm": 150
+		},
+		{
+			"displayName": "step",
+			"difficulties": [
+				"Normal"
+			],
+			"char": "bf",
+			"color": "#FB83CC",
+			"name": "step",
+			"bpm": 106
+		},
+		{
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": "you can't run",
+			"char": "bf",
+			"bpm": 140,
+			"name": "you-cant-run",
+			"color": "#4103AA"
+		},
+		{
+			"displayName": "ice cube",
 			"difficulties": [
 				"Normal"
 			],
 			"char": "bf",
 			"color": "#FFFFFF",
-			"name": "too-slow-encore",
-			"bpm": 180
-		},
-		{
-			"difficulties": [
-				"fest"
-			],
-			"displayName": null,
-			"char": "bf",
-			"bpm": 150,
-			"name": "too fest",
-			"color": "#2069FE"
-		},
-		{
-			"difficulties": [
-				"Normal"
-			],
-			"displayName": "sunshine og",
-			"char": "bf",
-			"bpm": 150,
-			"name": "sunshine",
-			"color": "#E69E0A"
-		},
-		{
-			"difficulties": [
-				"Normal"
-			],
-			"displayName": "step",
-			"char": "bf",
-			"bpm": 106,
-			"name": "step",
-			"color": "#FB83CC"
-		},
-		{
-			"displayName": "you can't run",
-			"difficulties": [
-				"Normal"
-			],
-			"char": "bf",
-			"color": "#4103AA",
-			"name": "you-cant-run",
-			"bpm": 140
-		},
-		{
-			"bpm": 100,
-			"difficulties": [
-				"Normal"
-			],
-			"displayName": "ice cube",
-			"char": "bf",
 			"name": "icecube",
+			"bpm": 100
+		},
+		{
+			"bpm": 150,
+			"difficulties": [
+				"Normal"
+			],
+			"displayName": "prey",
+			"char": "bf",
+			"name": "prey",
 			"color": "#FFFFFF"
 		}
 	]
