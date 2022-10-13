@@ -1,5 +1,5 @@
 #pragma header
-uniform vec2 uBlocksize = vec2(6, 6);
+uniform vec2 uBlocksize = vec2(10, 10);
 uniform float size = 0;
 
 void main()
@@ -9,7 +9,7 @@ void main()
         vec2 blocks = openfl_TextureSize / uBlocksize;
         gl_FragColor = texture2D(bitmap, floor(openfl_TextureCoordv * blocks) / blocks);
 
-        if (size > 1) {// checking for dumbas, must be > 1280x720
+        if (size > 1) {// checking for dumbas, must be > 1280x720 
             vec2 offset = vec2(0, 0);
             if (gl_FragColor == texture2D(bitmap, (floor(openfl_TextureCoordv * blocks) + offset - vec2(0.25, 0)) / blocks)) {
                 offset += vec2(0.25, 0);
@@ -20,5 +20,5 @@ void main()
             gl_FragColor = texture2D(bitmap, (floor(openfl_TextureCoordv * blocks) + offset) / blocks);
         }
     } else
-        gl_FragColor = texture2D(bitmap, openfl_TextureCoordv);
+        gl_FragColor = texture2D(bitmap, openfl_TextureCoordv);       
 }

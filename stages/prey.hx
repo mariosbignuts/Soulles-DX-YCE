@@ -1,4 +1,3 @@
-import lime.ui.Window;
 import openfl.utils.Assets;
 import openfl.filters.ShaderFilter;
 import flixel.addons.display.FlxBackdrop;
@@ -7,8 +6,6 @@ import flixel.FlxCamera;
 EngineSettings.showTimer = false;
 EngineSettings.maxRatingsAllowed = 0;
 
-var window = Window;
-
 // function setCamShader(shader, camera) {
 //     shader = new CustomShader(mod + ":" + shader);
 //     camera.setFilters([new ShaderFilter(shader)]);
@@ -16,32 +13,36 @@ var window = Window;
 // }
 
 var shader:CustomShader = null;
-var shader2:CustomShader = null;
 
 var overlayColours:Array<Float> = [
   0xFFFFFFFF,
-  0xFFFFFFFF, 
-  0xFFFFFFFF, 
-  0xFFFFFFFF, 
+  0xFFCCCCFF, 
   0xFFAAAAFF, 
+  0xFF9999FF, 
   0xFF6666FF, 
   0xFF3333FF, 
   0xFF0000FF, 
-  0xFF0000AA, 
-  0xFF000044, 
+  0xFF000099, 
+  0xFF000066, 
+  0xFF000033, 
   0xFF000000
  ]; //cool sega genesis palette switching effect
 
 var bg:FlxBackdrop;
 var floor:FlxBackdrop;
 
-function create() {
+var window = Window;
+import lime.ui.Window;
 
-    PlayState.camHUD.addShader(shader = shader2 = new CustomShader(Paths.shader("224p")));
-    
-    var camStuff = new FlxCamera(0, 0, 1280, 896, 1);
+function create() {
+  
+    FlxG.game.addShader(shader = new CustomShader(Paths.shader("mosaic")));
+
+    var camStuff:Dynamic = new FlxCamera(0, 0, 1280, 896, 1);
     camStuff.bgColor = new FlxColor(0xFF000000);
     FlxG.cameras.add(camStuff, false);
+    camStuff.antialiasing = false;
+    camStuff.pixelPerfectRender = true;
 
     FlxG.resizeWindow(960, 672);
     PlayState.defaultCamZoom = 1;
@@ -54,7 +55,7 @@ function create() {
 
     bg = new FlxBackdrop(Paths.image('prey/stardustBg'), 0, 0, true, false);
     bg.scale.set(4, 4);
-    bg.y = -600;
+    bg.y = -700;
     bg.scrollFactor.set(0, 0);
     PlayState.add(bg);
 
@@ -81,6 +82,8 @@ var strumY:Int = -42;
 var bgSpeed:Float = -150;
 var floorSpeed:Float = -750;
 
+import haxe.io.Path;
+
 function createPost() {
 
     PlayState.gf.visible = false;
@@ -89,12 +92,13 @@ function createPost() {
     PlayState.boyfriend.x = -750;
     PlayState.boyfriend.y = 420;
 
-    PlayState.dad.scrollFactor.set(0,0);
+    PlayState.dad.scrollFactor.set(0, 0);
+    PlayState.dad.scale.set(8, 8);
     PlayState.dad.x = -420;
-    PlayState.dad.y = 300;
+    PlayState.dad.y = 0;
 
     floor.scale.set(4, 4);
-    floor.y = boyfriend.y + 120;
+    floor.y = PlayState.boyfriend.y + 117;
     floor.scrollFactor.set(0, 0);
     PlayState.add(floor);
 
@@ -138,12 +142,49 @@ function createPost() {
     FlxG.scaleMode.height = 896;
     FlxG.scaleMode.isWidescreen = false;
 
+    window.title = "Fusion 3.64 - MegaCD - SONIC THE HEDGEHOG-CD";
+
 }
 
 var ofs1:Int = 30;
 var bgSchmoove:Bool = false;
 
+var pixelScale:Int = 4;
+
 function update(elapsed:Float) {
+
+
+  FlxG.camera.antialiasing = false;
+  FlxG.camera.pixelPerfectRender = true;
+  FlxG.game.stage.quality = 2;
+
+  shader.shaderData.uBlocksize.value = [pixelScale / FlxG.scaleMode.width * (FlxG.scaleMode.gameSize.x), pixelScale / FlxG.scaleMode.height * FlxG.scaleMode.gameSize.y];
+
+  var small = FlxG.scaleMode.gameSize.x < FlxG.scaleMode.width || FlxG.scaleMode.gameSize.y < FlxG.scaleMode.height;
+  if (small) {
+      shader.shaderData.size.value = [FlxG.scaleMode.gameSize.x < (FlxG.scaleMode.width / 2) ? 0 : 1];
+  } else {
+      shader.shaderData.size.value = [2];
+  }
+
+  FlxG.camera.zoom = 1;
+
+  if (PlayState.health < 0) { // YOU WILL DIE!!!
+      shader.shaderData.uBlocksize.value = [1, 1];
+  }
+  
+  for (s in PlayState.members) {
+      if (Std.isOfType(s, FlxSprite) && !Std.isOfType(s, Note)) {
+          if (s.velocity != null && s.velocity.x == 0 && s.velocity.y == 0 && !s.cameras.contains(PlayState.camHUD)) {
+              s.x -= s.x % pixelScale;
+              s.y -= s.y % pixelScale;
+              if (s.offset != null) {
+                  s.offset.x -= s.offset.x % pixelScale;
+                  s.offset.y -= s.offset.y % pixelScale;
+              }
+          }
+      }
+  }
 
   PlayState.autoCamZooming = false;
 
@@ -167,13 +208,16 @@ function beatHit(curBeat) {
 
   
   if (curBeat == 1){
-    FlxTween.tween(speedster, {alpha: 0}, 1, {ease: FlxEase.linear});
+    FlxTween.tween(speedster, {alpha: 0}, 0.4, {ease: FlxEase.linear});
+    speedster.scale.x = 0.5;
   }
 
   if (curBeat == 2){
     FlxTween.tween(titleBar, {y: 0}, 0.7, {ease: FlxEase.linear});
     FlxTween.tween(titleTex, {x: 0}, 0.7, {ease: FlxEase.linear});
     bgSchmoove = true;
+    remove(overlay);
+    PlayState.camHUD.alpha = 1;
   }
 
   if (curBeat == 10){
@@ -182,12 +226,12 @@ function beatHit(curBeat) {
   }
 
   if (curBeat == 32){
-    FlxTween.tween(PlayState.boyfriend, {x: 750}, 4, {ease: FlxEase.sineOut});
-    FlxTween.tween(speedster.scale, {x: 2}, 4, {ease: FlxEase.sineInOut});
-    FlxTween.tween(PlayState.camHUD, {alpha: 1}, 8, {ease: FlxEase.sineOut});
+    FlxTween.tween(PlayState.boyfriend, {x: 750}, 6, {ease: FlxEase.sineOut});
+    FlxTween.tween(speedster.scale, {x: 1.5 }, 6, {ease: FlxEase.sineInOut});
   }
 
-  if (curBeat == 64){
-    FlxTween.tween(PlayState.dad, {x: 420}, 1, {ease: FlxEase.circOut});
+  if (curBeat == 63){
+    FlxTween.tween(PlayState.dad, {x: 420, y: 300}, 2, {ease: FlxEase.circOut});
+    FlxTween.tween(PlayState.dad.scale, {x: 4, y: 4}, 2, {ease: FlxEase.linear});
   }
 }
