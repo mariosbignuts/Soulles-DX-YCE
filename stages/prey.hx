@@ -356,7 +356,7 @@ function beatHit(curBeat) {
 
 function onSongStart() {
 
-    new FlxTimer().start(1, function(tmr:FlxTimer)
+    new FlxTimer().start(1.6, function(tmr:FlxTimer)
 		{
 
       FlxTween.tween(speedster, {alpha: 0}, 0.4, {ease: FlxEase.linear,
