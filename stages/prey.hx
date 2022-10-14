@@ -327,6 +327,10 @@ function update(elapsed:Float) {
     PlayState.boyfriend.flipX = !PlayState.boyfriend.flipX;
   }
 
+  if (FlxControls.justPressed.F){
+    PlayState.dad.flipX = !PlayState.dad.flipX;
+  }
+
 }
 
 var right:Bool = true;
