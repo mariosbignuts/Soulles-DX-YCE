@@ -195,7 +195,6 @@ function createPost() {
 
   if (EngineSettings.downscroll){
     strumY = 670;
-    funnyHud.y = 30;
   }
 
   var noteOfs:Int = 28;
@@ -356,7 +355,7 @@ function beatHit(curBeat) {
 
 function onSongStart() {
 
-    new FlxTimer().start(1.6, function(tmr:FlxTimer)
+    new FlxTimer().start(1.0, function(tmr:FlxTimer)
 		{
 
       FlxTween.tween(speedster, {alpha: 0}, 0.4, {ease: FlxEase.linear,
