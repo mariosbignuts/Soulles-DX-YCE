@@ -2,7 +2,7 @@ enableRating = true;
 // enableMiss(true);
 
 function create() {
-    note.loadGraphic(Paths.image('HUD stuff/noteSkins/arrows-pixels'), true, 24, 24);
+    note.loadGraphic(Paths.image('HUD stuff/noteSkins/arrows-pixels'), true, 28, 28);
     note.colored = false;
     
     switch(note.noteData % 4) {
@@ -20,8 +20,8 @@ function create() {
     
     if (note.isSustainNote)
     {
-        note.noteOffset.x += 7;
-        note.noteOffset.y += 32;
+        note.noteOffset.x += 9;
+        note.noteOffset.y += 34;
 
         note.loadGraphic(Paths.image('HUD stuff/noteSkins/arrowEnds'), true, 10, 11);
 
@@ -57,7 +57,7 @@ function create() {
 
 
 function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
-    babyArrow.loadGraphic(Paths.image(EngineSettings.customArrowColors ? 'HUD stuff/noteSkins/arrows-pixels' : 'HUD stuff/noteSkins/arrows-pixels'), true, 24, 24);
+    babyArrow.loadGraphic(Paths.image(EngineSettings.customArrowColors ? 'HUD stuff/noteSkins/arrows-pixels' : 'HUD stuff/noteSkins/arrows-pixels'), true, 28, 28);
     babyArrow.animation.add('green', [6]);
     babyArrow.animation.add('red', [7]);
     babyArrow.animation.add('blue', [5]);
