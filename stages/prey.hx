@@ -216,7 +216,6 @@ function update(elapsed:Float) {
     FlxG.scaleMode.isWidescreen = false;
   }
 
-  
   if (FlxControls.justPressed.S){
     PlayState.boyfriend.flipX = !PlayState.boyfriend.flipX;
   }
