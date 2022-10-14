@@ -5,6 +5,7 @@ import flixel.FlxCamera;
 
 EngineSettings.showTimer = false;
 EngineSettings.maxRatingsAllowed = 0;
+EngineSettings.splashesEnabled = false;
 
 // function setCamShader(shader, camera) {
 //     shader = new CustomShader(mod + ":" + shader);
@@ -34,6 +35,85 @@ var floor:FlxBackdrop;
 var window = Window;
 import lime.ui.Window;
 
+function parallaxBgShit() {
+
+    a = new FlxBackdrop(Paths.image('prey/bg/a'), 0, 0, true, false);
+    a.y = -303;
+    PlayState.add(a);
+
+    b = new FlxBackdrop(Paths.image('prey/bg/b'), 0, 0, true, false);
+    b.y = a.y + a.height;
+    PlayState.add(b);
+
+    c = new FlxBackdrop(Paths.image('prey/bg/c'), 0, 0, true, false);
+    c.y = b.y + b.height;
+    PlayState.add(c);
+
+    d = new FlxBackdrop(Paths.image('prey/bg/d'), 0, 0, true, false);
+    d.y = c.y + c.height;
+    PlayState.add(d);
+
+    e = new FlxBackdrop(Paths.image('prey/bg/e'), 0, 0, true, false);
+    e.y = d.y + d.height;
+    PlayState.add(e);
+
+    f = new FlxBackdrop(Paths.image('prey/bg/f'), 0, 0, true, false);
+    f.y = e.y + e.height;
+    PlayState.add(f);
+
+    g = new FlxBackdrop(Paths.image('prey/bg/g'), 0, 0, true, false);
+    g.y = f.y + f.height;
+    PlayState.add(g);
+
+    h = new FlxBackdrop(Paths.image('prey/bg/h'), 0, 0, true, false);
+    h.y = g.y + g.height;
+    PlayState.add(h);
+
+    i = new FlxBackdrop(Paths.image('prey/bg/i'), 0, 0, true, false);
+    i.y = h.y + h.height;
+    PlayState.add(i);
+
+    j = new FlxBackdrop(Paths.image('prey/bg/j'), 0, 0, true, false);
+    j.y = i.y + i.height;
+    PlayState.add(j);
+
+    k = new FlxBackdrop(Paths.image('prey/bg/k'), 0, 0, true, false);
+    k.y = j.y + j.height;
+    PlayState.add(k);
+
+    l = new FlxBackdrop(Paths.image('prey/bg/l'), 0, 0, true, false);
+    l.y = k.y + k.height;
+    PlayState.add(l);
+    
+    m = new FlxBackdrop(Paths.image('prey/bg/m'), 0, 0, true, false);
+    m.y = l.y + l.height;
+    PlayState.add(m);
+
+    // n = new FlxBackdrop(Paths.image('prey/bg/n'), 0, 0, true, false);
+    // n.y = m.y + m.height;
+    // PlayState.add(n);
+    
+    // o = new FlxBackdrop(Paths.image('prey/bg/o'), 0, 0, true, false);
+    // o.y = n.y + n.height;
+    // PlayState.add(o);
+    
+    // p = new FlxBackdrop(Paths.image('prey/bg/p'), 0, 0, true, false);
+    // p.y = o.y + o.height;
+    // PlayState.add(p);
+    
+    // q = new FlxBackdrop(Paths.image('prey/bg/q'), 0, 0, true, false);
+    // q.y = p.y + p.height;
+    // PlayState.add(q);
+
+    // r = new FlxBackdrop(Paths.image('prey/bg/r'), 0, 0, true, false);
+    // r.y = q.y + q.height;
+    // PlayState.add(r);
+    
+    // s = new FlxBackdrop(Paths.image('prey/bg/s'), 0, 0, true, false);
+    // s.y = r.y + r.height;
+    // PlayState.add(s);
+
+}
 function create() {
 
     FlxG.resizeWindow(320 * 3, 224 * 3);
@@ -53,13 +133,19 @@ function create() {
     speedster.scale.set(1, 1);
     PlayState.add(speedster);
 
-    bg = new FlxBackdrop(Paths.image('prey/stardustBg'), 0, 0, true, false);
-    bg.scale.set(1, 1);
-    bg.y = -200;
-    bg.scrollFactor.set(0, 0);
-    PlayState.add(bg);
+    parallaxBgShit();
 
-    floor = new FlxBackdrop(Paths.image('prey/stardustFloor'), 0, 0, true, false);
+    // bg = new FlxBackdrop(Paths.image('prey/stardustBg'), 0, 0, true, false);
+    // bg.scale.set(1, 1);
+    // bg.y = -200;
+    // bg.scrollFactor.set(0, 0);
+    // PlayState.add(bg);
+
+    floor = new FlxBackdrop(Paths.image('prey/bg/floor'), 0, 0, true, false);
+    floor.scale.set(1, 1);
+    floor.y = PlayState.boyfriend.y - 108;
+    floor.scrollFactor.set(0, 0);
+    PlayState.add(floor);
 
     titleBar = new FlxSprite(0, -400).loadGraphic(Paths.image('prey/titleBar'));
     titleBar.antialiasing = false;
@@ -77,7 +163,7 @@ function create() {
 
 }
 
-var strumY:Int = -42;
+var strumY:Int = 270;
 
 var bgSpeed:Float = -5;
 var floorSpeed:Float = -75;
@@ -107,26 +193,34 @@ function createPost() {
       speedster.scale.x = 1;
     }
 
-    floor.scale.set(1, 1);
-    floor.y = PlayState.boyfriend.y + 66;
-    floor.scrollFactor.set(0, 0);
-    PlayState.add(floor);
-
   if (EngineSettings.downscroll){
     strumY = 670;
     funnyHud.y = 30;
   }
 
+  var noteOfs:Int = 28;
 
   for (i in 0...PlayState.cpuStrums.length) {
-      PlayState.cpuStrums.members[i].x -= 42;
       PlayState.cpuStrums.members[i].y = strumY;
-  }
+      PlayState.cpuStrums.members[i].scrollSpeed = 0.9;
+      
+      PlayState.cpuStrums.members[i].x += 400;
+      PlayState.cpuStrums.members[1].x = PlayState.cpuStrums.members[0].x + noteOfs;
+      PlayState.cpuStrums.members[2].x = PlayState.cpuStrums.members[1].x + noteOfs;
+      PlayState.cpuStrums.members[3].x = PlayState.cpuStrums.members[2].x + noteOfs;
 
-  for (i in 0...PlayState.playerStrums.length) {
       PlayState.playerStrums.members[i].y = strumY;
-        if (!EngineSettings.middleScroll)
-          PlayState.playerStrums.members[i].x += 42;
+      PlayState.playerStrums.members[i].scrollSpeed = 0.9;
+
+      if (!EngineSettings.middleScroll){
+        PlayState.playerStrums.members[i].x -= 80;
+      }
+
+      
+      PlayState.playerStrums.members[1].x = PlayState.playerStrums.members[0].x + noteOfs;
+      PlayState.playerStrums.members[2].x = PlayState.playerStrums.members[1].x + noteOfs;
+      PlayState.playerStrums.members[3].x = PlayState.playerStrums.members[2].x + noteOfs;
+
   }
 
     PlayState.healthBarBG.visible = false;
@@ -146,8 +240,7 @@ function createPost() {
     overlay.alpha = 1;
     PlayState.add(overlay);
 
-    PlayState.camHUD.alpha = 0;
-    PlayState.camHUD.zoom = 0.2;
+    // PlayState.camHUD.alpha = 0;
 
     PlayState.dad.alpha = 0;
     PlayState.boyfriend.alpha = 0;
@@ -204,7 +297,21 @@ function update(elapsed:Float) {
   PlayState.camZooming = false;
 
   if (bgSchmoove){
-    bg.velocity.x = bgSpeed * speedster.scale.x;
+
+    a.velocity.x = bgSpeed * speedster.scale.x;
+    b.velocity.x = bgSpeed + 70 * speedster.scale.x;
+    c.velocity.x = bgSpeed + 60 * speedster.scale.x;
+    d.velocity.x = bgSpeed + 50 * speedster.scale.x;
+    e.velocity.x = bgSpeed + 40 * speedster.scale.x;
+    f.velocity.x = bgSpeed + 30 * speedster.scale.x;
+    g.velocity.x = bgSpeed + 0 * speedster.scale.x;
+    h.velocity.x = bgSpeed - 20 * speedster.scale.x;
+    i.velocity.x = bgSpeed - 30 * speedster.scale.x;
+    j.velocity.x = bgSpeed - 50 * speedster.scale.x;
+    k.velocity.x = bgSpeed - 70 * speedster.scale.x;
+    l.velocity.x = bgSpeed - 90 * speedster.scale.x;
+    m.velocity.x = bgSpeed - 100 * speedster.scale.x;
+
     floor.velocity.x = floorSpeed * speedster.scale.x;
   }
 
@@ -227,7 +334,7 @@ var right:Bool = true;
 function beatHit(curBeat) {
 
   if (curBeat == 32){
-    FlxTween.tween(PlayState.boyfriend, {x: 150}, 6, {ease: FlxEase.sineOut});
+    FlxTween.tween(PlayState.boyfriend, {x: 150}, 6, {ease: FlxEase.backOut});
     FlxTween.tween(speedster.scale, {x: 1}, 6, {ease: FlxEase.sineInOut});
   }
 
@@ -245,7 +352,7 @@ function beatHit(curBeat) {
 
 function onSongStart() {
 
-    new FlxTimer().start(0.3, function(tmr:FlxTimer)
+    new FlxTimer().start(1, function(tmr:FlxTimer)
 		{
 
       FlxTween.tween(speedster, {alpha: 0}, 0.4, {ease: FlxEase.linear,

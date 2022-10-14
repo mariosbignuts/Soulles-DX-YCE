@@ -2,7 +2,7 @@ enableRating = true;
 // enableMiss(true);
 
 function create() {
-    note.loadGraphic(Paths.image('HUD stuff/noteSkins/arrows-pixels'), true, 17, 17);
+    note.loadGraphic(Paths.image('HUD stuff/noteSkins/arrows-pixels'), true, 24, 24);
     note.colored = false;
     
     switch(note.noteData % 4) {
@@ -16,12 +16,14 @@ function create() {
             note.animation.add('scroll', [7]);
     }
 
-    note.splash = Paths.splashes('weeb/splash');
+    // note.splash = Paths.splashes('weeb/splash');
     
     if (note.isSustainNote)
     {
-        note.noteOffset.x += 30;
-        note.loadGraphic(Paths.image('HUD stuff/noteSkins/arrowEnds'), true, 7, 6);
+        note.noteOffset.x += 7;
+        note.noteOffset.y += 32;
+
+        note.loadGraphic(Paths.image('HUD stuff/noteSkins/arrowEnds'), true, 10, 11);
 
         switch(note.noteData % 4) {
             case 0:
@@ -49,19 +51,19 @@ function create() {
         note.animation.add('bluehold', [1]);
     }
 
-    note.setGraphicSize(Std.int(note.width * PlayState_.daPixelZoom));
+    // note.setGraphicSize(Std.int(note.width * 4));
     note.updateHitbox();
 }
 
 
 function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
-    babyArrow.loadGraphic(Paths.image(EngineSettings.customArrowColors ? 'HUD stuff/noteSkins/arrows-pixels' : 'HUD stuff/noteSkins/arrows-pixels'), true, 17, 17);
+    babyArrow.loadGraphic(Paths.image(EngineSettings.customArrowColors ? 'HUD stuff/noteSkins/arrows-pixels' : 'HUD stuff/noteSkins/arrows-pixels'), true, 24, 24);
     babyArrow.animation.add('green', [6]);
     babyArrow.animation.add('red', [7]);
     babyArrow.animation.add('blue', [5]);
     babyArrow.animation.add('purplel', [4]);
 
-    babyArrow.setGraphicSize(Std.int(babyArrow.width * PlayState_.daPixelZoom));
+    // babyArrow.setGraphicSize(Std.int(babyArrow.width * 4));
     babyArrow.updateHitbox();
     babyArrow.antialiasing = false;
     
