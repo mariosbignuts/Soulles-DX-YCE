@@ -15,46 +15,46 @@
 			"indices": null,
 			"x": 0,
 			"y": 0,
-			"anim": "sonic idle",
+			"anim": "Idle",
 			"loop": true,
 			"name": "idle",
-			"framerate": 14
+			"framerate": 24
 		},
 		{
 			"indices": null,
-			"x": 0,
+			"x": 5,
 			"y": 0,
-			"anim": "sonic sing right",
-			"loop": true,
-			"name": "singRIGHT",
-			"framerate": 14
-		},
-		{
-			"indices": null,
-			"x": 0,
-			"y": 0,
-			"anim": "sonic sing down",
-			"loop": true,
+			"anim": "Down",
+			"loop": false,
 			"name": "singDOWN",
-			"framerate": 14
+			"framerate": 24
 		},
 		{
 			"indices": null,
-			"x": 0,
+			"x": 5,
 			"y": 0,
-			"anim": "sonic left sing",
-			"loop": true,
-			"name": "singLEFT",
-			"framerate": 14
+			"anim": "Right",
+			"loop": false,
+			"name": "singRIGHT",
+			"framerate": 24
 		},
 		{
 			"indices": null,
-			"x": 0,
-			"y": 0,
-			"anim": "sonic sing up",
-			"loop": true,
+			"x": 9,
+			"y": 2,
+			"anim": "Up",
+			"loop": false,
 			"name": "singUP",
-			"framerate": 14
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 7,
+			"y": 1,
+			"anim": "Left",
+			"loop": false,
+			"name": "singLEFT",
+			"framerate": 24
 		}
 	],
 	"danceSteps": [

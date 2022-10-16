@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="sonic-legs.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Legs0000" x="10" y="10" width="29" height="21" pivotX="-7" pivotY="-11"/>
+	<SubTexture name="Legs0001" x="49" y="10" width="29" height="21"/>
+	<SubTexture name="Legs0002" x="88" y="10" width="29" height="21"/>
+	<SubTexture name="Legs0003" x="10" y="41" width="29" height="21"/>
+</TextureAtlas>

@@ -175,8 +175,18 @@ function createPost() {
     PlayState.gf.visible = false;
 
     PlayState.boyfriend.scrollFactor.set(0,0);
-    PlayState.boyfriend.x = -100;
-    PlayState.boyfriend.y = 70;
+    PlayState.boyfriend.x = (-100 + 41);
+    PlayState.boyfriend.y = (70 + 46);
+
+    sonicsLegs = new FlxSprite((PlayState.boyfriend.x - 5), (PlayState.boyfriend.y + 15));
+    sonicsLegs.frames = Paths.getSparrowAtlas('prey/sonic-legs');
+    sonicsLegs.animation.addByPrefix('Legs', 'Legs', 24, true);
+    sonicsLegs.animation.play('Legs');
+    sonicsLegs.antialiasing = false;
+    sonicsLegs.scale.set(1, 1);
+    sonicsLegs.scrollFactor.set(PlayState.boyfriend.scrollFactor.x ,PlayState.boyfriend.scrollFactor.y);
+    sonicsLegs.updateHitbox();
+    PlayState.add(sonicsLegs);
 
     PlayState.dad.scrollFactor.set(0, 0);
     PlayState.dad.scale.set(2, 2);
@@ -186,7 +196,7 @@ function createPost() {
     speedster.scale.x = 0.5;
 
     if (PlayState.fromCharter){
-      PlayState.boyfriend.x = 150;
+      PlayState.boyfriend.x = (150 + 41);
       PlayState.dad.x = 30;
       PlayState.dad.y = 45;
       PlayState.dad.scale.set(1, 1);
@@ -259,6 +269,14 @@ var pixelScale:Int = 1;
 
 function update(elapsed:Float) {
 
+  sonicsLegs.alpha = PlayState.boyfriend.alpha;
+  sonicsLegs.x = (PlayState.boyfriend.x - 5);
+  sonicsLegs.y = (PlayState.boyfriend.y + 15);
+  sonicsLegs.scale.x = PlayState.boyfriend.scale.x;
+  sonicsLegs.scale.y = PlayState.boyfriend.scale.y;
+  sonicsLegs.angle = PlayState.boyfriend.angle;
+  sonicsLegs.flipX = PlayState.boyfriend.flipX;
+  sonicsLegs.visible = PlayState.boyfriend.visible;
 
   FlxG.camera.antialiasing = false;
   FlxG.camera.pixelPerfectRender = true;
@@ -337,7 +355,7 @@ var right:Bool = true;
 function beatHit(curBeat) {
 
   if (curBeat == 32){
-    FlxTween.tween(PlayState.boyfriend, {x: 150}, 6, {ease: FlxEase.backOut});
+    FlxTween.tween(PlayState.boyfriend, {x: (150  + 41)}, 6, {ease: FlxEase.backOut});
     FlxTween.tween(speedster.scale, {x: 1}, 6, {ease: FlxEase.sineInOut});
   }
 

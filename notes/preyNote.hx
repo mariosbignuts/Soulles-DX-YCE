@@ -76,18 +76,18 @@ function generateStaticArrow(babyArrow:FlxSprite, i:Int) {
         case 0:
             babyArrow.animation.add('static', [0]);
             babyArrow.animation.add('pressed', [8], 12, false);
-            babyArrow.animation.add('confirm', [16, 12], 12, false);
+            babyArrow.animation.add('confirm', [12, 16], 12, false);
         case 1:
             babyArrow.animation.add('static', [1]);
             babyArrow.animation.add('pressed', [9], 12, false);
-            babyArrow.animation.add('confirm', [17, 13], 12, false);
+            babyArrow.animation.add('confirm', [13, 17], 12, false);
         case 2:
             babyArrow.animation.add('static', [2]);
             babyArrow.animation.add('pressed', [10], 12, false);
-            babyArrow.animation.add('confirm', [18, 14], 12, false);
+            babyArrow.animation.add('confirm', [14, 18], 12, false);
         case 3:
             babyArrow.animation.add('static', [3]);
             babyArrow.animation.add('pressed', [11], 12, false);
-            babyArrow.animation.add('confirm', [19, 15], 12, false);
+            babyArrow.animation.add('confirm', [15, 19], 12, false);
     }
 }
