@@ -1,1 +1,100 @@
-{"songs":[{"scripts":["stages/milk","Soulless DX:/debug"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"milk"},{"scripts":["debug","stages/soulless"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"soulless"},{"scripts":["stages/encore"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"sunshine-encore"},{"scripts":["stages/tooslow","SOulles DX:/scripts/vanillainput"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"too-slow-encore"},{"scripts":["stages/sanic","SOulles DX:/scripts/youtube-ui"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"too fest"},{"scripts":["stages/sunshine"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"sunshine"},{"scripts":["stages/step"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"step"},{"scripts":["Soulles DX:/scripts/lick"],"difficulties":[],"end_cutscene":null,"cutscene":null,"name":"you-cant-run"},{"scripts":["stages/icecube","Soulles DX:/scripts/lick"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"icecube"},{"scripts":["scripts/sonicHud","stages/prey"],"difficulties":null,"end_cutscene":null,"cutscene":null,"name":"prey"}]}
+{
+	"songs": [
+		{
+			"scripts": [
+				"stages/milk",
+				"Soulless DX:/debug"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "milk"
+		},
+		{
+			"scripts": [
+				"debug",
+				"stages/soulless"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "soulless"
+		},
+		{
+			"scripts": [
+				"stages/encore"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "sunshine-encore"
+		},
+		{
+			"scripts": [
+				"stages/tooslow",
+				"scripts/vanillainput"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "too-slow-encore"
+		},
+		{
+			"scripts": [
+				"stages/sanic",
+				"scripts/youtube-ui"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "too fest"
+		},
+		{
+			"scripts": [
+				"stages/sunshine"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "sunshine"
+		},
+		{
+			"scripts": [
+				"stages/step"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "step"
+		},
+		{
+			"scripts": [
+				"scripts/lick"
+			],
+			"difficulties": [],
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "you-cant-run"
+		},
+		{
+			"scripts": [
+				"stages/icecube",
+				"scripts/lick"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "icecube"
+		},
+		{
+			"scripts": [
+				"scripts/sonicHud",
+				"stages/prey"
+			],
+			"difficulties": null,
+			"end_cutscene": null,
+			"cutscene": null,
+			"name": "prey"
+		}
+	]
+}
