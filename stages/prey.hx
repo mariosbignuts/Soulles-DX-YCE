@@ -11,6 +11,8 @@ EngineSettings.middleScroll = true;
 var bfTuin:FlxTween;
 var dadTuin:FlxTween;
 var dadTuin2:FlxTween;
+var starvedTuin:FlxTween;
+var starvedTuin2:FlxTween;
 var speedTuin:FlxTween;
 var barTuin:FlxTween;
 var texTuin:FlxTween;
@@ -25,6 +27,9 @@ var introTimer2:FlxTimer;
 
 var shader:CustomShader = null;
 
+var metal:Character = null;
+var eggman:Character = null;
+
 var overlayColours:Array<Float> = [
   0xFFFFFFFF,
   0xFFCCCCFF, 
@@ -37,10 +42,39 @@ var overlayColours:Array<Float> = [
   0xFF000066, 
   0xFF000033, 
   0xFF000000
- ]; //cool sega genesis palette switching effect
+ ]; //cool sega genesis fade in palette switching effect
+
+ var overlayColours2:Array<Float> = [
+  0xFFFFFFFF,
+  0xFFFFAAAA, 
+  0xFFFF9999, 
+  0xFFFF6666, 
+  0xFFFF3333, 
+  0xFFCC0000, 
+  0xFFAA0000, 
+  0xFF880000, 
+  0xFF660000, 
+  0xFF440000, 
+  0xFF220000
+ ]; //starved bg dim
+
+ var overlayColours3:Array<Float> = [
+  0xFFFFFFFF,
+  0xFFFFFFDD, 
+  0xFFFFFFAA, 
+  0xFFFFFF99, 
+  0xFFFFFF00, 
+  0xFFFFDD00, 
+  0xFFFF8800, 
+  0xFF884400, 
+  0xFF662200, 
+  0xFF440000, 
+  0xFF000000
+ ]; //cool sega genesis palette switching flash effect
 
 var bg:FlxBackdrop;
 var floor:FlxBackdrop;
+var wall:FlxBackdrop;
 
 var window = Window;
 import lime.ui.Window;
@@ -143,19 +177,47 @@ function create() {
     speedster.scale.set(1, 1);
     PlayState.add(speedster);
 
+    flasher = new FlxSprite(300, 300);
+    flasher.makeGraphic(69, 69, 0xFFFF0000);
+    flasher.scrollFactor.set(0, 0);
+    flasher.scale.set(1, 1);
+    PlayState.add(flasher);
+
     parallaxBgShit();
 
+    overlay2 = new FlxSprite(0, -300);
+    overlay2.makeGraphic(960 * 2, 672 * 2, 0xFFFFFFFF);
+    overlay2.scrollFactor.set(0, 0);
+    overlay2.scale.set(1, 1);
+    overlay2.blend = BlendMode.DARKEN;
+    overlay2.alpha = 1;
+    PlayState.add(overlay2);
+    
     // bg = new FlxBackdrop(Paths.image('prey/stardustBg'), 0, 0, true, false);
     // bg.scale.set(1, 1);
     // bg.y = -200;
     // bg.scrollFactor.set(0, 0);
     // PlayState.add(bg);
 
+    metal = PlayState.dad;
+    eggman = new Character(-100, -100, mod + ":prey-starved");
+    eggman.alpha = 0;
+    eggman.scale.set(0.5, 0.5);
+    eggman.scrollFactor.set(0, 0);
+    PlayState.dads.push(eggman);
+    PlayState.add(eggman);
+
     floor = new FlxBackdrop(Paths.image('prey/bg/floor'), 0, 0, true, false);
     floor.scale.set(1, 1);
     floor.y = PlayState.boyfriend.y - 108;
     floor.scrollFactor.set(0, 0);
     PlayState.add(floor);
+
+    wall = new FlxBackdrop(Paths.image('prey/bg/wall'), 0, 0, true, false);
+    wall.scale.set(1, 1);
+    wall.y = floor.y;
+    wall.scrollFactor.set(0, 0);
+    PlayState.add(wall);
 
     titleBar = new FlxSprite(0, -400).loadGraphic(Paths.image('prey/titleBar'));
     titleBar.antialiasing = false;
@@ -179,6 +241,10 @@ var bgSpeed:Float = -5;
 var floorSpeed:Float = -75;
 var doing:FlxSound = null;
 
+var eggApproach:FlxSound = null;
+var furnaceBreak1:FlxSound = null;
+var wallDestroy:FlxSound = null;
+
 import haxe.io.Path;
 
 function createPost() {
@@ -188,6 +254,10 @@ function createPost() {
     PlayState.boyfriend.scrollFactor.set(0,0);
     PlayState.boyfriend.x = -59;
     PlayState.boyfriend.y = 116;
+
+    FlxG.scaleMode.width = 1280;
+    FlxG.scaleMode.height = 960;
+    FlxG.scaleMode.isWidescreen = false;
 
     sonicsLegs = new FlxSprite((PlayState.boyfriend.x - 5), (PlayState.boyfriend.y + 15));
     sonicsLegs.frames = Paths.getSparrowAtlas('prey/sonic-legs');
@@ -250,18 +320,25 @@ function createPost() {
     overlay.alpha = 1;
     PlayState.add(overlay);
 
-    PlayState.camHUD.alpha = 0;
+    overlay3 = new FlxSprite(0, -300);
+    overlay3.makeGraphic(960 * 2, 672 * 2, 0xFFFFFFFF);
+    overlay3.scrollFactor.set(0, 0);
+    overlay3.scale.set(1, 1);
+    overlay3.blend = BlendMode.ADD;
+    overlay3.alpha = 1;
+    PlayState.add(overlay3);
+
+    // PlayState.camHUD.alpha = 0;
 
     PlayState.dad.alpha = 0;
-    // PlayState.boyfriend.alpha = 0;
-
-    FlxG.scaleMode.width = 320;
-    FlxG.scaleMode.height = 224;
-    FlxG.scaleMode.isWidescreen = false;
+    PlayState.boyfriend.alpha = 0;
 
     window.title = "Fusion 3.64 - MegaCD - SONIC THE HEDGEHOG-CD";
 
     doing = Paths.sound("sonicJump");
+    eggApproach = Paths.sound("eggApproach");
+    furnaceBreak1 = Paths.sound("furnaceBreak1");
+    wallDestroy = Paths.sound("wallDestroy");
 
     ballSonic = new FlxSprite(-108, -250);
     ballSonic.frames = Paths.getSparrowAtlas('prey/wee');
@@ -277,6 +354,9 @@ var bgSchmoove:Bool = false;
 
 var pixelScale:Int = 1;
 var boingoing:Bool = false;
+
+var starvedCutscene:Bool = false;
+var cameraFlash:Bool = false;
 
 import flixel.util.FlxDirectionFlags;
 
@@ -355,7 +435,6 @@ function update(elapsed:Float) {
   PlayState.camZooming = false;
 
   if (bgSchmoove){
-
     a.velocity.x = bgSpeed * speedster.scale.x;
     b.velocity.x = bgSpeed + 70 * speedster.scale.x;
     c.velocity.x = bgSpeed + 60 * speedster.scale.x;
@@ -371,11 +450,17 @@ function update(elapsed:Float) {
     m.velocity.x = bgSpeed - 100 * speedster.scale.x;
 
     floor.velocity.x = floorSpeed * speedster.scale.x;
+    wall.velocity.x = floor.velocity.x;
   }
 
   pauseThing();
 
   overlay.color = overlayColours[Std.int(speedster.alpha * 10)];
+
+  if (starvedCutscene)
+    overlay2.color = overlayColours2[Std.int(speedster.alpha * 10)];
+
+  overlay3.color = overlayColours3[Std.int(flasher.alpha * 10)];
 
   if (FlxControls.justPressed.SEVEN){
     FlxG.scaleMode.width = 1280;
@@ -398,7 +483,7 @@ var right:Bool = true;
 function beatHit(curBeat) {
 
   if (curBeat == 32){
-    bfTuin = FlxTween.tween(PlayState.boyfriend, {x: 150 + 41}, 6, {ease: FlxEase.backOut});
+    bfTuin = FlxTween.tween(PlayState.boyfriend, {x: 191}, 6, {ease: FlxEase.backOut});
     speedTuin = FlxTween.tween(speedster.scale, {x: 1.1}, 6, {ease: FlxEase.sineInOut});
   }
 
@@ -412,13 +497,56 @@ function beatHit(curBeat) {
     speedTuin = FlxTween.tween(speedster.scale, {x: 1.4}, 6, {ease: FlxEase.sineInOut});
   }
 
-  if (curBeat == 446){
-    speedTuin = FlxTween.tween(speedster.scale, {x: 2.2}, 6, {ease: FlxEase.sineInOut});
+  if (curBeat == 381){
+    FlxG.sound.play(furnaceBreak1);
+  }
+
+  if (curBeat == 382){
+    FlxG.sound.play(furnaceBreak1);
+  }
+
+  if (curBeat == 383){
+    dadTuin = FlxTween.tween(PlayState.dad, {x: -200, y: 80, angle: -10}, 2, {ease: FlxEase.sineIn});
+    FlxG.sound.play(furnaceBreak1);
+    starvedCutscene = true;
+  }
+  
+  if (curBeat == 386){
+    bfTuin = FlxTween.tween(PlayState.boyfriend, {x: 97}, 3, {ease: FlxEase.sineInOut});
+  }
+
+  if (curBeat == 395){
+    starvedTuin = FlxTween.tween(eggman, {x: 97, y: 15}, 2, {ease: FlxEase.backOut});
+    starvedTuin2 = FlxTween.tween(eggman.scale, {x: 1, y: 1}, 2, {ease: FlxEase.sineOut});
+    FlxG.sound.play(eggApproach);
+  }
+
+  if (curBeat == 418){
+    FlxTween.tween(speedster, {alpha: 1}, 7, {ease: FlxEase.linear});
+  }
+
+  if (curBeat == 444){
+    FlxTween.tween(speedster, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+    FlxTween.tween(flasher, {alpha: 0}, 0.5, {ease: FlxEase.linear});
+    bgSchmoove = false;
+  }
+
+  if (curBeat == 447){
+    FlxG.sound.play(wallDestroy);
+    speedTuin = FlxTween.tween(speedster.scale, {x: 2.2}, 2, {ease: FlxEase.sineInOut});
+    wall.visible = false;
+    FlxTween.tween(flasher, {alpha: 1}, 0.5, {ease: FlxEase.linear});
+    bgSchmoove = true;
+    starvedCutscene = false;
   }
 
 }
 
 function onSongStart() {
+
+  FlxG.scaleMode.width = 320;
+  FlxG.scaleMode.height = 224;
+  FlxG.scaleMode.isWidescreen = false;
 
     introTimer = new FlxTimer().start(1.0, function(tmr:FlxTimer)
 		{
@@ -433,6 +561,7 @@ function onSongStart() {
               PlayState.camHUD.alpha = 1;
               PlayState.dad.alpha = 1;
               PlayState.boyfriend.alpha = 1;
+              eggman.alpha = 1;
 
               introTimer2 = new FlxTimer().start(3, function(tmr:FlxTimer)
                 {
@@ -463,6 +592,8 @@ function pauseThing() {
       texTuin.active = true;
       introTimer.active = true;
       introTimer2.active = true;
+      starvedTuin.active = true;
+      starvedTuin2.active = true;
 
     } else {
       persistentUpdate = false;
@@ -477,6 +608,8 @@ function pauseThing() {
       texTuin.active = false;
       introTimer.active = false;
       introTimer2.active = false;
+      starvedTuin.active = false;
+      starvedTuin2.active = false;
 
       if (FlxG.sound.music != null)
       {

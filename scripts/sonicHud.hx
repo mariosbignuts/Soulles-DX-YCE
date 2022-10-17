@@ -92,7 +92,7 @@ function createPost() {
     healthValueText.cameras = [PlayState.camHUD];
 	PlayState.add(healthValueText);
 
-    new FlxTimer().start(0.7, tickEnableRedFlashing, 0);
+    new FlxTimer().start(0.4, tickEnableRedFlashing, 0);
 }
 
 function tickEnableRedFlashing(timer:FlxTimer):Void
