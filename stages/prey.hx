@@ -261,7 +261,7 @@ function createPost() {
 
     sonicsLegs = new FlxSprite((PlayState.boyfriend.x - 5), (PlayState.boyfriend.y + 15));
     sonicsLegs.frames = Paths.getSparrowAtlas('prey/sonic-legs');
-    sonicsLegs.animation.addByPrefix('Legs', 'Legs', 24, true);
+    sonicsLegs.animation.addByPrefix('Legs', 'Legs', 14, true);
     sonicsLegs.animation.play('Legs');
     sonicsLegs.antialiasing = false;
     sonicsLegs.scale.set(1, 1);
