@@ -328,7 +328,7 @@ function createPost() {
     overlay3.alpha = 1;
     PlayState.add(overlay3);
 
-    // PlayState.camHUD.alpha = 0;
+    PlayState.camHUD.alpha = 0;
 
     PlayState.dad.alpha = 0;
     PlayState.boyfriend.alpha = 0;
