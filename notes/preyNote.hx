@@ -16,7 +16,7 @@ function create() {
             note.animation.add('scroll', [7]);
     }
 
-    // note.splash = Paths.splashes('weeb/splash');
+    note.splash = Paths.splashes('weeb/splash');
     
     if (note.isSustainNote)
     {

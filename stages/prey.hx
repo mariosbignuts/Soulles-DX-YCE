@@ -6,6 +6,16 @@ import flixel.FlxCamera;
 EngineSettings.showTimer = false;
 EngineSettings.maxRatingsAllowed = 0;
 EngineSettings.splashesEnabled = false;
+EngineSettings.middleScroll = true;
+
+var bfTuin:FlxTween;
+var dadTuin:FlxTween;
+var dadTuin2:FlxTween;
+var speedTuin:FlxTween;
+var barTuin:FlxTween;
+var texTuin:FlxTween;
+var introTimer:FlxTimer;
+var introTimer2:FlxTimer;
 
 // function setCamShader(shader, camera) {
 //     shader = new CustomShader(mod + ":" + shader);
@@ -167,6 +177,7 @@ var strumY:Int = 270;
 
 var bgSpeed:Float = -5;
 var floorSpeed:Float = -75;
+var doing:FlxSound = null;
 
 import haxe.io.Path;
 
@@ -193,34 +204,24 @@ function createPost() {
       speedster.scale.x = 1;
     }
 
-  if (EngineSettings.downscroll){
-    strumY = 670;
-  }
+    if (EngineSettings.downscroll){
+      strumY = 670;
+    }
 
-  var noteOfs:Int = 28;
+    var noteOfs:Int = 28;
 
-  for (i in 0...PlayState.cpuStrums.length) {
-      PlayState.cpuStrums.members[i].y = strumY;
-      PlayState.cpuStrums.members[i].scrollSpeed = 0.9;
-      
-      PlayState.cpuStrums.members[i].x += 400;
-      PlayState.cpuStrums.members[1].x = PlayState.cpuStrums.members[0].x + noteOfs;
-      PlayState.cpuStrums.members[2].x = PlayState.cpuStrums.members[1].x + noteOfs;
-      PlayState.cpuStrums.members[3].x = PlayState.cpuStrums.members[2].x + noteOfs;
+    for (i in 0...PlayState.playerStrums.length) {
 
-      PlayState.playerStrums.members[i].y = strumY;
-      PlayState.playerStrums.members[i].scrollSpeed = 0.9;
+        PlayState.playerStrums.members[i].y = strumY;
+        PlayState.playerStrums.members[i].scrollSpeed = 0.9;
 
-      if (!EngineSettings.middleScroll){
-        PlayState.playerStrums.members[i].x -= 80;
-      }
+        PlayState.playerStrums.members[i].x += 240;
+        
+        PlayState.playerStrums.members[1].x = PlayState.playerStrums.members[0].x + noteOfs;
+        PlayState.playerStrums.members[2].x = PlayState.playerStrums.members[1].x + noteOfs;
+        PlayState.playerStrums.members[3].x = PlayState.playerStrums.members[2].x + noteOfs;
 
-      
-      PlayState.playerStrums.members[1].x = PlayState.playerStrums.members[0].x + noteOfs;
-      PlayState.playerStrums.members[2].x = PlayState.playerStrums.members[1].x + noteOfs;
-      PlayState.playerStrums.members[3].x = PlayState.playerStrums.members[2].x + noteOfs;
-
-  }
+    }
 
     PlayState.healthBarBG.visible = false;
     PlayState.healthBar.visible = false;
@@ -239,7 +240,7 @@ function createPost() {
     overlay.alpha = 1;
     PlayState.add(overlay);
 
-    // PlayState.camHUD.alpha = 0;
+    PlayState.camHUD.alpha = 0;
 
     PlayState.dad.alpha = 0;
     PlayState.boyfriend.alpha = 0;
@@ -250,15 +251,57 @@ function createPost() {
 
     window.title = "Fusion 3.64 - MegaCD - SONIC THE HEDGEHOG-CD";
 
+    doing = Paths.sound("sonicJump");
+
+    ballSonic = new FlxSprite(-108, -250);
+    ballSonic.frames = Paths.getSparrowAtlas('prey/wee');
+    ballSonic.animation.addByPrefix('wee', 'boing', 20, true);
+    ballSonic.scrollFactor.set(0, 0);
+    ballSonic.animation.play('wee');
+    PlayState.add(ballSonic);
+
 }
 
 var ofs1:Int = 30;
 var bgSchmoove:Bool = false;
 
 var pixelScale:Int = 1;
+var boingoing:Bool = false;
 
+import flixel.util.FlxDirectionFlags;
+
+function boing() {
+
+  PlayState.boyfriend.acceleration.y = 800;
+  trace(boingoing);
+
+  if (PlayState.boyfriend.y > 70){
+    PlayState.boyfriend.y = 70;
+    // PlayState.boyfriend.velocity.y = 0;
+    boingoing = false;
+    ballSonic.visible = false;
+    PlayState.boyfriend.visible = true;
+
+  }
+
+  if (FlxControls.justPressed.SPACE && !boingoing){
+    
+    boingoing = true;
+    PlayState.boyfriend.velocity.y = -400;
+    FlxG.sound.play(doing);
+    ballSonic.visible = true;
+    PlayState.boyfriend.visible = false;
+
+  }
+
+  ballSonic.x = PlayState.boyfriend.x + 35;
+  ballSonic.y = PlayState.boyfriend.y + 52;
+
+}
 function update(elapsed:Float) {
 
+  if (!paused)
+  boing();
 
   FlxG.camera.antialiasing = false;
   FlxG.camera.pixelPerfectRender = true;
@@ -273,14 +316,12 @@ function update(elapsed:Float) {
       shader.shaderData.size.value = [2];
   }
 
-  FlxG.camera.zoom = 1;
-
   if (PlayState.health < 0) { // YOU WILL DIE!!!
       shader.shaderData.uBlocksize.value = [1, 1];
   }
   
   for (s in PlayState.members) {
-      if (Std.isOfType(s, FlxSprite) && !Std.isOfType(s, Note)) {
+      if (Std.isOfType(s, FlxSprite) || Std.isOfType(s, Note)) {
           if (s.velocity != null && s.velocity.x == 0 && s.velocity.y == 0 && !s.cameras.contains(PlayState.camHUD)) {
               s.x -= s.x % pixelScale;
               s.y -= s.y % pixelScale;
@@ -314,6 +355,8 @@ function update(elapsed:Float) {
     floor.velocity.x = floorSpeed * speedster.scale.x;
   }
 
+  pauseThing();
+
   overlay.color = overlayColours[Std.int(speedster.alpha * 10)];
 
   if (FlxControls.justPressed.SEVEN){
@@ -322,13 +365,13 @@ function update(elapsed:Float) {
     FlxG.scaleMode.isWidescreen = false;
   }
 
-  if (FlxControls.justPressed.S){
-    PlayState.boyfriend.flipX = !PlayState.boyfriend.flipX;
-  }
+  // if (FlxControls.justPressed.S){
+  //   PlayState.boyfriend.flipX = !PlayState.boyfriend.flipX;
+  // }
 
-  if (FlxControls.justPressed.F){
-    PlayState.dad.flipX = !PlayState.dad.flipX;
-  }
+  // if (FlxControls.justPressed.F){
+  //   PlayState.dad.flipX = !PlayState.dad.flipX;
+  // }
 
 }
 
@@ -337,47 +380,106 @@ var right:Bool = true;
 function beatHit(curBeat) {
 
   if (curBeat == 32){
-    FlxTween.tween(PlayState.boyfriend, {x: 150}, 6, {ease: FlxEase.backOut});
-    FlxTween.tween(speedster.scale, {x: 1}, 6, {ease: FlxEase.sineInOut});
+    bfTuin = FlxTween.tween(PlayState.boyfriend, {x: 150}, 6, {ease: FlxEase.backOut});
+    speedTuin = FlxTween.tween(speedster.scale, {x: 1.3}, 6, {ease: FlxEase.sineInOut});
   }
 
   if (curBeat == 63){
-    FlxTween.tween(PlayState.dad, {x: 30, y: 45}, 2, {ease: FlxEase.circOut});
-    FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, 2, {ease: FlxEase.linear});
+    dadTuin = FlxTween.tween(PlayState.dad, {x: 30, y: 45}, 2, {ease: FlxEase.circOut});
+    dadTuin2 = FlxTween.tween(PlayState.dad.scale, {x: 1, y: 1}, 2, {ease: FlxEase.linear});
   }
 
   if (curBeat == 256){
-    FlxTween.tween(PlayState.dad, {x: 80, y: 65}, 5, {ease: FlxEase.sineInOut});
-    FlxTween.tween(speedster.scale, {x: 1.25}, 6, {ease: FlxEase.sineInOut});
+    dadTuin = FlxTween.tween(PlayState.dad, {x: 10, y: 65}, 5, {ease: FlxEase.sineInOut});
+    speedTuin = FlxTween.tween(speedster.scale, {x: 1.6}, 6, {ease: FlxEase.sineInOut});
+  }
+
+  if (curBeat == 446){
+    speedTuin = FlxTween.tween(speedster.scale, {x: 2.2}, 6, {ease: FlxEase.sineInOut});
   }
 
 }
 
 function onSongStart() {
 
-    new FlxTimer().start(1.0, function(tmr:FlxTimer)
+    introTimer = new FlxTimer().start(1.0, function(tmr:FlxTimer)
 		{
 
       FlxTween.tween(speedster, {alpha: 0}, 0.4, {ease: FlxEase.linear,
         onComplete: function(twn:FlxTween)
             {
-              FlxTween.tween(titleBar, {y: 0}, 0.7, {ease: FlxEase.linear});
-              FlxTween.tween(titleTex, {x: 0}, 0.7, {ease: FlxEase.linear});
+              barTuin = FlxTween.tween(titleBar, {y: 0}, 0.7, {ease: FlxEase.linear});
+              texTuin = FlxTween.tween(titleTex, {x: 0}, 0.7, {ease: FlxEase.linear});
               bgSchmoove = true;
               remove(overlay);
               PlayState.camHUD.alpha = 1;
               PlayState.dad.alpha = 1;
               PlayState.boyfriend.alpha = 1;
 
-              new FlxTimer().start(3, function(tmr:FlxTimer)
+              introTimer2 = new FlxTimer().start(3, function(tmr:FlxTimer)
                 {
-                  FlxTween.tween(titleBar, {y: -400}, 0.4, {ease: FlxEase.linear});
-                  FlxTween.tween(titleTex, {x: 400}, 0.4, {ease: FlxEase.linear});
+                  barTuin = FlxTween.tween(titleBar, {y: -400}, 0.4, {ease: FlxEase.linear});
+                  texTuin = FlxTween.tween(titleTex, {x: 400}, 0.4, {ease: FlxEase.linear});
                 });
 
             }});
 
 		});
 
+}
 
+function pauseThing() {
+
+  canPause = false;
+  
+  
+  if (FlxControls.justPressed.ENTER){
+    if (paused) {
+      closeSubState();
+
+      bfTuin.active = true;
+      dadTuin.active = true;
+      dadTuin2.active = true;
+      speedTuin.active = true;
+      barTuin.active = true;
+      texTuin.active = true;
+      introTimer.active = true;
+      introTimer2.active = true;
+
+    } else {
+      persistentUpdate = false;
+      persistentDraw = true;
+      paused = true;
+
+      bfTuin.active = false;
+      dadTuin.active = false;
+      dadTuin2.active = false;
+      speedTuin.active = false;
+      barTuin.active = false;
+      texTuin.active = false;
+      introTimer.active = false;
+      introTimer2.active = false;
+
+      if (FlxG.sound.music != null)
+      {
+          FlxG.sound.music.pause();
+          vocals.pause();
+      }
+
+      if (startTimer != null)
+          if (!startTimer.finished)
+              startTimer.active = false;
+
+      var substate = new ModSubState("preyPause");
+      openSubState(substate);
+      substate.script.setVariable("wawa", update);
+    }
+  }
+
+  if (paused) {
+      if (FlxControls.justPressed.X){
+        FlxG.resetState();
+      }
+    }
+    
 }

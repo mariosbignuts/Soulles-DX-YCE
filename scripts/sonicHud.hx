@@ -10,18 +10,8 @@ var sonicCDMil:Float = 0;
 var sonicCDSec:Int = 0;
 var sonicCDMin:Int = 0;
 
-var sonicCDHUDCamera:FlxCamera;
-
 var enableRedForHealth:Bool = false;
 var enableRedForMisses:Bool = false;
-
-function create() {
-    sonicCDHUDCamera = new FlxCamera(0, 0, 320, 224, 1);
-    sonicCDHUDCamera.bgColor = new FlxColor(0xFF000000);
-    FlxG.cameras.add(sonicCDHUDCamera, false);
-    sonicCDHUDCamera.antialiasing = false;
-    sonicCDHUDCamera.pixelPerfectRender = true;
-}
 
 function createPost() {
     scoreLabel = new FlxBitmapText(FlxBitmapFont.fromXNA(Paths.image("HUD stuff/pixelHUD/FlxBitmapFontSonic"), "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ" + "0123456789'\"% " + "+$.,"));
@@ -29,12 +19,10 @@ function createPost() {
     scoreLabel.text = "SCORE";
     scoreLabel.x = 17;
     scoreLabel.y = 9;
-    if (!(engineSettings.downscroll))
-        scoreLabel.y = (224 - scoreLabel.height - 9);
     scoreLabel.color = 0xFFCFC00;
     scoreLabel.antialiasing = false;
 	scoreLabel.scrollFactor.set();
-    scoreLabel.cameras = [sonicCDHUDCamera];
+    scoreLabel.cameras = [PlayState.camHUD];
 	PlayState.add(scoreLabel);
 
     scoreValueText = new FlxBitmapText(FlxBitmapFont.fromXNA(Paths.image("HUD stuff/pixelHUD/FlxBitmapFontSonic"), "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ" + "0123456789'\"% " + "+$.,"));
@@ -42,7 +30,7 @@ function createPost() {
     scoreValueText.y = scoreLabel.y;
     scoreValueText.antialiasing = false;
 	scoreValueText.scrollFactor.set();
-    scoreValueText.cameras = [sonicCDHUDCamera];
+    scoreValueText.cameras = [PlayState.camHUD];
 	PlayState.add(scoreValueText);
 
     timeLabel = new FlxBitmapText(FlxBitmapFont.fromXNA(Paths.image("HUD stuff/pixelHUD/FlxBitmapFontSonic"), "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ" + "0123456789'\"% " + "+$.,"));
@@ -50,12 +38,10 @@ function createPost() {
     timeLabel.text = "TIME";
     timeLabel.x = 17;
     timeLabel.y = 25;
-    if (!(engineSettings.downscroll))
-        timeLabel.y = (224 - timeLabel.height - 25);
     timeLabel.color = 0xFFCFC00;
     timeLabel.antialiasing = false;
 	timeLabel.scrollFactor.set();
-    timeLabel.cameras = [sonicCDHUDCamera];
+    timeLabel.cameras = [PlayState.camHUD];
 	PlayState.add(timeLabel);
 
     timeValueText = new FlxBitmapText(FlxBitmapFont.fromXNA(Paths.image("HUD stuff/pixelHUD/FlxBitmapFontSonic"), "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ" + "0123456789'\"% " + "+$.,"));
@@ -63,7 +49,7 @@ function createPost() {
     timeValueText.y = timeLabel.y;
     timeValueText.antialiasing = false;
 	timeValueText.scrollFactor.set();
-    timeValueText.cameras = [sonicCDHUDCamera];
+    timeValueText.cameras = [PlayState.camHUD];
 	PlayState.add(timeValueText);
 
     missLabel = new FlxBitmapText(FlxBitmapFont.fromXNA(Paths.image("HUD stuff/pixelHUD/FlxBitmapFontSonic"), "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ" + "0123456789'\"% " + "+$.,"));
@@ -71,12 +57,10 @@ function createPost() {
     missLabel.text = "MISSES";
     missLabel.x = 17;
     missLabel.y = 41;
-    if (!(engineSettings.downscroll))
-        missLabel.y = (224 - missLabel.height - 41);
     missLabel.color = 0xFFCFC00;
     missLabel.antialiasing = false;
 	missLabel.scrollFactor.set();
-    missLabel.cameras = [sonicCDHUDCamera];
+    missLabel.cameras = [PlayState.camHUD];
 	PlayState.add(missLabel);
 
     missValueText = new FlxBitmapText(FlxBitmapFont.fromXNA(Paths.image("HUD stuff/pixelHUD/FlxBitmapFontSonic"), "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ" + "0123456789'\"% " + "+$.,"));
@@ -84,31 +68,28 @@ function createPost() {
     missValueText.y = missLabel.y;
     missValueText.antialiasing = false;
 	missValueText.scrollFactor.set();
-    missValueText.cameras = [sonicCDHUDCamera];
+    missValueText.cameras = [PlayState.camHUD];
 	PlayState.add(missValueText);
 
     healthSprite = new FlxSprite(16, 200).loadGraphic(Paths.image('HUD stuff/pixelHUD/sonicLifeCounter'));
     healthSprite.antialiasing = false;
     healthSprite.scrollFactor.set();
-    healthSprite.cameras = [sonicCDHUDCamera];
+    healthSprite.cameras = [PlayState.camHUD];
     PlayState.add(healthSprite);
 
 
     healthValueText = new FlxBitmapText(FlxBitmapFont.fromXNA(Paths.image("HUD stuff/pixelHUD/FlxBitmapFontSonic"), "ABCDEFGHIJKLM" + "NOPQRSTUVWXYZ" + "0123456789'\"% " + "+$.,"));
     healthValueText.autoSize = false;
-    if (!(engineSettings.downscroll))
-    {
-        healthValueText.x = (320 - ((8*healthValueText.text.length) + 1) - 17 + 1);
-        healthValueText.y = (224 - scoreLabel.height - 9);
-        healthSprite.y = (healthValueText.y - (healthSprite.height - 11));
-        healthSprite.x = (healthValueText.x - healthSprite.width);
-    }
-    else
-        healthValueText.y = 205;
+    
+    healthValueText.x = (320 - ((8*healthValueText.text.length) + 1) - 17 + 1);
+    healthValueText.y = (224 - scoreLabel.height - 9);
+    healthSprite.y = (healthValueText.y - (healthSprite.height - 11));
+    healthSprite.x = 17;
+    
     healthValueText.color = 0xFFFFFFFF;
     healthValueText.antialiasing = false;
 	healthValueText.scrollFactor.set();
-    healthValueText.cameras = [sonicCDHUDCamera];
+    healthValueText.cameras = [PlayState.camHUD];
 	PlayState.add(healthValueText);
 
     new FlxTimer().start(0.7, tickEnableRedFlashing, 0);
@@ -182,15 +163,8 @@ function updatePost() {
     else
         enableRedForMisses = false;
     
-    if (!(engineSettings.downscroll))
-    {
-        healthValueText.x = (320 - ((8*healthValueText.text.length) + 1) - 17 + 1);
-        healthSprite.x = (healthValueText.x - healthSprite.width);
-    }
-    else
-    {
-        healthValueText.x = (healthSprite.x + healthSprite.width);
-    }
+    healthValueText.x = (healthSprite.x + healthSprite.width);
+    
 
     scoreValueText.x = scoreLabel.x + (8*scoreLabel.text.length) + ((8*7) - (8*scoreValueText.text.length)) - 1;
 }
