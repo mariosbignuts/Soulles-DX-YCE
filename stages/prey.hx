@@ -186,8 +186,8 @@ function createPost() {
     PlayState.gf.visible = false;
 
     PlayState.boyfriend.scrollFactor.set(0,0);
-    PlayState.boyfriend.x = (-100 + 41);
-    PlayState.boyfriend.y = (70 + 46);
+    PlayState.boyfriend.x = -59;
+    PlayState.boyfriend.y = 116;
 
     sonicsLegs = new FlxSprite((PlayState.boyfriend.x - 5), (PlayState.boyfriend.y + 15));
     sonicsLegs.frames = Paths.getSparrowAtlas('prey/sonic-legs');
@@ -207,7 +207,7 @@ function createPost() {
     speedster.scale.x = 0.5;
 
     if (PlayState.fromCharter){
-      PlayState.boyfriend.x = (150 + 41);
+      PlayState.boyfriend.x = 191;
       PlayState.dad.x = 30;
       PlayState.dad.y = 45;
       PlayState.dad.scale.set(1, 1);
@@ -253,7 +253,7 @@ function createPost() {
     PlayState.camHUD.alpha = 0;
 
     PlayState.dad.alpha = 0;
-    PlayState.boyfriend.alpha = 0;
+    // PlayState.boyfriend.alpha = 0;
 
     FlxG.scaleMode.width = 320;
     FlxG.scaleMode.height = 224;
@@ -265,7 +265,7 @@ function createPost() {
 
     ballSonic = new FlxSprite(-108, -250);
     ballSonic.frames = Paths.getSparrowAtlas('prey/wee');
-    ballSonic.animation.addByPrefix('wee', 'boing', 20, true);
+    ballSonic.animation.addByPrefix('wee', 'boing', 40, true);
     ballSonic.scrollFactor.set(0, 0);
     ballSonic.animation.play('wee');
     PlayState.add(ballSonic);
@@ -283,10 +283,9 @@ import flixel.util.FlxDirectionFlags;
 function boing() {
 
   PlayState.boyfriend.acceleration.y = 800;
-  trace(boingoing);
 
-  if (PlayState.boyfriend.y > 70){
-    PlayState.boyfriend.y = 70;
+  if (PlayState.boyfriend.y > 116){
+    PlayState.boyfriend.y = 116;
     // PlayState.boyfriend.velocity.y = 0;
     boingoing = false;
     ballSonic.visible = false;
@@ -304,15 +303,15 @@ function boing() {
 
   }
 
-  ballSonic.x = PlayState.boyfriend.x + 35;
-  ballSonic.y = PlayState.boyfriend.y + 52;
+  ballSonic.x = PlayState.boyfriend.x - 4;
+  ballSonic.y = PlayState.boyfriend.y + 6;
 
 }
 function update(elapsed:Float) {
 
   sonicsLegs.alpha = PlayState.boyfriend.alpha;
-  sonicsLegs.x = (PlayState.boyfriend.x - 5);
-  sonicsLegs.y = (PlayState.boyfriend.y + 15);
+  sonicsLegs.x = PlayState.boyfriend.x - 5;
+  sonicsLegs.y = 116 + 15;
   sonicsLegs.scale.x = PlayState.boyfriend.scale.x;
   sonicsLegs.scale.y = PlayState.boyfriend.scale.y;
   sonicsLegs.angle = PlayState.boyfriend.angle;
@@ -400,7 +399,7 @@ function beatHit(curBeat) {
 
   if (curBeat == 32){
     bfTuin = FlxTween.tween(PlayState.boyfriend, {x: 150 + 41}, 6, {ease: FlxEase.backOut});
-    speedTuin = FlxTween.tween(speedster.scale, {x: 1.3}, 6, {ease: FlxEase.sineInOut});
+    speedTuin = FlxTween.tween(speedster.scale, {x: 1.1}, 6, {ease: FlxEase.sineInOut});
   }
 
   if (curBeat == 63){
@@ -410,7 +409,7 @@ function beatHit(curBeat) {
 
   if (curBeat == 256){
     dadTuin = FlxTween.tween(PlayState.dad, {x: 10, y: 65}, 5, {ease: FlxEase.sineInOut});
-    speedTuin = FlxTween.tween(speedster.scale, {x: 1.6}, 6, {ease: FlxEase.sineInOut});
+    speedTuin = FlxTween.tween(speedster.scale, {x: 1.4}, 6, {ease: FlxEase.sineInOut});
   }
 
   if (curBeat == 446){
