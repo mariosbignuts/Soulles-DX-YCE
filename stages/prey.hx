@@ -261,7 +261,7 @@ function createPost() {
 
     sonicsLegs = new FlxSprite((PlayState.boyfriend.x - 5), (PlayState.boyfriend.y + 15));
     sonicsLegs.frames = Paths.getSparrowAtlas('prey/sonic-legs');
-    sonicsLegs.animation.addByPrefix('Legs', 'Legs', 14, true);
+    sonicsLegs.animation.addByPrefix('Legs', 'Legs', 24, true);
     sonicsLegs.animation.play('Legs');
     sonicsLegs.antialiasing = false;
     sonicsLegs.scale.set(1, 1);
@@ -358,8 +358,6 @@ var boingoing:Bool = false;
 var starvedCutscene:Bool = false;
 var cameraFlash:Bool = false;
 
-import flixel.util.FlxDirectionFlags;
-
 function boing() {
 
   PlayState.boyfriend.acceleration.y = 800;
@@ -388,15 +386,6 @@ function boing() {
 
 }
 function update(elapsed:Float) {
-
-  sonicsLegs.alpha = PlayState.boyfriend.alpha;
-  sonicsLegs.x = PlayState.boyfriend.x - 5;
-  sonicsLegs.y = 116 + 15;
-  sonicsLegs.scale.x = PlayState.boyfriend.scale.x;
-  sonicsLegs.scale.y = PlayState.boyfriend.scale.y;
-  sonicsLegs.angle = PlayState.boyfriend.angle;
-  sonicsLegs.flipX = PlayState.boyfriend.flipX;
-  sonicsLegs.visible = PlayState.boyfriend.visible;
 
   if (!paused)
   boing();
@@ -475,6 +464,15 @@ function update(elapsed:Float) {
   // if (FlxControls.justPressed.F){
   //   PlayState.dad.flipX = !PlayState.dad.flipX;
   // }
+
+  sonicsLegs.alpha = PlayState.boyfriend.alpha;
+  sonicsLegs.x = PlayState.boyfriend.x - 5;
+  sonicsLegs.y = PlayState.boyfriend.y + 15;
+  sonicsLegs.scale.x = PlayState.boyfriend.scale.x;
+  sonicsLegs.scale.y = PlayState.boyfriend.scale.y;
+  sonicsLegs.angle = PlayState.boyfriend.angle;
+  sonicsLegs.flipX = PlayState.boyfriend.flipX;
+  sonicsLegs.visible = PlayState.boyfriend.visible;
 
 }
 
@@ -584,32 +582,52 @@ function pauseThing() {
     if (paused) {
       closeSubState();
 
-      bfTuin.active = true;
-      dadTuin.active = true;
-      dadTuin2.active = true;
-      speedTuin.active = true;
-      barTuin.active = true;
-      texTuin.active = true;
-      introTimer.active = true;
-      introTimer2.active = true;
-      starvedTuin.active = true;
-      starvedTuin2.active = true;
+      if (bfTuin != null)
+        bfTuin.active = true;
+      if (dadTuin != null)
+        dadTuin.active = true;
+      if (dadTuin2 != null)
+        dadTuin2.active = true;
+      if (speedTuin != null)
+        speedTuin.active = true;
+      if (barTuin != null)
+        barTuin.active = true;
+      if (texTuin != null)
+        texTuin.active = true;
+      if (introTimer != null)
+        introTimer.active = true;
+      if (introTimer2 != null)
+        introTimer2.active = true;
+      if (starvedTuin != null)
+        starvedTuin.active = true;
+      if (starvedTuin2 != null)
+        starvedTuin2.active = true;
 
     } else {
       persistentUpdate = false;
       persistentDraw = true;
       paused = true;
 
-      bfTuin.active = false;
-      dadTuin.active = false;
-      dadTuin2.active = false;
-      speedTuin.active = false;
-      barTuin.active = false;
-      texTuin.active = false;
-      introTimer.active = false;
-      introTimer2.active = false;
-      starvedTuin.active = false;
-      starvedTuin2.active = false;
+      if (bfTuin != null)
+        bfTuin.active = false;
+      if (dadTuin != null)
+        dadTuin.active = false;
+      if (dadTuin2 != null)
+        dadTuin2.active = false;
+      if (speedTuin != null)
+        speedTuin.active = false;
+      if (barTuin != null)
+        barTuin.active = false;
+      if (texTuin != null)
+        texTuin.active = false;
+      if (introTimer != null)
+        introTimer.active = false;
+      if (introTimer2 != null)
+        introTimer2.active = false;
+      if (starvedTuin != null)
+        starvedTuin.active = false;
+      if (starvedTuin2 != null)
+        starvedTuin2.active = false;
 
       if (FlxG.sound.music != null)
       {
