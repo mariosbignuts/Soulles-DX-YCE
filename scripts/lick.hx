@@ -44,6 +44,7 @@ function createPost() {
     lickCount.visible = false;
     lickWarn.visible = false;
 
+    new FlxTimer().start(3, lickMultiply, 0);
 }
 
 function update(elapsed){
@@ -76,20 +77,63 @@ function lickPopUp() {
 
 }
 
+
+var curLickCount:Int = 0;
+
+function lickMultiply(timer:FlxTimer) {
+
+    curLickCount = lickCounter;
+
+}
+
+var spamming:Bool = false;
+var lickBuffer:Int = 0;
+var lickMultiplier:Int = 0;
+var maxSpeedHolySHIT = false;
+
 function saveHim() {
 
-        var lickin = FlxG.keys.justPressed.SPACE;
+        var lickin = FlxG.keys.justPressed.ANY;
+
+        var lickyLimit1 = curLickCount + 10;
+        var lickyLimit2 = curLickCount + 30;
+
         
         if (lickin){
             // save him
 
             if (bfArrived){
                 FlxG.sound.play(lick);
-                lickCounter++;
-                trace("save him");
+                lickBuffer = lickBuffer + 1;
+                lickCounter = lickBuffer + lickMultiplier;
+                // trace("save him");
                 lickCount.x += 10;
                 lickPopUp();
                 camStuff.shake(0.01, 0.1);
+
+                if (lickCounter > lickyLimit1 && lickCounter < lickyLimit2){
+                    spamming = true;
+                    lickMultiplier = 7;
+                    lickCount.color = 0xFFFFFF00;
+                    maxSpeedHolySHIT = true;
+                } else if (lickCounter > lickyLimit2) {
+                    spamming = true;
+                    lickMultiplier = 43;
+                    lickCount.color = 0xFFFF0000;
+                    maxSpeedHolySHIT = true;
+                } else {
+                    if (maxSpeedHolySHIT){
+                        var returnToNormalSpeed:FlxTimer;
+
+                        if (returnToNormalSpeed != null){
+                            returnToNormalSpeed = new FlxTimer().start(1, function(tmr:FlxTimer)
+                                {
+                                    maxSpeedHolySHIT = false;
+                                });
+                            }
+                    }
+                }
+
             }
 
             if (!bfTweenin && !bfArrived){
@@ -108,18 +152,24 @@ function saveHim() {
                     }
                 });
             }
-
-
-
         }
         
 }
+
     
 function updatePost(elapsed:Float) {
 
+    
+    trace(maxSpeedHolySHIT);
+        
+    if(!maxSpeedHolySHIT){
+        lickMultiplier = 0;
+        lickBuffer = lickCounter;
+        lickCount.color = 0xFFFFFFFF;
+    }
+
     if (!lickingAllowed){
         //lol
-
     } else {
 
 
@@ -136,20 +186,30 @@ function updatePost(elapsed:Float) {
 
         if (bfArrived && !lickTime){
             bfArrived = false;
+            lickCount.color = 0xFFFFFFFF;
 
             if (bfTween != null)
                 bfTween.cancel();
 
             bfTweenin = true;
+
             bfTween = FlxTween.tween(PlayState.boyfriend, {x: bfX}, 1, {
             ease: FlxEase.sineInOut,
             onComplete: function(twn:FlxTween)
                 {
                 bfTweenin = false;
                 bfTween.cancel();
+                spamming = false;
                 }
             });
         }
+
+        if (spamming){
+            lickWarn.text = "WE CAN SAVE HIM!!!!!!\nLICK FASTER!!!!!!!!!";
+        } else {
+            lickWarn.text = "EVERYONE START LICKING!!!!\nWE CAN SAVE HIM!!!!!!";
+        }
+            
 
         lickCount.text = "licks: " + lickCounter;
         lickCount.x = FlxMath.lerp(lickCount.x, lickCountX, 0.1);
