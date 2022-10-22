@@ -82,7 +82,8 @@ var curLickCount:Int = 0;
 
 function lickMultiply(timer:FlxTimer) {
 
-    curLickCount = lickCounter;
+    if (!spamming)
+        curLickCount = lickCounter;
 
 }
 
@@ -117,21 +118,13 @@ function saveHim() {
                     lickCount.color = 0xFFFFFF00;
                     maxSpeedHolySHIT = true;
                 } else if (lickCounter > lickyLimit2) {
-                    spamming = true;
                     lickMultiplier = 43;
                     lickCount.color = 0xFFFF0000;
                     maxSpeedHolySHIT = true;
                 } else {
-                    if (maxSpeedHolySHIT){
-                        var returnToNormalSpeed:FlxTimer;
-
-                        if (returnToNormalSpeed != null){
-                            returnToNormalSpeed = new FlxTimer().start(1, function(tmr:FlxTimer)
-                                {
-                                    maxSpeedHolySHIT = false;
-                                });
-                            }
-                    }
+                    lickMultiplier = 0;
+                    lickBuffer = lickCounter;
+                    lickCount.color = 0xFFFFFFFF;
                 }
 
             }
@@ -159,15 +152,6 @@ function saveHim() {
     
 function updatePost(elapsed:Float) {
 
-    
-    trace(maxSpeedHolySHIT);
-        
-    if(!maxSpeedHolySHIT){
-        lickMultiplier = 0;
-        lickBuffer = lickCounter;
-        lickCount.color = 0xFFFFFFFF;
-    }
-
     if (!lickingAllowed){
         //lol
     } else {
@@ -187,6 +171,7 @@ function updatePost(elapsed:Float) {
         if (bfArrived && !lickTime){
             bfArrived = false;
             lickCount.color = 0xFFFFFFFF;
+            FlxG.sound.play(lick);
 
             if (bfTween != null)
                 bfTween.cancel();
@@ -194,12 +179,13 @@ function updatePost(elapsed:Float) {
             bfTweenin = true;
 
             bfTween = FlxTween.tween(PlayState.boyfriend, {x: bfX}, 1, {
-            ease: FlxEase.sineInOut,
+            ease: FlxEase.sineInOut, startDelay: 0.5,
             onComplete: function(twn:FlxTween)
                 {
                 bfTweenin = false;
                 bfTween.cancel();
                 spamming = false;
+                maxSpeedHolySHIT = false;
                 }
             });
         }
