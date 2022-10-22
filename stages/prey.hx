@@ -79,85 +79,20 @@ var wall:FlxBackdrop;
 var window = Window;
 import lime.ui.Window;
 
+var veloMult = [1, 70, 60, 50, 40, 30, 0, -20, -30, -50, -70, -90, -100];
+var letters = "abcdefghijklm";
+var bgBackdrops = [];
+
 function parallaxBgShit() {
-
-    a = new FlxBackdrop(Paths.image('prey/bg/a'), 0, 0, true, false);
-    a.y = -303;
-    PlayState.add(a);
-
-    b = new FlxBackdrop(Paths.image('prey/bg/b'), 0, 0, true, false);
-    b.y = a.y + a.height;
-    PlayState.add(b);
-
-    c = new FlxBackdrop(Paths.image('prey/bg/c'), 0, 0, true, false);
-    c.y = b.y + b.height;
-    PlayState.add(c);
-
-    d = new FlxBackdrop(Paths.image('prey/bg/d'), 0, 0, true, false);
-    d.y = c.y + c.height;
-    PlayState.add(d);
-
-    e = new FlxBackdrop(Paths.image('prey/bg/e'), 0, 0, true, false);
-    e.y = d.y + d.height;
-    PlayState.add(e);
-
-    f = new FlxBackdrop(Paths.image('prey/bg/f'), 0, 0, true, false);
-    f.y = e.y + e.height;
-    PlayState.add(f);
-
-    g = new FlxBackdrop(Paths.image('prey/bg/g'), 0, 0, true, false);
-    g.y = f.y + f.height;
-    PlayState.add(g);
-
-    h = new FlxBackdrop(Paths.image('prey/bg/h'), 0, 0, true, false);
-    h.y = g.y + g.height;
-    PlayState.add(h);
-
-    i = new FlxBackdrop(Paths.image('prey/bg/i'), 0, 0, true, false);
-    i.y = h.y + h.height;
-    PlayState.add(i);
-
-    j = new FlxBackdrop(Paths.image('prey/bg/j'), 0, 0, true, false);
-    j.y = i.y + i.height;
-    PlayState.add(j);
-
-    k = new FlxBackdrop(Paths.image('prey/bg/k'), 0, 0, true, false);
-    k.y = j.y + j.height;
-    PlayState.add(k);
-
-    l = new FlxBackdrop(Paths.image('prey/bg/l'), 0, 0, true, false);
-    l.y = k.y + k.height;
-    PlayState.add(l);
-    
-    m = new FlxBackdrop(Paths.image('prey/bg/m'), 0, 0, true, false);
-    m.y = l.y + l.height;
-    PlayState.add(m);
-
-    // n = new FlxBackdrop(Paths.image('prey/bg/n'), 0, 0, true, false);
-    // n.y = m.y + m.height;
-    // PlayState.add(n);
-    
-    // o = new FlxBackdrop(Paths.image('prey/bg/o'), 0, 0, true, false);
-    // o.y = n.y + n.height;
-    // PlayState.add(o);
-    
-    // p = new FlxBackdrop(Paths.image('prey/bg/p'), 0, 0, true, false);
-    // p.y = o.y + o.height;
-    // PlayState.add(p);
-    
-    // q = new FlxBackdrop(Paths.image('prey/bg/q'), 0, 0, true, false);
-    // q.y = p.y + p.height;
-    // PlayState.add(q);
-
-    // r = new FlxBackdrop(Paths.image('prey/bg/r'), 0, 0, true, false);
-    // r.y = q.y + q.height;
-    // PlayState.add(r);
-    
-    // s = new FlxBackdrop(Paths.image('prey/bg/s'), 0, 0, true, false);
-    // s.y = r.y + r.height;
-    // PlayState.add(s);
-
+	for (i in 0...letters.length) {
+		var backdrop = new FlxBackdrop(Paths.image("prey/bg/" + letters.charAt(i)), 0, 0, true, false);
+		backdrop.y = (i == 0) ? -303 : bgBackdrops[i - 1].y + bgBackdrops[i - 1].height;
+		PlayState.add(backdrop);
+		bgBackdrops.push(backdrop);
+	}
+  // ty @SrtPro278 on twitter for helping me optimize the hell outta this code lmfao
 }
+
 function create() {
 
     FlxG.resizeWindow(320 * 3, 224 * 3);
@@ -233,13 +168,23 @@ function create() {
     titleTex.updateHitbox();
     PlayState.add(titleTex);
 
+    sonicsLegs = new FlxSprite(0, 0);
+    sonicsLegs.frames = Paths.getSparrowAtlas('prey/sonic-legs');
+    sonicsLegs.animation.addByPrefix('Legs', 'Legs', 16, true); //dont change this lol it looks good at 16
+    sonicsLegs.animation.play('Legs');
+    sonicsLegs.antialiasing = false;
+    sonicsLegs.scale.set(1, 1);
+    sonicsLegs.scrollFactor.set(0, 0);
+    sonicsLegs.updateHitbox();
+    PlayState.add(sonicsLegs);
 }
 
 var strumY:Int = 270;
 
 var bgSpeed:Float = -5;
 var floorSpeed:Float = -75;
-var doing:FlxSound = null;
+var sonicJump:FlxSound = null;
+var sonicJumpWacky:FlxSound = null;
 
 var eggApproach:FlxSound = null;
 var furnaceBreak1:FlxSound = null;
@@ -259,16 +204,6 @@ function createPost() {
     FlxG.scaleMode.height = 960;
     FlxG.scaleMode.isWidescreen = false;
 
-    sonicsLegs = new FlxSprite((PlayState.boyfriend.x - 5), (PlayState.boyfriend.y + 15));
-    sonicsLegs.frames = Paths.getSparrowAtlas('prey/sonic-legs');
-    sonicsLegs.animation.addByPrefix('Legs', 'Legs', 24, true);
-    sonicsLegs.animation.play('Legs');
-    sonicsLegs.antialiasing = false;
-    sonicsLegs.scale.set(1, 1);
-    sonicsLegs.scrollFactor.set(PlayState.boyfriend.scrollFactor.x ,PlayState.boyfriend.scrollFactor.y);
-    sonicsLegs.updateHitbox();
-    PlayState.add(sonicsLegs);
-
     PlayState.dad.scrollFactor.set(0, 0);
     PlayState.dad.scale.set(2, 2);
     PlayState.dad.x = -100;
@@ -281,7 +216,7 @@ function createPost() {
       PlayState.dad.x = 30;
       PlayState.dad.y = 45;
       PlayState.dad.scale.set(1, 1);
-      speedster.scale.x = 1;
+      speedster.scale.x =-1;
     }
 
     if (EngineSettings.downscroll){
@@ -335,7 +270,8 @@ function createPost() {
 
     window.title = "Fusion 3.64 - MegaCD - SONIC THE HEDGEHOG-CD";
 
-    doing = Paths.sound("sonicJump");
+    sonicJump = Paths.sound("sonicJump");
+    sonicJumpWacky = Paths.sound("sonicJumpWacky");
     eggApproach = Paths.sound("eggApproach");
     furnaceBreak1 = Paths.sound("furnaceBreak1");
     wallDestroy = Paths.sound("wallDestroy");
@@ -374,10 +310,15 @@ function boing() {
   if (FlxControls.justPressed.SPACE && !boingoing){
     
     boingoing = true;
-    PlayState.boyfriend.velocity.y = -400;
-    FlxG.sound.play(doing);
     ballSonic.visible = true;
     PlayState.boyfriend.visible = false;
+    if (FlxControls.pressed.SHIFT){
+      PlayState.boyfriend.velocity.y = -1000;
+      FlxG.sound.play(sonicJumpWacky);
+    } else {
+      PlayState.boyfriend.velocity.y = -400;
+      FlxG.sound.play(sonicJump);
+    }
 
   }
 
@@ -424,19 +365,9 @@ function update(elapsed:Float) {
   PlayState.camZooming = false;
 
   if (bgSchmoove){
-    a.velocity.x = bgSpeed * speedster.scale.x;
-    b.velocity.x = bgSpeed + 70 * speedster.scale.x;
-    c.velocity.x = bgSpeed + 60 * speedster.scale.x;
-    d.velocity.x = bgSpeed + 50 * speedster.scale.x;
-    e.velocity.x = bgSpeed + 40 * speedster.scale.x;
-    f.velocity.x = bgSpeed + 30 * speedster.scale.x;
-    g.velocity.x = bgSpeed + 0 * speedster.scale.x;
-    h.velocity.x = bgSpeed - 20 * speedster.scale.x;
-    i.velocity.x = bgSpeed - 30 * speedster.scale.x;
-    j.velocity.x = bgSpeed - 50 * speedster.scale.x;
-    k.velocity.x = bgSpeed - 70 * speedster.scale.x;
-    l.velocity.x = bgSpeed - 90 * speedster.scale.x;
-    m.velocity.x = bgSpeed - 100 * speedster.scale.x;
+    
+    for (i in 0...bgBackdrops.length)
+      bgBackdrops[i].velocity.x = bgSpeed + veloMult[i] * speedster.scale.x;  
 
     floor.velocity.x = floorSpeed * speedster.scale.x;
     wall.velocity.x = floor.velocity.x;
