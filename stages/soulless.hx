@@ -142,6 +142,12 @@ var ofs:Int = 30;
 
 function update(elapsed:Float) {
 
+  if (FlxControls.justPressed.SEVEN){
+    FlxG.scaleMode.width = 1280;
+    FlxG.scaleMode.height = 720;
+    FlxG.scaleMode.isWidescreen = true;
+  }
+
   weewoo += 0.03 * elapsed * 60;
 
   if(!intro)

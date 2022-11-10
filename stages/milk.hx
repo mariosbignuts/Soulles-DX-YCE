@@ -22,7 +22,7 @@ EngineSettings.showTimer = false;
 
 function create() {
    	FlxG.resizeGame(1024, 768);
-    FlxG.resizeWindow(1024, 768);
+    FlxG.resizeWindow(800, 600);
     PlayState.defaultCamZoom = 1.05;
     
     camSunkee = new FlxCamera(0, 0, 1280, 960, 1);
@@ -277,8 +277,8 @@ function createPost() {
 
 			PlayState.boyfriend.x = 949;
 			PlayState.boyfriend.y = 137;
-			PlayState.dad.x = -108;
-			PlayState.dad.y = 226;
+			PlayState.dad.x = -8;
+			PlayState.dad.y = 266;
 
       // leakMode = true;
       FlxG.scaleMode.width = 1280;
