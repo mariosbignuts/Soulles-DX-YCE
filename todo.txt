@@ -1,0 +1,72 @@
+BASE MOD
+-needs menus and its assets
+-needs menu music
+-needs extra option to turn off mechanics, shaders, and edit window size
+-dlc implementation
+
+soulless:
+-needs full song
+-needs gameover and ending cutscenes
+-needs hud fixes
+
+sunshine encore:
+-squeak wants to redo the song i think??
+-needs more assets 
+-needs more shaders
+-is still oh so very rough
+
+sunshine og:
+-needs fixed notes
+
+step mio hjonda:
+-needs mio honda bf sprites
+
+
+
+BONUS CONTENT DLC (dlc 1)
+
+too fest
+-needs proper movable time bar like on youtube
+
+milk
+-needs moving sunkies that go all over the screen
+
+too slow silly
+
+ice cube
+-needs full song
+-needs different endings
+-lick sprites for bf
+-redo bg maybe??
+
+prey
+-3d section (might be best to scrap it if it's taking a long time)
+-fix the lag
+-add dialog text boxes
+
+confronting yourself
+-rechart with new vocals
+
+bitchin
+-zykrom give me the files pls
+
+
+
+EXTRA CONTENT DLC (dlc 2)
+
+emo td vs bunfriend
+-new original song maybe??
+
+mania
+-needs pretty much everytrhing
+
+ycre
+-needs art (sponsored by comgaming!)
+-animated part where he goes "THE GAAAZE OF A GOOOOOOD"
+
+mono bw
+-needs everything too
+
+requital
+-guess what??
+-needs everything

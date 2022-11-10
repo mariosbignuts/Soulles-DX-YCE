@@ -3,6 +3,8 @@ import flixel.FlxCamera;
 import Date;
 import flixel.addons.effects.FlxTrail;
 
+//this shit lags so much grah it needs optimization so badly
+
 EngineSettings.showTimer = false;
 EngineSettings.maxRatingsAllowed = 0;
 
@@ -251,37 +253,36 @@ function updatePost(elapsed:Float) {
 
   // babyArrow.x = Std.int(PlayState.current.guiSize.x / 2) + ((i - (SONG.keyNumber / 2)) * Note.swagWidth);
 
-   daStatic.alpha = 0.5 - PlayState.health / 2.5;
-   bzz.volume = daStatic.alpha * 1.2;
+  daStatic.alpha = 0.5 - PlayState.health / 2.5;
+  bzz.volume = daStatic.alpha * 1.2;
 
-   if (tillyFly){
-   dad.x += 2 * Math.cos(curDecBeat / 4 * Math.PI) * elapsed * 60;
-   dad.y += 3 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
-   }
+  if (tillyFly){
+  dad.x += 2 * Math.cos(curDecBeat / 4 * Math.PI) * elapsed * 60;
+  dad.y += 3 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
+  }
 
-   dad.angle += 0.1 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
-   
-   res = [1920, 1080];
-   time += elapsed;
+  dad.angle += 0.1 * Math.sin(curDecBeat / 4 * Math.PI) * elapsed * 60;
+  
+  res = [1920, 1080];
+  time += elapsed;
 
-   shader.shaderData.iTime.value = [time];
-   shader.shaderData.iResolution.value = res;
-   shader2.shaderData.iTime.value = [time];
-   shader2.shaderData.iResolution.value = res;
+  shader.shaderData.iTime.value = [time];
+  shader.shaderData.iResolution.value = res;
+  shader2.shaderData.iTime.value = [time];
+  shader2.shaderData.iResolution.value = res;
 
-   irlTime.text = date.now();
-   funnyHud.text = Std.int(((health / 2) * 100)) + "%";
+  irlTime.text = date.now();
+  funnyHud.text = Std.int(((health / 2) * 100)) + "%";
 
-   if (PlayState.health > 1.8){
+  if (PlayState.health > 1.8){
     funnyHud.color = 0xFF00AA00;
+  } else {
+    funnyHud.color = 0xFFFFAA00;
   }
-   else{
-     funnyHud.color = 0xFFFFAA00;
-  }
-   if (PlayState.health < 0.7){
+  if (PlayState.health < 0.7){
     funnyHud.color = 0xFFAA0000;
   }
-   gameTime.text = PlayState.timerNow.text;
+  gameTime.text = PlayState.timerNow.text;
 
 }
 

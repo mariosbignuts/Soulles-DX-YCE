@@ -13,6 +13,8 @@ var ofs1:Int = 0;
 var ofs2:Int = 0;
 
 var leakMode:Bool = false;
+var camStuff:FlxCamera;
+var camSunkee:FlxCamera;
 
 import flixel.FlxCamera;
 
@@ -22,8 +24,12 @@ function create() {
    	FlxG.resizeGame(1024, 768);
     FlxG.resizeWindow(1024, 768);
     PlayState.defaultCamZoom = 1.05;
+    
+    camSunkee = new FlxCamera(0, 0, 1280, 960, 1);
+    camSunkee.bgColor = new FlxColor(0xFF000000);
+    FlxG.cameras.add(camSunkee, false);
 
-    var camStuff = new FlxCamera(0, 0, 1280, 960, 1);
+    camStuff = new FlxCamera(0, 0, 1280, 960, 1);
     camStuff.bgColor = new FlxColor(0xFF000000);
     FlxG.cameras.add(camStuff, false);
 
@@ -140,6 +146,104 @@ function onGuiPopup() {
 }
 
 var strumY:Int = -69;
+
+var sunkTween:FlxTween; 
+
+var sunkDone:Bool = false;
+var sunkTweenin:Bool = false;
+
+function sunkinTime() {
+
+  if (!sunkTweenin){
+
+    sunkTweenin = true;
+
+    // PlayState.kill(sunkee);
+    //he died so hard that it crashed the game
+
+    // var sunkFlip:Bool = false;
+    // sunkFlip = !sunkFlip;
+
+    var sunkee = new FlxSprite(0, 0).loadGraphic(Paths.image('SUNKEEEEHHHHHHHHH/sunkies/' + 'sunkee' + FlxG.random.int(1, 39)));
+    sunkee.updateHitbox();
+    sunkee.antialiasing = true;
+    sunkee.scrollFactor.set(0, 0);
+    sunkee.active = false;
+    sunkee.cameras = [camSunkee];
+    // sunkee.flipX = sunkFlip;
+    sunkee.scale.x = FlxG.random.float(1.2, 2.2);
+    sunkee.scale.y = sunkee.scale.x;
+    sunkee.updateHitbox();
+    PlayState.add(sunkee);
+
+    var sunkTime:Int = 0;
+    sunkTime = FlxG.random.int(5, 10);
+
+    switch(FlxG.random.int(1, 4)){
+
+      case 1:
+        sunkee.x = 0 - sunkee.width;
+        sunkee.y = FlxG.random.int(0 + sunkee.height, 960 - sunkee.height);
+        
+        sunkTween = FlxTween.tween(sunkee, {x: 1280 + sunkee.width}, sunkTime, {
+          onComplete: function(twn:FlxTween)
+              {
+              sunkTweenin = false;
+              sunkDone = true;
+              sunkTween.cancel();
+              PlayState.remove(sunkee);
+            }
+            });
+
+      case 2:
+        sunkee.x = FlxG.random.int(0 + sunkee.width, 1280 - sunkee.width);
+        sunkee.y = 0 - sunkee.height;
+        
+        sunkTween = FlxTween.tween(sunkee, {y: 960 + sunkee.height}, sunkTime, {
+          onComplete: function(twn:FlxTween)
+              {
+              sunkTweenin = false;
+              sunkDone = true;
+              sunkTween.cancel();
+              PlayState.remove(sunkee);
+              }
+            });
+
+      case 3:
+        sunkee.x = 0 - sunkee.width;
+        sunkee.y = 0 - sunkee.height;
+        
+        sunkTween = FlxTween.tween(sunkee, {x: 1280 + sunkee.width, y: 960 + sunkee.height}, sunkTime, {
+          onComplete: function(twn:FlxTween)
+              {
+              sunkTweenin = false;
+              sunkDone = true;
+              sunkTween.cancel();
+              PlayState.remove(sunkee);
+              }
+            });
+      
+      case 4:
+        sunkee.x = 1280 + sunkee.width;
+        sunkee.y = 960 + sunkee.height;
+        
+        sunkTween = FlxTween.tween(sunkee, {x: 0 - sunkee.width, y: 0 - sunkee.height}, sunkTime, {
+          onComplete: function(twn:FlxTween)
+              {
+              sunkTweenin = false;
+              sunkDone = true;
+              sunkTween.cancel();
+              PlayState.remove(sunkee);
+              }
+            });
+
+    }
+
+    return sunkee;
+
+  } 
+
+}
 
 function createPost() {
 
@@ -305,7 +409,7 @@ function onPlayerHit(note:Note){
 
     if(judgement=='Sick'){
         sicks+=1;
-        trace('cerealGet!');
+        // trace('cerealGet!');
         funnyHud.x += 10;
     }
 
@@ -337,6 +441,10 @@ function stepHit(curStep:Int) {
 function beatHit(curBeat)
 {
     speakers.animation.play('speakers');
+
+    if (curBeat > 100 && curBeat < 219 || curBeat > 292){
+      sunkinTime();
+    }
 
     if (boingySproingy){
       PlayState.autoCamZooming = false;
@@ -490,6 +598,7 @@ function beatHit(curBeat)
     if (boingy){
       PlayState.camGame.zoom += 0.05;
     }
+    
 }
 
 function your_func(parameter1:String) {
