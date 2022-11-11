@@ -1,3 +1,5 @@
+import("GameOverSubstate");
+
 var fuckyou:FlxText;
 var weewoo:Float = 0;
 
@@ -10,8 +12,12 @@ function create() {
     fuckyou.x += 100;
     fuckyou.scrollFactor.set(0, 0);
     add(fuckyou);
-    
+    GameOverSubstate.gameOverMusic = mod + ":balls so blyu";
 }
+
+//function createPost() {
+//  FlxG.sound.playMusic(balls);
+//}
 
 function update(elapsed:Float) {
 
