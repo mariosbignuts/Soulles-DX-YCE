@@ -583,3 +583,12 @@ function pauseThing() {
     }
     
 }
+
+function onNoteUpdatePost(note:Note) {
+  if (EngineSettings.downscroll && note.isSustainNote) {
+    note.y -= Note.swagWidth / 3;
+    if (!note.isLongSustain) {
+      note.y += note.height * 2;
+    }
+  }
+}
