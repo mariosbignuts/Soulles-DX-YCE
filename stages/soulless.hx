@@ -222,7 +222,7 @@ function beatHit(curBeat)
   }
 }
 
-function coolSlash(tweenDur:Int) { //me when i fucking kill you
+function coolSlash() { //me when i fucking kill you
   var blodtuin:FlxTween;
   var healthNow:Float = 1;
   //variables
@@ -238,7 +238,7 @@ function coolSlash(tweenDur:Int) { //me when i fucking kill you
   PlayState.camHUD.flash(0x00FF0000, 1); //makes the camera flash to black so that the blood effect looks better
   bloodfilter.alpha = 1;
   slash.alpha = 1;
-  blodtuin = FlxTween.tween(bloodfilter, {alpha: 0}, tweenDur, {ease: FlxEase.quartIn , startDelay: 0.3});
+  blodtuin = FlxTween.tween(bloodfilter, {alpha: 0}, 10, {ease: FlxEase.linear , startDelay: 0.3});
   trace('bleedin');
 
   healthNow = PlayState.health / 8; //healthNow variable divides current health by 8
