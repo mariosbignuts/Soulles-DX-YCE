@@ -388,13 +388,13 @@ function update(elapsed:Float) {
     FlxG.scaleMode.isWidescreen = false;
   }
 
-  // if (FlxControls.justPressed.S){
-  //   PlayState.boyfriend.flipX = !PlayState.boyfriend.flipX;
-  // }
+  if (FlxControls.justPressed.TWO){
+    PlayState.boyfriend.flipX = !PlayState.boyfriend.flipX;
+  }
 
-  // if (FlxControls.justPressed.F){
-  //   PlayState.dad.flipX = !PlayState.dad.flipX;
-  // }
+  if (FlxControls.justPressed.THREE){
+    PlayState.dad.flipX = !PlayState.dad.flipX;
+  }
 
   sonicsLegs.alpha = PlayState.boyfriend.alpha;
   sonicsLegs.x = PlayState.boyfriend.x - 5;

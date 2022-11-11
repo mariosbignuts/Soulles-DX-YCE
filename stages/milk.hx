@@ -22,7 +22,7 @@ EngineSettings.showTimer = false;
 
 function create() {
    	FlxG.resizeGame(1024, 768);
-    FlxG.resizeWindow(800, 600);
+    FlxG.resizeWindow(1024, 768);
     PlayState.defaultCamZoom = 1.05;
     
     camSunkee = new FlxCamera(0, 0, 1280, 960, 1);

@@ -77,56 +77,20 @@ function lickPopUp() {
 
 }
 
-
-var curLickCount:Int = 0;
-
-function lickMultiply(timer:FlxTimer) {
-
-    if (!spamming)
-        curLickCount = lickCounter;
-
-}
-
-var spamming:Bool = false;
-var lickBuffer:Int = 0;
-var lickMultiplier:Int = 0;
-var maxSpeedHolySHIT = false;
-
 function saveHim() {
 
         var lickin = FlxG.keys.justPressed.ANY;
-
-        var lickyLimit1 = curLickCount + 10;
-        var lickyLimit2 = curLickCount + 30;
-
         
         if (lickin){
             // save him
 
             if (bfArrived){
                 FlxG.sound.play(lick);
-                lickBuffer = lickBuffer + 1;
-                lickCounter = lickBuffer + lickMultiplier;
+                lickCounter++;
                 // trace("save him");
                 lickCount.x += 10;
                 lickPopUp();
                 camStuff.shake(0.01, 0.1);
-
-                if (lickCounter > lickyLimit1 && lickCounter < lickyLimit2){
-                    spamming = true;
-                    lickMultiplier = 7;
-                    lickCount.color = 0xFFFFFF00;
-                    maxSpeedHolySHIT = true;
-                } else if (lickCounter > lickyLimit2) {
-                    lickMultiplier = 43;
-                    lickCount.color = 0xFFFF0000;
-                    maxSpeedHolySHIT = true;
-                } else {
-                    lickMultiplier = 0;
-                    lickBuffer = lickCounter;
-                    lickCount.color = 0xFFFFFFFF;
-                }
-
             }
 
             if (!bfTweenin && !bfArrived){
@@ -170,7 +134,6 @@ function updatePost(elapsed:Float) {
 
         if (bfArrived && !lickTime){
             bfArrived = false;
-            lickCount.color = 0xFFFFFFFF;
             FlxG.sound.play(lick);
 
             if (bfTween != null)
@@ -184,16 +147,8 @@ function updatePost(elapsed:Float) {
                 {
                 bfTweenin = false;
                 bfTween.cancel();
-                spamming = false;
-                maxSpeedHolySHIT = false;
                 }
             });
-        }
-
-        if (spamming){
-            lickWarn.text = "WE CAN SAVE HIM!!!!!!\nLICK FASTER!!!!!!!!!";
-        } else {
-            lickWarn.text = "EVERYONE START LICKING!!!!\nWE CAN SAVE HIM!!!!!!";
         }
             
 
