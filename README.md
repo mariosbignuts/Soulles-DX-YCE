@@ -8,7 +8,7 @@
  3. put it in your yoshi engine mods folder (has to be yoshi engine 2.3)
 
 
-    soulless dx todo list
+# todo list for the mod
 
     BASE MOD
     -move to codename engine soon
