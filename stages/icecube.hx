@@ -20,7 +20,7 @@ var cam:FlxSprite;
 
 function create() {
 
-    PlayState.camHUD.addShader(shader = shader2 = new CustomShader(Paths.shader("bloom")));
+    // PlayState.camHUD.addShader(shader = shader2 = new CustomShader(Paths.shader("bloom")));
 
     FlxG.resizeWindow(1280, 720);
     PlayState.defaultCamZoom = 1;

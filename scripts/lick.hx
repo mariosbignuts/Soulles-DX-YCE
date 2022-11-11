@@ -78,15 +78,16 @@ function lickPopUp() {
 }
 
 function saveHim() {
-
-        var lickin = FlxG.keys.justPressed.ANY;
         
-        if (lickin){
+        if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.SHIFT || FlxG.keys.pressed.NINE){
             // save him
 
             if (bfArrived){
                 FlxG.sound.play(lick);
                 lickCounter++;
+                if (FlxG.keys.pressed.NINE){
+                    lickCounter = lickCounter * 2;
+                }
                 // trace("save him");
                 lickCount.x += 10;
                 lickPopUp();

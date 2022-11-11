@@ -220,7 +220,7 @@ function createPost() {
     }
 
     if (EngineSettings.downscroll){
-      strumY = 670;
+      strumY = 430;
     }
 
     var noteOfs:Int = 28;
