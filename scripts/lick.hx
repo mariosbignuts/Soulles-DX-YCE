@@ -10,6 +10,7 @@ var lickCountX:Float = 0;
 
 var lickWarn:FlxText;
 var lickWarnY:Float = 0;
+var lickCounter:Int = 0;
 
 var bfX:Float = 0;
 var bfTween:FlxTween;
@@ -74,12 +75,21 @@ function lickPopUp() {
     rating.updateHitbox();
 
     FlxTween.tween(rating, {alpha: 0}, 0.2, {startDelay: 0.5});
-
+    
+    if(lickCounter >= 10)
+       lickMultiply += 0.07;
+    if(lickCounter >= 30)
+       lickMultiply += 0.1;
+    if(lickCounter >= 50)
+		lickMultiply += 0.2;
+	if(lickCounter >= 120)
+		lickMultiply += 0.3;
+    
 }
 
 function saveHim() {
         
-        if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.SHIFT || FlxG.keys.pressed.NINE){
+        if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.SHIFT || FlxG.keys.pressed.NINE || (FlxG.mouse.justPressed) && FlxG.mouse.overlaps(dad)){
             // save him
 
             if (bfArrived){
