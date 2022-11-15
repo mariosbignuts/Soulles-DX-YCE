@@ -202,9 +202,50 @@ function update(elapsed:Float) {
     PlayState.defaultCamZoom = 2;
   }
 
-  funnyHud.text = "Health: " +  Std.int(((health / 2) * 100));
+  healthStuff();
+
+}
+
+var curHealth:Float = 5;
+
+function healthStuff() {
+
+  if (curHealth > 100) curHealth = 100;
+
+  var convertedHealth:Float = 0;
+  convertedHealth = curHealth / 100;
+  PlayState.health = convertedHealth;
+  funnyHud.text = "Health: " +  Std.int(((PlayState.health) * 100));
   //health meter code definitely didn't steal from an unreleased exe build sorry taeyai
 
+  if (PlayState.misses > 0){
+    curHealth -= 2;
+    PlayState.misses = 0;
+  }
+
+}
+
+function onPlayerHit(note:Note){
+
+  if(!note.isSustainNote){
+    var judgement = 'shit';
+    var diff = Math.abs(Conductor.songPosition - note.strumTime);
+
+    for(i in 0...PlayState.ratings.length){
+      var judge = PlayState.ratings[i];
+      if(diff <= judge.maxDiff){
+        judgement = judge.name;
+        break;
+      }
+    }
+
+    switch(judgement){
+      case 'Sick':
+      curHealth += 1;
+      case 'Good':
+      curHealth += 0.5;
+    }
+  }
 }
 
 function beatHit(curBeat)
@@ -229,7 +270,6 @@ function coolSlash() { //me when i fucking kill you
 
   if(blodtuin != null)
   {
-    trace('camc;eled');
     blodtuin.cancel();
   }
   //if the slash anim is already playing, this will disable it before playing it again so that it doesn't overlap and break
@@ -241,8 +281,8 @@ function coolSlash() { //me when i fucking kill you
   blodtuin = FlxTween.tween(bloodfilter, {alpha: 0}, 10, {ease: FlxEase.linear , startDelay: 0.3});
   trace('bleedin');
 
-  healthNow = PlayState.health / 8; //healthNow variable divides current health by 8
-  PlayState.health = healthNow; //sets health to healthNow variable
+  healthNow = curHealth / 8; //healthNow variable divides current health by 8
+  curHealth = healthNow; //sets health to healthNow variable
 
   FlxG.camera.shake(0.01, 1); //brrrr
   FlxG.sound.play(ouch);
