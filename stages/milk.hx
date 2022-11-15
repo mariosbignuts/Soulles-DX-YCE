@@ -415,7 +415,6 @@ function onPlayerHit(note:Note){
 
     funnyHud.text = "Cookies: " + sicks;
   }
-
 }
 
 //ty neb for coding this lmao ^
