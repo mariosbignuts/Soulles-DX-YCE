@@ -3,7 +3,7 @@ EngineSettings.splashesEnabled = false;
 
 import("ScoreText");
 EngineSettings.showTimer = false;
-EngineSettings.downscroll = false;
+// EngineSettings.downscroll = false;
 EngineSettings.centerStrums = false;
 EngineSettings.middleScroll = false;
 EngineSettings.glowCPUStrums = false;
