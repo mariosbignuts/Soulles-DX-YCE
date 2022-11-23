@@ -3,6 +3,9 @@
 
  how do install:
 
+ [easy version](https://gist.github.com/Stilic/93d6449fa4b79e92fc875ea9b1a65582)
+
+ hard version:
  1. click code button
  2. click 'download zip'
  3. put it in your yoshi engine mods folder (has to be yoshi engine 2.3)
@@ -91,3 +94,5 @@
 im a dumbass 💀 -kacperosm
 - 
 bro do not use the dashes on a separate line LOL -gray
+
+deez nuts -stilic
