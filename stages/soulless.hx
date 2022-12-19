@@ -1,7 +1,37 @@
 /*
-hi welcome to my code
-if you opened this, chances are you're probably trying to figure out how all this shits work
-so, im gonna explain with 9 trillion comments:3
+gay ass
+                                  
+
+                        .:~!~.                                                                      
+                   .:^!?JY5YYJ7:                                                                    
+                 ^7Y5PPP55555555~.                                                                  
+     .~!~~~~!77~~:.:~7?YPGGGGG5??^                                                                  
+     ^PGGGPPP555PY?!~:..^!JJ!~:                                                                     
+     ^PGGGGPPGGPP55YJ?????J7!!!!!!!!~~^:::........  .                                               
+      7PGGGGGPP5YJJJJ??JJJ?7??777!!!!!!!!!~:.                                                       
+      .!5GPPP5YJJJJJJJJJ??????77!!!!!!!!!!!!~~:.      ..:.                                          
+      ~5PPPP55J7!!7JY5Y???7!~^^:^^~~!!!!!!!!!!!!^:. ....                                            
+      YG5PB###G7~!?YJ??77~:. .~7~:..:~!!!!!!!!!!^:.                                                 
+    .7GGPPPP5Y?77JJ???77!.  ^5&&#G^  :!!!!!!!!7!.                                                   
+   .!GGGGG55JJ??7!!!!777!~:..:~!~:..^!7!!!!7777!^.                                                  
+    !PGPPYJJ?7!!!^:.   ..:^~~^~~~!!!!7!7!7777777~.                                                  
+     :5#BB#####BBGG5YY?!^.    ...::^^~77777????^.                                                   
+      ^JPBBBGGGGGGGP5Y?7!^.     ...::^JJJYY5J7:                                                     
+        ^J5555YJ?7!~^::..:^^~~!!7???JJYYJ7!^.                ..:::^^^^^^^^:.    ..                  
+           .:^^^^~JP5YJJJJJJJJ?????777!!!~~~~^.      .^7JJ???JJJJ??7!^^:........ ..                 
+                 ?PP5YJ?7~^^.:~7!!!!~~~!!!!!?J7~::~JYYP555555PPPPYJ?!~~^:.. . .:^:                  
+                ^PP5YJ?7!~^^...:!77!!!!!!!!!7?Y55YY555555555PPPGGGGPY7!~:...:^~^.                   
+               .!5GGP5YJJ?7!~^::^!7777777????J5GGGGPPPPPPPPPP55PP555Y!~:.                           
+                 :~?YPGPP5YYJJ?77?JJJJJ?7!77??JJYY555555YYJJ??77!!!!~~~~!!!!!!!^:.  .:~~~.          
+                     .!7JPGP??Y5P5YJ7!:.  ..:^^~!!7JJJ???77777???7?JJYYYYJ?7!~^::^~!7?JJJ7^.        
+                         :7J?7~~!7???!~^:..       .:^^7???????7!^^!7JPP5Y7~:...!JJJJJJJ?JJJ?~.      
+                            :^!??7!~~7JJJ???777777~^:!Y5PP555YJJ7!!!JPPP5Y?7!!~J5JYYYYJJYYJ?~.      
+                               .!J5Y?!~^:....::^^^7JY55PP55Y?^^~~7?JY555555Y7!!!777?7777!^.         
+                               :YPGPYJ7~:          :~!7?YYY?!^^::?555555YYY5J~.                     
+                                .^75P5YJ77!^:....  ...  .:^^~?J??YYJJ?J?~^^^~^.                     
+                                   :~!7!77!7!!!!^:.          .......                                
+                                                                                                    
+
 */
 
 import openfl.filters.ShaderFilter;
@@ -20,20 +50,20 @@ EngineSettings.showTimer = false;
 var shader:CustomShader = null;
 var shader2:CustomShader = null;
 var time = 4;
-//for the shaders ^
 
 function create() {
-    FlxG.resizeWindow(1024, 768); //sets window size
+    FlxG.resizeWindow(1024, 768);
     PlayState.defaultCamZoom = 1.05;
 
+    FlxG.scaleMode.width = 1280;
+    FlxG.scaleMode.height = 960;
+    FlxG.scaleMode.isWidescreen = false;
     FlxG.game.addShader(shader = shader2 = new CustomShader(Paths.shader("hotlineVHS"))); //ty yoshi
-    //sets shader for the entire game window instead of individual cameras (this is why the cursor gets affected too lol)
 
     backdrop = new FlxSprite(0, 0);
     backdrop.makeGraphic(FlxG.width * 2, FlxG.width * 2, 0xFF333333);
     backdrop.scrollFactor.set(0, 0);
     PlayState.add(backdrop);
-    //gray (wtf reference) backdrop cuz i didnt make the bg asset big enough
 
     bg = new FlxSprite(-20, -250);
     bg.frames = Paths.getSparrowAtlas('soulless/bg2');
@@ -46,9 +76,8 @@ function create() {
     PlayState.add(bg);
 
     PlayState.add(PlayState.dad);
-    //simple layering
 
-    slash = new FlxSprite(100, -5);
+    slash = new FlxSprite(100, 0);
     slash.frames = Paths.getSparrowAtlas('soulless/slash');
     slash.animation.addByPrefix('slash', 'slash', 30, false);
     slash.antialiasing = true;
@@ -58,7 +87,7 @@ function create() {
     slash.cameras = [PlayState.camHUD];
     PlayState.add(slash);
 
-    bloodfilter = new FlxSprite(-108, -250);
+    bloodfilter = new FlxSprite(-108, -100);
     bloodfilter.frames = Paths.getSparrowAtlas('soulless/bloodfilter');
     bloodfilter.animation.addByPrefix('bloodfilter', 'bloodfilter', 60, true);
     bloodfilter.animation.play('bloodfilter');
@@ -70,7 +99,7 @@ function create() {
 
     ouch = Paths.sound("slash"); //marstarbro!??!?!?
 
-    funnyHud = new FlxText(60, 700, 999, "i am a number", 44);
+    funnyHud = new FlxText(60, 800, 999, "i am a number", 44);
     funnyHud.setFormat(Paths.font("HelpMe.ttf"), 100, FlxColor.WHITE);
     funnyHud.cameras = [PlayState.camHUD];
 
@@ -92,24 +121,14 @@ function onGuiPopup() {
   PlayState.add(funnyHud);
 }
 
-var strumY:Int = -69;
-
 function createPost() {
-
-    if (EngineSettings.downscroll){
-      strumY = 670;
-      //makes the strumline lower if ur on downscroll
-    }
 
     for (i in 0...PlayState.playerStrums.length) {
       PlayState.playerStrums.members[0].x -= 75;
       PlayState.playerStrums.members[1].x -= 50;
       PlayState.playerStrums.members[2].x += 50;
 	   	PlayState.playerStrums.members[3].x += 75;
-      //sets individual note X positions
 
-      PlayState.playerStrums.members[i].y = strumY;
-      //sets strumline Y coords to the variable
     }
 
       PlayState.boyfriend.visible = false;
@@ -128,12 +147,6 @@ function createPost() {
       PlayState.boyfriend.y = 999;
 
       PlayState.dad.playAnim('stare');
-      //stare
-
-      FlxG.scaleMode.width = 1280;
-      FlxG.scaleMode.height = 960;
-      FlxG.scaleMode.isWidescreen = false;
-      //sets and locks the game size to 1280 x 960 without having to disable window resizing
 
 }
 
@@ -152,8 +165,6 @@ function update(elapsed:Float) {
 
   if(!intro)
   PlayState.dad.y += Math.sin(weewoo) * 0.8 * elapsed * 60;
-  //code for floaty effect
-
     if(moveCam){
       if (PlayState.section != null && PlayState.section.mustHitSection) {
           PlayState.camFollow.setPosition(512, 385);
@@ -185,7 +196,6 @@ function update(elapsed:Float) {
     }
 
   PlayState.autoCamZooming = false;
-  //disables the camera zooming on beat
 
   res = [69, 420];
   time += elapsed;
@@ -194,7 +204,6 @@ function update(elapsed:Float) {
   shader.shaderData.iResolution.value = res;
   shader2.shaderData.iTime.value = [time];
   shader2.shaderData.iResolution.value = res;
-  //makes shader go weewoo
 
   if (intro){
     //DUNNNN tun tun tun tun tun tun tun DURURUUUUNNNNNN tun tun tun tun tun tun tun DURURUUUNNNNN DUNNNNNN DUUUUNNNNNN DUUUUUUNNNNN tun tun tun tun tunnnn,,,,,, :)
@@ -216,7 +225,6 @@ function healthStuff() {
   convertedHealth = curHealth / 100;
   PlayState.health = convertedHealth;
   funnyHud.text = "Health: " +  Std.int(((PlayState.health) * 100));
-  //health meter code definitely didn't steal from an unreleased exe build sorry taeyai
 
   if (PlayState.misses > 0){
     curHealth -= 2;
@@ -263,28 +271,25 @@ function beatHit(curBeat)
   }
 }
 
-function coolSlash() { //me when i fucking kill you
+function coolSlash() { 
   var blodtuin:FlxTween;
   var healthNow:Float = 1;
-  //variables
 
   if(blodtuin != null)
   {
     blodtuin.cancel();
   }
-  //if the slash anim is already playing, this will disable it before playing it again so that it doesn't overlap and break
-
   slash.animation.play('slash');
-  PlayState.camHUD.flash(0x00FF0000, 1); //makes the camera flash to black so that the blood effect looks better
+  PlayState.camHUD.flash(0x00FF0000, 1);
   bloodfilter.alpha = 1;
   slash.alpha = 1;
   blodtuin = FlxTween.tween(bloodfilter, {alpha: 0}, 10, {ease: FlxEase.linear , startDelay: 0.3});
   trace('bleedin');
 
-  healthNow = curHealth / 8; //healthNow variable divides current health by 8
-  curHealth = healthNow; //sets health to healthNow variable
+  healthNow = curHealth / 8;
+  curHealth = healthNow; 
 
-  FlxG.camera.shake(0.01, 1); //brrrr
+  FlxG.camera.shake(0.01, 1); 
   FlxG.sound.play(ouch);
 
 }

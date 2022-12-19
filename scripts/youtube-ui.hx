@@ -21,17 +21,7 @@ var cursor:FlxSprite = new FlxSprite();
 var pauseButton:FlxSprite = new FlxSprite();
 var fullPauseButton:FlxSprite = new FlxSprite();
 
-
-function setCamShader(shader, camera) {
-    shader = new CustomShader(mod + ":" + shader);
-    camera.setFilters([new ShaderFilter(shader)]);
-    camera.filtersEnabled = true;
-}
-
 function createPost() {
-
-    setCamShader('360p', PlayState.camHUD);
-    setCamShader('360p', PlayState.camGame);
 
     youtubeCam = new FlxCamera(0, 0, FlxG.width, FlxG.height, 1);
     youtubeCam.bgColor = 0;
@@ -102,7 +92,40 @@ function createPost() {
     canPause = false;
 }
 
+function doPauseShit() {
+    if (paused) {
+        closeSubState();
+    } else {
+        persistentUpdate = false;
+        persistentDraw = true;
+        paused = true;
+        FlxG.camera.followActive = false;
+
+        if (FlxG.sound.music != null)
+        {
+            FlxG.sound.music.pause();
+            vocals.pause();
+        }
+
+        if (startTimer != null)
+            if (!startTimer.finished)
+                startTimer.active = false;
+
+        // var e = new FlxPoint();
+        // if (boyfriend != null)
+        //     e = boyfriend.getScreenPosition();
+        // openSubState(new PauseSubState(e.x, e.y));
+        var substate = new ModSubState("youtubepausething");
+        openSubState(substate);
+        substate.script.setVariable("coolShit", update);
+    }
+}
+
 function update(elapsed:Float) {
+
+    if (FlxControls.justPressed.SPACE)
+        doPauseShit();
+
     if (lastYoutubeSpawn < 10) lastYoutubeSpawn += elapsed;
 
     var screenPos = FlxG.mouse.getScreenPosition(youtubeCam);
@@ -143,33 +166,7 @@ function update(elapsed:Float) {
             switch(id) {
                 case 0:
                     if (FlxG.mouse.justPressed) {
-                        if (paused) {
-                            closeSubState();
-                        } else {
-                            persistentUpdate = false;
-                            persistentDraw = true;
-                            paused = true;
-                            FlxG.camera.followActive = false;
-
-                            if (FlxG.sound.music != null)
-                            {
-                                FlxG.sound.music.pause();
-                                vocals.pause();
-                            }
-
-                            if (startTimer != null)
-                                if (!startTimer.finished)
-                                    startTimer.active = false;
-
-                            // var e = new FlxPoint();
-                            // if (boyfriend != null)
-                            //     e = boyfriend.getScreenPosition();
-                            // openSubState(new PauseSubState(e.x, e.y));
-                            var substate = new ModSubState("youtubepausething");
-                            openSubState(substate);
-                            substate.script.setVariable("coolShit", update);
-                        }
-
+                        doPauseShit();
                     }
                 case 1:
                     if (FlxG.mouse.justPressed) {

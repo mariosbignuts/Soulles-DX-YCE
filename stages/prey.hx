@@ -95,6 +95,10 @@ function parallaxBgShit() {
 
 function create() {
 
+    FlxG.scaleMode.width = 320;
+    FlxG.scaleMode.height = 224;
+    FlxG.scaleMode.isWidescreen = false;
+
     FlxG.resizeWindow(320 * 3, 224 * 3);
     PlayState.defaultCamZoom = 1;
   
@@ -125,7 +129,7 @@ function create() {
     overlay2.scrollFactor.set(0, 0);
     overlay2.scale.set(1, 1);
     overlay2.blend = BlendMode.DARKEN;
-    overlay2.alpha = 1;
+    overlay2.visible = false;
     PlayState.add(overlay2);
     
     // bg = new FlxBackdrop(Paths.image('prey/stardustBg'), 0, 0, true, false);
@@ -192,6 +196,8 @@ var wallDestroy:FlxSound = null;
 
 import haxe.io.Path;
 
+var sonicMove:Bool = false;
+
 function createPost() {
 
     PlayState.gf.visible = false;
@@ -199,10 +205,6 @@ function createPost() {
     PlayState.boyfriend.scrollFactor.set(0,0);
     PlayState.boyfriend.x = -59;
     PlayState.boyfriend.y = 116;
-
-    FlxG.scaleMode.width = 1280;
-    FlxG.scaleMode.height = 960;
-    FlxG.scaleMode.isWidescreen = false;
 
     PlayState.dad.scrollFactor.set(0, 0);
     PlayState.dad.scale.set(2, 2);
@@ -217,6 +219,7 @@ function createPost() {
       PlayState.dad.y = 45;
       PlayState.dad.scale.set(1, 1);
       speedster.scale.x =-1;
+      sonicMove = true;
     }
 
     if (EngineSettings.downscroll){
@@ -253,20 +256,22 @@ function createPost() {
     overlay.scale.set(1, 1);
     overlay.blend = BlendMode.DARKEN;
     overlay.alpha = 1;
-    PlayState.add(overlay);
 
     overlay3 = new FlxSprite(0, -300);
     overlay3.makeGraphic(960 * 2, 672 * 2, 0xFFFFFFFF);
     overlay3.scrollFactor.set(0, 0);
     overlay3.scale.set(1, 1);
     overlay3.blend = BlendMode.ADD;
-    overlay3.alpha = 1;
+    overlay3.visible = false;
     PlayState.add(overlay3);
 
-    PlayState.camHUD.alpha = 0;
+    if (!PlayState.fromCharter){
+      PlayState.add(overlay);
+      PlayState.camHUD.alpha = 0;
 
-    PlayState.dad.alpha = 0;
-    PlayState.boyfriend.alpha = 0;
+      PlayState.dad.alpha = 0;
+      PlayState.boyfriend.alpha = 0;
+    }
 
     window.title = "Fusion 3.64 - MegaCD - SONIC THE HEDGEHOG-CD";
 
@@ -326,39 +331,48 @@ function boing() {
   ballSonic.y = PlayState.boyfriend.y + 6;
 
 }
+
+var sonicMaxSpeed:Int = 0;
+var sonicCurSpeed:Int = 0;
+
 function update(elapsed:Float) {
 
   if (!paused)
   boing();
 
-  FlxG.camera.antialiasing = false;
-  FlxG.camera.pixelPerfectRender = true;
-  FlxG.game.stage.quality = 2;
+  if (sonicMove){
+    if (FlxControls.pressed.LEFT){
+      sonicMaxSpeed = -200; 
 
-  shader.shaderData.uBlocksize.value = [pixelScale / FlxG.scaleMode.width * (FlxG.scaleMode.gameSize.x), pixelScale / FlxG.scaleMode.height * FlxG.scaleMode.gameSize.y];
-
-  var small = FlxG.scaleMode.gameSize.x < FlxG.scaleMode.width || FlxG.scaleMode.gameSize.y < FlxG.scaleMode.height;
-  if (small) {
-      shader.shaderData.size.value = [FlxG.scaleMode.gameSize.x < (FlxG.scaleMode.width / 2) ? 0 : 1];
-  } else {
-      shader.shaderData.size.value = [2];
-  }
-
-  if (PlayState.health < 0) { // YOU WILL DIE!!!
-      shader.shaderData.uBlocksize.value = [1, 1];
-  }
-  
-  for (s in PlayState.members) {
-      if (Std.isOfType(s, FlxSprite) || Std.isOfType(s, Note)) {
-          if (s.velocity != null && s.velocity.x == 0 && s.velocity.y == 0 && !s.cameras.contains(PlayState.camHUD)) {
-              s.x -= s.x % pixelScale;
-              s.y -= s.y % pixelScale;
-              if (s.offset != null) {
-                  s.offset.x -= s.offset.x % pixelScale;
-                  s.offset.y -= s.offset.y % pixelScale;
-              }
-          }
+      if (boingoing){
+        sonicCurSpeed = FlxMath.lerp(sonicCurSpeed, sonicMaxSpeed, 0.08);
+      } else {
+        sonicCurSpeed = FlxMath.lerp(sonicCurSpeed, sonicMaxSpeed, 0.1);
       }
+    }
+    
+    if (FlxControls.pressed.RIGHT) {
+      sonicMaxSpeed = 200;
+      
+      if (boingoing){
+        sonicCurSpeed = FlxMath.lerp(sonicCurSpeed, sonicMaxSpeed, 0.08);
+      } else {
+        sonicCurSpeed = FlxMath.lerp(sonicCurSpeed, sonicMaxSpeed, 0.1);
+      }
+    }
+    
+    if (!FlxControls.pressed.LEFT && !FlxControls.pressed.RIGHT){
+      sonicMaxSpeed = 0;
+
+      if (boingoing){
+        sonicCurSpeed = FlxMath.lerp(sonicCurSpeed, sonicMaxSpeed, 0.04);
+      } else {
+        sonicCurSpeed = FlxMath.lerp(sonicCurSpeed, sonicMaxSpeed, 0.2);
+      }
+
+    }
+
+    PlayState.boyfriend.velocity.x = sonicCurSpeed;
   }
 
   PlayState.autoCamZooming = false;
@@ -375,12 +389,14 @@ function update(elapsed:Float) {
 
   pauseThing();
 
-  overlay.color = overlayColours[Std.int(speedster.alpha * 10)];
+  if (overlay.visible)
+    overlay.color = overlayColours[Std.int(speedster.alpha * 10)];
 
-  if (starvedCutscene)
+  if (overlay2.visible)
     overlay2.color = overlayColours2[Std.int(speedster.alpha * 10)];
 
-  overlay3.color = overlayColours3[Std.int(flasher.alpha * 10)];
+  if (overlay3.visible)
+    overlay3.color = overlayColours3[Std.int(flasher.alpha * 10)];
 
   if (FlxControls.justPressed.SEVEN){
     FlxG.scaleMode.width = 1280;
@@ -451,6 +467,8 @@ function beatHit(curBeat) {
   }
 
   if (curBeat == 418){
+    overlay2.visible = true;
+    overlay3.visible = true;
     FlxTween.tween(speedster, {alpha: 1}, 7, {ease: FlxEase.linear});
   }
 
@@ -469,13 +487,14 @@ function beatHit(curBeat) {
     starvedCutscene = false;
   }
 
+  if (curBeat == 450){
+    overlay2.visible = false;
+    overlay3.visible = false;
+  }
+
 }
 
 function onSongStart() {
-
-  FlxG.scaleMode.width = 320;
-  FlxG.scaleMode.height = 224;
-  FlxG.scaleMode.isWidescreen = false;
 
     introTimer = new FlxTimer().start(1.0, function(tmr:FlxTimer)
 		{

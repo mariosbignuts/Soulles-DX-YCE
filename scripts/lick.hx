@@ -21,7 +21,7 @@ var lickingAllowed:Bool = false;
 var camStuff:FlxCamera;
 
 function createPost() {
-    lick = Paths.sound("lick"); //slourp
+    lick = Paths.sound("vine"); //slourp
 
     camStuff = new FlxCamera(0, 0, 1280, 720, 1);
     camStuff.bgColor = new FlxColor(0xFF000000);
@@ -77,42 +77,50 @@ function lickPopUp() {
 
 }
 
-function saveHim() {
-        
-        if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.SHIFT || FlxG.keys.pressed.NINE){
-            // save him
-
-            if (bfArrived){
-                FlxG.sound.play(lick);
-                lickCounter++;
-                if (FlxG.keys.pressed.NINE){
-                    lickCounter = lickCounter * 2;
-                }
-                // trace("save him");
-                lickCount.x += 10;
-                lickPopUp();
-                camStuff.shake(0.01, 0.1);
-            }
-
-            if (!bfTweenin && !bfArrived){
-
-                if (bfTween != null)
-                    bfTween.cancel();
-
-                bfTweenin = true;
-                bfTween = FlxTween.tween(PlayState.boyfriend, {x: bfX}, 0.6, {
-                ease: FlxEase.quadInOut,
-                onComplete: function(twn:FlxTween)
-                    {
-                    bfTweenin = false;
-                    bfArrived = true;
-                    bfTween.cancel();
-                    }
-                });
-            }
-        }
-        
-}
+/******************************************************************************************************************/
+/****************************************************  fuck you  **************************************************/
+/******************************************************************************************************************/
+/*****/                                                                                                      /*****/
+/*****/  function saveHim() {                                                                                /*****/
+/*****/                                                                                                      /*****/
+/*****/      if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.SHIFT || FlxG.keys.pressed.NINE){      /*****/
+/*****/          // save him                                                                                 /*****/
+/*****/                                                                                                      /*****/
+/*****/          if (bfArrived){                                                                             /*****/     
+/*****/              FlxG.sound.play(lick);                                                                  /*****/
+/*****/              lickCounter++;                                                                          /*****/     
+/*****/              if (FlxG.keys.pressed.NINE){                                                            /*****/
+/*****/                  lickCounter = lickCounter * 2;                                                      /*****/
+/*****/              }                                                                                       /*****/
+/*****/              // trace("save him");                                                                   /*****/
+/*****/              lickCount.x += 10;                                                                      /*****/
+/*****/              lickPopUp();                                                                            /*****/
+/*****/              camStuff.shake(0.01, 0.1);                                                              /*****/      
+/*****/          }                                                                                           /*****/
+/*****/                                                                                                      /*****/
+/*****/          if (!bfTweenin && !bfArrived){                                                              /*****/
+/*****/                                                                                                      /*****/
+/*****/              if (bfTween != null)                                                                    /*****/
+/*****/                  bfTween.cancel();                                                                   /*****/
+/*****/                                                                                                      /*****/
+/*****/              bfTweenin = true;                                                                       /*****/
+/*****/              bfTween = FlxTween.tween(PlayState.boyfriend, {x: bfX}, 0.6, {                          /*****/
+/*****/              ease: FlxEase.quadInOut,                                                                /*****/
+/*****/              onComplete: function(twn:FlxTween)                                                      /*****/
+/*****/                  {                                                                                   /*****/
+/*****/                  bfTweenin = false;                                                                  /*****/
+/*****/                  bfArrived = true;                                                                   /*****/
+/*****/                  bfTween.cancel();                                                                   /*****/  
+/*****/                  }                                                                                   /*****/
+/*****/              });                                                                                     /*****/
+/*****/          }                                                                                           /*****/
+/*****/      }                                                                                               /*****/
+/*****/                                                                                                      /*****/
+/*****/  }                                                                                                   /*****/
+/*****/                                                                                                      /*****/
+/******************************************************************************************************************/
+/******************************************************************************************************************/
+/******************************************************************************************************************/
 
     
 function updatePost(elapsed:Float) {

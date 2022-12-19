@@ -13,35 +13,8 @@
 	"anims": [
 		{
 			"indices": null,
-			"x": 0,
-			"y": 0,
-			"anim": "danceRight",
-			"loop": false,
-			"name": "danceRight",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": 9,
-			"y": -9,
-			"anim": "singDOWN0",
-			"loop": false,
-			"name": "singDOWN",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": -105,
-			"y": -10,
-			"anim": "singRIGHT-alt",
-			"loop": false,
-			"name": "singRIGHT-alt",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": -49,
-			"y": -2,
+			"x": -14,
+			"y": -6,
 			"anim": "singRIGHTmiss",
 			"loop": false,
 			"name": "singRIGHTmiss",
@@ -49,35 +22,26 @@
 		},
 		{
 			"indices": null,
+			"x": -2,
+			"y": 25,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "singRIGHT-alt",
+			"framerate": 24
+		},
+		{
+			"indices": null,
 			"x": 7,
-			"y": -17,
-			"anim": "danceLeft",
+			"y": -23,
+			"anim": "singDOWN0",
 			"loop": false,
-			"name": "danceLeft",
+			"name": "singDOWN",
 			"framerate": 24
 		},
 		{
 			"indices": null,
-			"x": 46,
-			"y": -3,
-			"anim": "singLEFT-alt",
-			"loop": false,
-			"name": "singLEFT-alt",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": 33,
-			"y": -12,
-			"anim": "singLEFTmiss",
-			"loop": false,
-			"name": "singLEFTmiss",
-			"framerate": 24
-		},
-		{
-			"indices": null,
-			"x": -1,
-			"y": 16,
+			"x": -19,
+			"y": 35,
 			"anim": "singUP0",
 			"loop": false,
 			"name": "singUP",
@@ -85,17 +49,35 @@
 		},
 		{
 			"indices": null,
-			"x": -30,
-			"y": -81,
-			"anim": "singDOWN-alt",
+			"x": 47,
+			"y": 4,
+			"anim": "singLEFTmiss",
 			"loop": false,
-			"name": "singDOWN-alt",
+			"name": "singLEFTmiss",
 			"framerate": 24
 		},
 		{
 			"indices": null,
-			"x": -31,
-			"y": -5,
+			"x": 104,
+			"y": 25,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "singLEFT-alt",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": 0,
+			"y": 0,
+			"anim": "idle",
+			"loop": false,
+			"name": "idle",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": -16,
+			"y": -7,
 			"anim": "singRIGHT0",
 			"loop": false,
 			"name": "singRIGHT",
@@ -103,8 +85,8 @@
 		},
 		{
 			"indices": null,
-			"x": 9,
-			"y": -20,
+			"x": 14,
+			"y": -28,
 			"anim": "singDOWNmiss",
 			"loop": false,
 			"name": "singDOWNmiss",
@@ -112,17 +94,26 @@
 		},
 		{
 			"indices": null,
-			"x": 3,
-			"y": 132,
-			"anim": "singUP-alt",
+			"x": 11,
+			"y": -59,
+			"anim": "singDOWN-alt",
 			"loop": false,
-			"name": "singUP-alt",
+			"name": "singDOWN-alt",
 			"framerate": 24
 		},
 		{
 			"indices": null,
-			"x": -17,
-			"y": 35,
+			"x": 37,
+			"y": 5,
+			"anim": "singLEFT0",
+			"loop": false,
+			"name": "singLEFT",
+			"framerate": 24
+		},
+		{
+			"indices": null,
+			"x": -23,
+			"y": 33,
 			"anim": "singUPmiss",
 			"loop": false,
 			"name": "singUPmiss",
@@ -130,17 +121,16 @@
 		},
 		{
 			"indices": null,
-			"x": 30,
-			"y": -12,
-			"anim": "singLEFT0",
+			"x": -9,
+			"y": 170,
+			"anim": "singUP-alt",
 			"loop": false,
-			"name": "singLEFT",
+			"name": "singUP-alt",
 			"framerate": 24
 		}
 	],
 	"danceSteps": [
-		"danceLeft",
-		"danceRight"
+		"idle"
 	],
 	"antialiasing": true,
 	"healthIconSteps": [

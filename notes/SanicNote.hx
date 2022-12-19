@@ -1,7 +1,6 @@
 function generateStaticArrow(babyArrow:FlxSprite, i:Int, player:Int) {
         babyArrow.frames = Paths.getSparrowAtlas('HUD stuff/noteSkins/sanicNote');
 
-
         babyArrow.animation.addByPrefix('green', 'arrowUP');
         babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
         babyArrow.animation.addByPrefix('purple', 'arrowLEFT0');

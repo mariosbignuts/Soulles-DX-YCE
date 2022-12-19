@@ -68,6 +68,7 @@ function onPlayerHit(direction:Int) {
     var suffix = "";
     if (Math.abs(note.strumTime - Conductor.songPosition) < PlayState.ratings[0].maxDiff)
         suffix = "-alt";
+
     switch(direction) {
         case 0:
             PlayState.boyfriend.playAnim("singLEFT" + suffix, true);
@@ -79,3 +80,23 @@ function onPlayerHit(direction:Int) {
             PlayState.boyfriend.playAnim("singRIGHT" + suffix, true);
     }
 }
+
+
+function onDadHit(direction:Int) {
+    if (note.isSustainNote && StringTools.startsWith(PlayState.dad.getAnimName(), "sing")) {
+        PlayState.dad.playAnim(PlayState.dad.getAnimName());
+        return;
+    }
+
+    switch(direction) {
+        case 0:
+            PlayState.dad.playAnim("singLEFT", true);
+        case 1:
+            PlayState.dad.playAnim("singDOWN", true);
+        case 2:
+            PlayState.dad.playAnim("singUP", true);
+        case 3:
+            PlayState.dad.playAnim("singRIGHT", true);
+    }
+}
+

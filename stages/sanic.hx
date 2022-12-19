@@ -16,6 +16,7 @@ EngineSettings.smoothHealthbar = false;
 EngineSettings.watermark = true;
 EngineSettings.classicHealthbar = true;
 
+import openfl.filters.ShaderFilter;
 
 function create() {
 
@@ -32,21 +33,9 @@ function create() {
     gm.antialiasing = true;
     gm.scale.set(3, 3);
     PlayState.add(gm);
-    //
-    // suck = new FlxSprite(0 , 0).loadGraphic(Paths.image('sanic/dialog/wot'));
-    // suck.screenCenter(XY);
-    // suck.antialiasing = true;
-    // suck.visible = false;
-    // suck.scale.set(0.4, 0.4);
-    // suck.cameras = [PlayState.camHUD];
-    // PlayState.add(suck);
-
 
 }
 
-function onGuiPopup() {
-  // PlayState.add(yt);
-}
 
 var removeVid:Bool = true;
 
@@ -75,17 +64,29 @@ function youtube(poop, loopyloop) {
   return sprite;
 }
 
+function setCamShader(shader, camera) {
+  shader = new CustomShader(mod + ":" + shader);
+  camera.setFilters([new ShaderFilter(shader)]);
+  camera.filtersEnabled = true;
+}
 
 function createPost() {
 
-			PlayState.dad.x -= 169;
-      PlayState.boyfriend.y += 288;
+  setCamShader('360p', PlayState.camHUD);
+  setCamShader('360p', PlayState.camGame);
 
-      PlayState.camFollowLerp = 0.1;
+  PlayState.dad.x -= 169;
+  PlayState.boyfriend.y += 288;
 
-      PlayState.scoreTxt.size = 16;
-      PlayState.scoreTxt.y = PlayState.healthBarBG.y + 50;
-      PlayState.scoreTxt.antialiasing = false;
+  PlayState.camFollowLerp = 0.1;
+
+  PlayState.scoreTxt.size = 16;
+  PlayState.scoreTxt.y = PlayState.healthBarBG.y + 50;
+  PlayState.scoreTxt.antialiasing = false;
+
+  for (i in 0...PlayState.playerStrums.length) {
+    PlayState.playerStrums.members[i].scrollSpeed = 4.20;
+    }  
 
 }
 
@@ -102,21 +103,6 @@ function updatePost() {
     PlayState.scoreWarning.visible = false;
 
 }
-
-function onHealthUpdate(elapsed:Float) {
-    for(icon in iconGroup) {
-        icon.y = healthBar.y - (iconP1.height /2);
-    }
-
-    var iconOffset:Int = 26;
-    iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
-		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
-
-    return false;
-}
-
-var speed:Float = 1;
-var speedLol:Float = 1;
 
 function update(elapsed) {
 
@@ -143,22 +129,6 @@ function update(elapsed) {
         case "singDOWN":
             PlayState.camFollow.y = PlayState.camFollow.y + 3;
   }
-
-    if(PlayState.health < 0.5){
-    speedLol = 2.69;
-    }
-    else {
-    speedLol = 4.20;
-    }
-
-    if(PlayState.health > 1.7){
-    speedLol = 6.9;
-    }
-
-    for (i in 0...PlayState.playerStrums.length) {
-      PlayState.playerStrums.members[i].scrollSpeed = speed;
-      speed = FlxMath.lerp(PlayState.playerStrums.members[i].scrollSpeed, speedLol, 0.001);
-      }
 
     PlayState.canDie = false;
       //

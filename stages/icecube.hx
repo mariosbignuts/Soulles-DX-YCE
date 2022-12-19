@@ -112,9 +112,6 @@ var ofs1:Int = 30;
 
 function updatePost(elapsed:Float) {
 
-  PlayState.camFollow.setPosition(cam.x, cam.y);
-  PlayState.defaultCamZoom = cam.scale.x;
-
     if (PlayState.section != null && PlayState.section.mustHitSection) {
       camTweenin(806, 380, 0.9);
 
@@ -152,12 +149,13 @@ var cum:Float;
 
 function camTweenin(xx, yy, scale){
 
+  PlayState.camFollow.setPosition(cam.x, cam.y);
+  PlayState.defaultCamZoom = cam.scale.x;
+
   if (!camMoving){
 
-    cum = FlxG.random.float(scale, scale + 0.15);
-
     camMoving = true;
-    camTween = FlxTween.tween(cam, {x: xx, y: yy}, 2, {
+    camTween = FlxTween.tween(cam, {x: xx, y: yy}, Conductor.stepCrochet * 0.004, {
       ease: FlxEase.sineIn,
       onComplete: function(twn:FlxTween)
         {
@@ -166,7 +164,7 @@ function camTweenin(xx, yy, scale){
         }
     });
 
-    alsoCamTween = FlxTween.tween(cam.scale, {x:cum}, 2, {
+    alsoCamTween = FlxTween.tween(cam.scale, {x:scale}, Conductor.stepCrochet * 0.004, {
       ease: FlxEase.sineInOut,
       onComplete: function(twn:FlxTween)
         {
@@ -176,6 +174,4 @@ function camTweenin(xx, yy, scale){
     
   }
 
-  // trace(cum);
-  
 }
