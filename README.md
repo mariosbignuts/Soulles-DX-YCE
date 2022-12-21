@@ -1,3 +1,5 @@
+ **we are going to port the mod to codename engine soon... be ready to shit off!**
+
 # Soulles-DX
  Soulless + othr bullhsit gah dam!!
 
