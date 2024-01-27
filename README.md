@@ -1,4 +1,4 @@
- **we are going to port the mod to codename engine soon... be ready to shit off!**
+**this is outdated! please play the newer builds!**
 
 # Soulles-DX
  Soulless + othr bullhsit gah dam!!
